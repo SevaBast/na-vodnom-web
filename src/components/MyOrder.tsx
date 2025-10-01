@@ -112,7 +112,7 @@ const OrderItemCard = ({ orderItem, onRemove, onIncrease, onDecrease }: OrderIte
           {/* Image */}
           <div className="relative overflow-hidden w-16 h-16 rounded-lg flex-shrink-0">
             <img 
-              src={menuItem.image || '/placeholder.svg'}
+              src={menuItem.image || './placeholder.svg'}
               alt={menuItem.name}
               className="w-full h-full object-cover"
             />
