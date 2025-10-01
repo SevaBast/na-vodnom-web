@@ -1,0 +1,420 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* macOS Restaurant Design System - Warm & Elegant Colors */
+
+@layer base {
+  :root {
+    /* Base colors - warm neutrals */
+    --background: 30 8% 97%;
+    --foreground: 30 5% 15%;
+
+    /* Card system - subtle warmth */
+    --card: 30 10% 98%;
+    --card-foreground: 30 5% 15%;
+
+    /* Interactive elements */
+    --popover: 30 15% 96%;
+    --popover-foreground: 30 5% 15%;
+
+    /* Primary - warm brown */
+    --primary: 30 67% 22%;
+    --primary-foreground: 30 10% 98%;
+    --primary-hover: 30 70% 18%;
+
+    /* Secondary - light brown */
+    --secondary: 30 40% 70%;
+    --secondary-foreground: 30 8% 25%;
+
+    /* Muted tones */
+    --muted: 30 15% 94%;
+    --muted-foreground: 30 8% 45%;
+
+    /* Accent - warm brown */
+    --accent: 30 65% 40%;
+    --accent-foreground: 30 10% 98%;
+
+    /* Status colors */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 30 10% 98%;
+    --success: 120 40% 50%;
+    --warning: 45 90% 55%;
+
+    /* UI elements */
+    --border: 30 20% 88%;
+    --input: 30 25% 90%;
+    --ring: 30 67% 22%;
+
+    /* Glass morphism */
+    --glass-bg: 30 15% 98%;
+    --glass-border: 30 20% 92%;
+    --backdrop-blur: blur(20px);
+
+  /* Gradients */
+  --gradient-primary: linear-gradient(to right, rgba(96, 56, 19, 0.4) 0%, rgba(178, 159, 148, 0.4) 51%, rgba(96, 56, 19, 0.4) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(35, 25%, 95%) 0%, hsl(30, 20%, 92%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(30, 15%, 98%) 0%, hsl(30, 10%, 96%) 100%);
+
+    /* Shadows - macOS style */
+    --shadow-sm: 0 2px 8px -2px hsl(30 67% 22% / 0.08);
+    --shadow-md: 0 4px 16px -4px hsl(30 67% 22% / 0.12);
+    --shadow-lg: 0 8px 32px -8px hsl(30 67% 22% / 0.16);
+    --shadow-elegant: 0 12px 48px -12px hsl(30 67% 22% / 0.25);
+
+    /* Animations */
+    --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    --transition-bounce: all 0.4s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+
+    --radius: 12px;
+
+    --sidebar-background: 0 0% 98%;
+
+    --sidebar-foreground: 240 5.3% 26.1%;
+
+    --sidebar-primary: 240 5.9% 10%;
+
+    --sidebar-primary-foreground: 0 0% 98%;
+
+    --sidebar-accent: 240 4.8% 95.9%;
+
+    --sidebar-accent-foreground: 240 5.9% 10%;
+
+    --sidebar-border: 220 13% 91%;
+
+    --sidebar-ring: 217.2 91.2% 59.8%;
+  }
+
+      /* macOS Restaurant Design System - Warm & Elegant Colors */
+
+  .dark {
+    --background: 30 5% 15%;
+    --foreground: 30 10% 98%;
+
+    /* Card system - dark mode */
+    --card: 30 8% 18%;
+    --card-foreground: 30 10% 95%;
+
+    /* Interactive elements */
+    --popover: 30 10% 20%;
+    --popover-foreground: 30 10% 95%;
+
+    /* Primary - warm brown (same) */
+    --primary: 30 67% 22%;
+    --primary-foreground: 30 10% 98%;
+    --primary-hover: 30 70% 18%;
+
+    /* Secondary - darker cream */
+    --secondary: 30 15% 25%;
+    --secondary-foreground: 30 25% 85%;
+
+    /* Muted tones */
+    --muted: 30 10% 22%;
+    --muted-foreground: 30 15% 65%;
+
+    /* Accent - warm brown */
+    --accent: 30 65% 40%;
+    --accent-foreground: 30 10% 98%;
+
+    /* Status colors */
+    --destructive: 0 75% 55%;
+    --destructive-foreground: 30 10% 98%;
+    --success: 120 40% 50%;
+    --warning: 30 67% 45%;
+
+    /* UI elements */
+    --border: 30 15% 25%;
+    --input: 30 12% 30%;
+    --ring: 30 67% 22%;
+
+    /* Glass morphism - dark */
+    --glass-bg: 30 8% 12%;
+    --glass-border: 30 15% 25%;
+
+    /* Gradients - dark variants */
+    --gradient-primary: linear-gradient(to right, rgba(96, 56, 19, 0.4) 0%, rgba(178, 159, 148, 0.4) 51%, rgba(96, 56, 19, 0.4) 100%);
+    --gradient-hero: linear-gradient(135deg, hsl(30, 8%, 18%) 0%, hsl(30, 5%, 12%) 100%);
+    --gradient-card: linear-gradient(145deg, hsl(30, 10%, 20%) 0%, hsl(30, 8%, 16%) 100%);
+
+    /* Shadows - adjusted for dark mode */
+    --shadow-sm: 0 2px 8px -2px hsl(0 0% 0% / 0.4);
+    --shadow-md: 0 4px 16px -4px hsl(0 0% 0% / 0.5);
+    --shadow-lg: 0 8px 32px -8px hsl(0 0% 0% / 0.6);
+    --shadow-elegant: 0 12px 48px -12px hsl(35 85% 55% / 0.4);
+
+    --sidebar-background: 30 5% 12%;
+    --sidebar-foreground: 30 15% 85%;
+    --sidebar-primary: 35 85% 55%;
+    --sidebar-primary-foreground: 30 5% 15%;
+    --sidebar-accent: 30 10% 22%;
+    --sidebar-accent-foreground: 30 15% 85%;
+    --sidebar-border: 30 15% 25%;
+    --sidebar-ring: 35 85% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+/* Mobile optimizations */
+@layer components {
+  /* Touch-friendly buttons */
+  .btn-touch {
+    @apply min-h-[44px] min-w-[44px];
+  }
+  
+  /* Improved tap targets for mobile */
+  .tap-target {
+    @apply cursor-pointer touch-manipulation;
+  }
+  
+  /* Better mobile scrolling */
+  .smooth-scroll {
+    -webkit-overflow-scrolling: touch;
+    overflow-scrolling: touch;
+  }
+}
+
+/* Floating button animations */
+@keyframes bounce-in {
+  0% {
+    opacity: 0;
+    transform: scale(0.3) translateY(20px);
+  }
+  50% {
+    opacity: 1;
+    transform: scale(1.1) translateY(-5px);
+  }
+  100% {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+}
+
+/* Text blur-in animation */
+@keyframes blur-in {
+  0% {
+    opacity: 0;
+    filter: blur(15px);
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px) !important;
+    transform: translateY(0);
+  }
+}
+
+/* Staggered text animation */
+@keyframes fade-in-up-blur {
+  0% {
+    opacity: 0;
+    filter: blur(10px);
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    filter: blur(0px) !important;
+    transform: translateY(0);
+  }
+}
+
+.animate-bounce-in {
+  animation: bounce-in 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* Text blur-in animation classes */
+.animate-blur-in {
+  animation: blur-in 1.2s ease-out;
+  animation-fill-mode: forwards;
+}
+
+.animate-blur-in-delay-1 {
+  animation: fade-in-up-blur 1s ease-out 0.3s both;
+}
+
+.animate-blur-in-delay-2 {
+  animation: fade-in-up-blur 1s ease-out 0.6s both;
+}
+
+.animate-blur-in-delay-3 {
+  animation: fade-in-up-blur 1s ease-out 0.9s both;
+}
+
+/* Force remove blur after animation - mobile fix */
+.animate-blur-in,
+.animate-blur-in-delay-1,
+.animate-blur-in-delay-2,
+.animate-blur-in-delay-3 {
+  -webkit-filter: none !important;
+  filter: none !important;
+}
+
+.animate-blur-in.animation-completed,
+.animate-blur-in-delay-1.animation-completed,
+.animate-blur-in-delay-2.animation-completed,
+.animate-blur-in-delay-3.animation-completed {
+  filter: none !important;
+  -webkit-filter: none !important;
+}
+
+/* Smooth background transition */
+.bg-gradient-smooth-hero {
+  background: linear-gradient(180deg, 
+    hsl(35, 25%, 95%) 0%,
+    hsl(35, 25%, 95%) 70%,
+    hsl(30, 20%, 92%) 85%,
+    hsl(30, 8%, 97%) 95%,
+    hsl(30, 8%, 97%) 100%
+  );
+}
+
+/* Enhanced button effects */
+.bg-gradient-primary {
+  background: linear-gradient(to right, rgba(96, 56, 19, 0.4) 0%, rgba(178, 159, 148, 0.4) 51%, rgba(96, 56, 19, 0.4) 100%);
+  background-size: 200% auto;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  box-shadow: 0 8px 32px rgba(238, 238, 238, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  background-color: rgba(255, 255, 255, 0.05);
+  transition: background 0.5s ease, background-position 0.5s ease, backdrop-filter 0.5s ease, box-shadow 0.5s ease, border 0.5s ease, background-color 0.5s ease;
+  border-radius: 10px;
+}
+
+.bg-gradient-primary:hover {
+  background: linear-gradient(to right, rgba(96, 56, 19, 0.5) 0%, rgba(178, 159, 148, 0.5) 51%, rgba(96, 56, 19, 0.5) 100%);
+  background-position: right center;
+  background-size: 200% auto;
+  backdrop-filter: blur(24px);
+  -webkit-backdrop-filter: blur(24px);
+  box-shadow: 0 12px 40px rgba(238, 238, 238, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  background-color: rgba(255, 255, 255, 0.08);
+}
+
+/* Mobile-specific styles */
+@media (max-width: 640px) {
+  /* Ensure buttons are big enough for touch */
+  button {
+    min-height: 40px;
+  }
+  
+  /* Better spacing on very small screens */
+  .mobile-compact {
+    padding: 0.75rem;
+  }
+}
+
+/* Fix mobile touch states - prevent sticky hover/active states */
+@media (hover: none) and (pointer: coarse) {
+  button:hover,
+  button:active,
+  button:focus {
+    background-color: initial !important;
+    background: initial !important;
+    transform: none !important;
+    box-shadow: initial !important;
+    border-color: initial !important;
+  }
+  
+  /* Reset all button variants on touch devices */
+  .bg-gradient-primary:hover,
+  .bg-gradient-primary:active,
+  .bg-gradient-primary:focus {
+    background: linear-gradient(to right, rgba(96, 56, 19, 0.4) 0%, rgba(178, 159, 148, 0.4) 51%, rgba(96, 56, 19, 0.4) 100%) !important;
+    background-position: initial !important;
+    background-size: 200% auto !important;
+    backdrop-filter: blur(20px) !important;
+    box-shadow: 0 8px 32px rgba(238, 238, 238, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
+    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.05) !important;
+  }
+  
+  /* Specific override for outline variant buttons (quantity controls) */
+  button[class*="bg-white/10"]:hover,
+  button[class*="bg-white/10"]:active,
+  button[class*="bg-white/10"]:focus {
+    background: rgba(255, 255, 255, 0.1) !important;
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    color: inherit !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    transform: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Remove focus outline on touch devices */
+@media (hover: none) {
+  button:focus {
+    outline: none !important;
+    box-shadow: none !important;
+  }
+}
+
+/* Icon visibility fixes */
+button svg {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline !important;
+  width: 1rem !important;
+  height: 1rem !important;
+  flex-shrink: 0 !important;
+}
+
+/* Ensure icons stay visible during state changes */
+.lucide {
+  opacity: 1 !important;
+  visibility: visible !important;
+  display: inline-block !important;
+}
+
+/* Universal mobile touch fix - remove all sticky states */
+button {
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+/* Prevent button state persistence after touch */
+button:focus:not(:focus-visible) {
+  outline: none;
+  box-shadow: none;
+}
+
+/* Reset button states immediately after touch on mobile */
+@media (pointer: coarse) {
+  button {
+    transition: none !important;
+  }
+  
+  button:active {
+    transform: none !important;
+    transition: none !important;
+  }
+  
+  /* Specific fix for quantity control buttons */
+  button[class*="w-8 h-8"] {
+    transition: none !important;
+  }
+  
+  button[class*="w-8 h-8"]:hover,
+  button[class*="w-8 h-8"]:active,
+  button[class*="w-8 h-8"]:focus {
+    background-color: rgba(255, 255, 255, 0.1) !important;
+    background: rgba(255, 255, 255, 0.1) !important;
+    color: inherit !important;
+    transform: none !important;
+    box-shadow: none !important;
+    border-color: rgba(255, 255, 255, 0.2) !important;
+    transition: none !important;
+  }
+}
