@@ -7,12 +7,12 @@ import { ChevronLeft, ChevronRight } from "lucide-react";
 
 // Map image paths to public images
 const imageMap: Record<string, string> = {
-  '/src/assets/food-signature-dish.jpg': '/na-vodnom-web/food-signature-dish.jpg',
-  '/src/assets/restaurant-interior.jpg': '/na-vodnom-web/restaurant-interior.jpg',
-  '/src/assets/desserts-coffee.jpg': '/na-vodnom-web/desserts-coffee.jpg',
-  '/src/assets/romantic-atmosphere.jpg': '/na-vodnom-web/romantic-atmosphere.jpg',
-  '/src/assets/fresh-salads.jpg': '/na-vodnom-web/fresh-salads.jpg',
-  '/src/assets/bar-area.jpg': '/na-vodnom-web/bar-area.jpg',
+  '/src/assets/food-signature-dish.jpg': './food-signature-dish.jpg',
+  '/src/assets/restaurant-interior.jpg': './restaurant-interior.jpg',
+  '/src/assets/desserts-coffee.jpg': './desserts-coffee.jpg',
+  '/src/assets/romantic-atmosphere.jpg': './romantic-atmosphere.jpg',
+  '/src/assets/fresh-salads.jpg': './fresh-salads.jpg',
+  '/src/assets/bar-area.jpg': './bar-area.jpg',
 };
 
 export const Gallery = () => {

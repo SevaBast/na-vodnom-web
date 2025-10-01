@@ -32,7 +32,7 @@ export const Header = () => {
             {/* Logo - Left side */}
             <div className="flex items-center flex-shrink-0">
               <img 
-                src="/logo-new-small-black.png" 
+                src="./logo-new-small-black.png" 
                 alt="Na Vodnom"
                 className="h-8 w-auto"
               />
@@ -72,7 +72,7 @@ export const Header = () => {
             {/* Logo */}
             <div className="flex items-center">
               <img 
-                src="/logo-new-small-black.png" 
+                src="./logo-new-small-black.png" 
                 alt="Na Vodnom"
                 className="h-7 w-auto"
               />

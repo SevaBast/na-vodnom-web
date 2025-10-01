@@ -53,7 +53,7 @@ export const Hero = () => {
           {/* Restaurant Logo */}
           <div className="flex justify-center animate-blur-in">
             <img 
-              src="/logo-new.svg" 
+              src="./logo-new.svg" 
               alt={restaurantInfo.name}
               className="h-64 md:h-40 lg:h-48 w-auto"
             />
