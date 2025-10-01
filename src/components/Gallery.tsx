@@ -5,22 +5,14 @@ import { Button } from "@/components/ui/button";
 import { Dialog, DialogContent, DialogTrigger } from "@/components/ui/dialog";
 import { ChevronLeft, ChevronRight } from "lucide-react";
 
-// Import generated images
-import foodSignatureDish from "@/assets/food-signature-dish.jpg";
-import restaurantInterior from "@/assets/restaurant-interior.jpg";
-import dessertsCoffee from "@/assets/desserts-coffee.jpg";
-import romanticAtmosphere from "@/assets/romantic-atmosphere.jpg";
-import freshSalads from "@/assets/fresh-salads.jpg";
-import barArea from "@/assets/bar-area.jpg";
-
-// Map image paths to imported images
+// Map image paths to public images
 const imageMap: Record<string, string> = {
-  '/src/assets/food-signature-dish.jpg': foodSignatureDish,
-  '/src/assets/restaurant-interior.jpg': restaurantInterior,
-  '/src/assets/desserts-coffee.jpg': dessertsCoffee,
-  '/src/assets/romantic-atmosphere.jpg': romanticAtmosphere,
-  '/src/assets/fresh-salads.jpg': freshSalads,
-  '/src/assets/bar-area.jpg': barArea,
+  '/src/assets/food-signature-dish.jpg': '/na-vodnom-web/food-signature-dish.jpg',
+  '/src/assets/restaurant-interior.jpg': '/na-vodnom-web/restaurant-interior.jpg',
+  '/src/assets/desserts-coffee.jpg': '/na-vodnom-web/desserts-coffee.jpg',
+  '/src/assets/romantic-atmosphere.jpg': '/na-vodnom-web/romantic-atmosphere.jpg',
+  '/src/assets/fresh-salads.jpg': '/na-vodnom-web/fresh-salads.jpg',
+  '/src/assets/bar-area.jpg': '/na-vodnom-web/bar-area.jpg',
 };
 
 export const Gallery = () => {
