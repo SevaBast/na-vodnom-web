@@ -125,7 +125,7 @@ export const menuItems: MenuItem[] = [
     name: 'Grilovaná Feta',
     description: 'paprikovo-paradajková omačka, grilované paradajky, petržlenová vňať, vypražené kapary (7,11*)',
     price: 7.50,
-    image: '/dishtest.jpg',
+    image: './dishtest.jpg',
     category: 'appetizers',
     menuType: 'main',
     isPopular: true,

@@ -235,7 +235,7 @@ const MenuItemCard = ({ item, index, onAddToOrder, onIncreaseQuantity, onDecreas
       {/* Image */}
       <div className="relative overflow-hidden h-48">
         <img 
-          src={item.image || '/placeholder.svg'}
+          src={item.image || './placeholder.svg'}
           alt={item.name}
           className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
         />
