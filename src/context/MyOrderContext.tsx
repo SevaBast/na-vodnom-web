@@ -1,7 +1,7 @@
 import React, { createContext, useContext, useState, useEffect, useCallback, ReactNode } from 'react';
 import { MenuItem, OrderItem, MyOrder } from '@/data/menuData';
 
-const STORAGE_KEY = 'restaurant-my-order';
+const STORAGE_KEY = 'restaurant-my-favorites';
 
 interface MyOrderContextType {
   myOrder: MyOrder;
@@ -25,7 +25,7 @@ interface MyOrderProviderProps {
 export const MyOrderProvider = ({ children }: MyOrderProviderProps) => {
   const [orderItems, setOrderItems] = useState<OrderItem[]>([]);
 
-  // Load order from localStorage on initialization
+  // Load favorites from localStorage on initialization
   useEffect(() => {
     const savedOrder = localStorage.getItem(STORAGE_KEY);
     if (savedOrder) {
@@ -38,7 +38,7 @@ export const MyOrderProvider = ({ children }: MyOrderProviderProps) => {
         }));
         setOrderItems(itemsWithDates);
       } catch (error) {
-        console.error('Error loading order:', error);
+        console.error('Error loading favorites:', error);
         localStorage.removeItem(STORAGE_KEY);
       }
     }
@@ -49,11 +49,11 @@ export const MyOrderProvider = ({ children }: MyOrderProviderProps) => {
     try {
       localStorage.setItem(STORAGE_KEY, JSON.stringify(items));
     } catch (error) {
-      console.error('Error saving order:', error);
+      console.error('Error saving favorites:', error);
     }
   }, []);
 
-  // Add dish to order
+  // Toggle dish in favorites
   const addItem = useCallback((menuItem: MenuItem) => {
     setOrderItems(prevItems => {
       const existingItemIndex = prevItems.findIndex(item => item.menuItem.id === menuItem.id);
@@ -61,18 +61,14 @@ export const MyOrderProvider = ({ children }: MyOrderProviderProps) => {
       let updatedItems: OrderItem[];
       
       if (existingItemIndex >= 0) {
-        // If dish already exists, increase quantity
-        updatedItems = prevItems.map((item, index) => 
-          index === existingItemIndex 
-            ? { ...item, quantity: item.quantity + 1 }
-            : item
-        );
+        // If dish already exists in favorites, remove it
+        updatedItems = prevItems.filter((_, index) => index !== existingItemIndex);
       } else {
-        // Add new dish
+        // Add new dish to favorites
         const newOrderItem: OrderItem = {
-          id: `order-${menuItem.id}-${Date.now()}`,
+          id: `favorites-${menuItem.id}-${Date.now()}`,
           menuItem,
-          quantity: 1,
+          quantity: 1, // Always 1 for favorites
           addedAt: new Date()
         };
         updatedItems = [...prevItems, newOrderItem];
@@ -83,7 +79,7 @@ export const MyOrderProvider = ({ children }: MyOrderProviderProps) => {
     });
   }, [saveToStorage]);
 
-  // Remove dish from order
+  // Remove dish from favorites
   const removeItem = useCallback((orderItemId: string) => {
     setOrderItems(prevItems => {
       const updatedItems = prevItems.filter(item => item.id !== orderItemId);
@@ -92,58 +88,41 @@ export const MyOrderProvider = ({ children }: MyOrderProviderProps) => {
     });
   }, [saveToStorage]);
 
-  // Decrease dish quantity
+  // Remove dish from favorites by menu item ID (used by UI toggle)
   const decreaseQuantity = useCallback((orderItemId: string) => {
     setOrderItems(prevItems => {
-      const updatedItems = prevItems.map(item => {
-        if (item.id === orderItemId) {
-          const newQuantity = item.quantity - 1;
-          return newQuantity > 0 ? { ...item, quantity: newQuantity } : null;
-        }
-        return item;
-      }).filter((item): item is OrderItem => item !== null);
-      
+      const updatedItems = prevItems.filter(item => item.id !== orderItemId);
       saveToStorage(updatedItems);
       return updatedItems;
     });
   }, [saveToStorage]);
 
-  // Increase dish quantity
-  const increaseQuantity = useCallback((orderItemId: string) => {
-    setOrderItems(prevItems => {
-      const updatedItems = prevItems.map(item =>
-        item.id === orderItemId 
-          ? { ...item, quantity: item.quantity + 1 }
-          : item
-      );
-      saveToStorage(updatedItems);
-      return updatedItems;
-    });
-  }, [saveToStorage]);
+  // Toggle dish in favorites by menu item ID 
+  const increaseQuantity = useCallback((menuItemId: string) => {
+    // This function is kept for compatibility but doesn't increase quantity
+    // Instead, it can be used to add to favorites if not present
+    const menuItem = orderItems.find(item => item.menuItem.id === menuItemId)?.menuItem;
+    if (menuItem) {
+      addItem(menuItem);
+    }
+  }, [addItem, orderItems]);
 
-  // Clear entire order
+  // Clear entire favorites list
   const clearOrder = useCallback(() => {
     setOrderItems([]);
     localStorage.removeItem(STORAGE_KEY);
   }, []);
 
-  // Decrease dish quantity by menuItemId
+  // Remove dish from favorites by menuItemId
   const decreaseItemQuantity = useCallback((menuItemId: string) => {
     setOrderItems(prevItems => {
-      const updatedItems = prevItems.map(item => {
-        if (item.menuItem.id === menuItemId) {
-          const newQuantity = item.quantity - 1;
-          return newQuantity > 0 ? { ...item, quantity: newQuantity } : null;
-        }
-        return item;
-      }).filter((item): item is OrderItem => item !== null);
-      
+      const updatedItems = prevItems.filter(item => item.menuItem.id !== menuItemId);
       saveToStorage(updatedItems);
       return updatedItems;
     });
   }, [saveToStorage]);
 
-  // Increase dish quantity by menuItemId (alternative to addItem)
+  // Toggle dish in favorites by menuItemId (for compatibility)
   const increaseItemQuantity = useCallback((menuItemId: string) => {
     const menuItem = orderItems.find(item => item.menuItem.id === menuItemId)?.menuItem;
     if (menuItem) {
@@ -151,22 +130,21 @@ export const MyOrderProvider = ({ children }: MyOrderProviderProps) => {
     }
   }, [orderItems, addItem]);
 
-  // Calculate total metrics
+  // Calculate total metrics for favorites
   const myOrder: MyOrder = {
     items: orderItems,
-    totalItems: orderItems.reduce((sum, item) => sum + item.quantity, 0),
-    totalPrice: parseFloat(orderItems.reduce((sum, item) => sum + (item.menuItem.price * item.quantity), 0).toFixed(2))
+    totalItems: orderItems.length, // For favorites, count unique items, not quantities
+    totalPrice: parseFloat(orderItems.reduce((sum, item) => sum + item.menuItem.price, 0).toFixed(2)) // Sum prices without quantity multiplier
   };
 
-  // Check if dish is in order
+  // Check if dish is in favorites
   const isItemInOrder = useCallback((menuItemId: string) => {
     return orderItems.some(item => item.menuItem.id === menuItemId);
   }, [orderItems]);
 
-  // Get quantity of specific dish
+  // Check if dish is in favorites (returns 1 if in favorites, 0 if not)
   const getItemQuantity = useCallback((menuItemId: string) => {
-    const orderItem = orderItems.find(item => item.menuItem.id === menuItemId);
-    return orderItem?.quantity || 0;
+    return orderItems.some(item => item.menuItem.id === menuItemId) ? 1 : 0;
   }, [orderItems]);
 
   const value: MyOrderContextType = {

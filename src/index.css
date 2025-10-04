@@ -313,51 +313,7 @@
   }
 }
 
-/* Fix mobile touch states - prevent sticky hover/active states */
-@media (hover: none) and (pointer: coarse) {
-  button:hover,
-  button:active,
-  button:focus {
-    background-color: initial !important;
-    background: initial !important;
-    transform: none !important;
-    box-shadow: initial !important;
-    border-color: initial !important;
-  }
-  
-  /* Reset all button variants on touch devices */
-  .bg-gradient-primary:hover,
-  .bg-gradient-primary:active,
-  .bg-gradient-primary:focus {
-    background: linear-gradient(to right, rgba(96, 56, 19, 0.4) 0%, rgba(178, 159, 148, 0.4) 51%, rgba(96, 56, 19, 0.4) 100%) !important;
-    background-position: initial !important;
-    background-size: 200% auto !important;
-    backdrop-filter: blur(20px) !important;
-    box-shadow: 0 8px 32px rgba(238, 238, 238, 0.2), inset 0 1px 0 rgba(255, 255, 255, 0.15) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    background-color: rgba(255, 255, 255, 0.05) !important;
-  }
-  
-  /* Specific override for outline variant buttons (quantity controls) */
-  button[class*="bg-white/10"]:hover,
-  button[class*="bg-white/10"]:active,
-  button[class*="bg-white/10"]:focus {
-    background: rgba(255, 255, 255, 0.1) !important;
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    color: inherit !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    transform: none !important;
-    box-shadow: none !important;
-  }
-}
 
-/* Remove focus outline on touch devices */
-@media (hover: none) {
-  button:focus {
-    outline: none !important;
-    box-shadow: none !important;
-  }
-}
 
 /* Icon visibility fixes */
 button svg {
@@ -376,45 +332,4 @@ button svg {
   display: inline-block !important;
 }
 
-/* Universal mobile touch fix - remove all sticky states */
-button {
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  user-select: none;
-}
 
-/* Prevent button state persistence after touch */
-button:focus:not(:focus-visible) {
-  outline: none;
-  box-shadow: none;
-}
-
-/* Reset button states immediately after touch on mobile */
-@media (pointer: coarse) {
-  button {
-    transition: none !important;
-  }
-  
-  button:active {
-    transform: none !important;
-    transition: none !important;
-  }
-  
-  /* Specific fix for quantity control buttons */
-  button[class*="w-8 h-8"] {
-    transition: none !important;
-  }
-  
-  button[class*="w-8 h-8"]:hover,
-  button[class*="w-8 h-8"]:active,
-  button[class*="w-8 h-8"]:focus {
-    background-color: rgba(255, 255, 255, 0.1) !important;
-    background: rgba(255, 255, 255, 0.1) !important;
-    color: inherit !important;
-    transform: none !important;
-    box-shadow: none !important;
-    border-color: rgba(255, 255, 255, 0.2) !important;
-    transition: none !important;
-  }
-}

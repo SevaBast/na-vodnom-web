@@ -1,55 +1,73 @@
 import { restaurantInfo } from "@/data/restaurantData";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { MapPin, Phone, Mail, Instagram, Facebook, MessageCircle } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram } from "lucide-react";
+import { useState } from "react";
+import { CallPopup } from "./CallPopup";
 
 export const Footer = () => {
-  const socialIcons = {
-    instagram: Instagram,
-    facebook: Facebook,
-    telegram: MessageCircle,
-    tiktok: MessageCircle
-  };
+  const [isBookTablePopupOpen, setIsBookTablePopupOpen] = useState(false);
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
 
+  // Функція для перевірки чи це мобільний пристрій
+  const isMobile = () => {
+    // Перевіряємо розмір екрану та UserAgent
+    return window.matchMedia('(max-width: 768px)').matches || 
+           /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  };
+
+  const handleBookTable = () => {
+    if (isMobile()) {
+      // На мобільних пристроях створюємо невидиме посилання та клікаємо по ньому
+      const link = document.createElement('a');
+      link.href = 'tel:+421910000000';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // На комп'ютері показуємо попап
+      setIsBookTablePopupOpen(true);
+    }
+  };
+
   return (
     <footer id="contact" className="bg-foreground text-background py-16">
       <div className="container mx-auto px-4">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-          {/* Restaurant Info */}
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 mb-12">
+          {/* Instagram Link */}
           <div className="space-y-6">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-gradient-primary rounded-lg flex items-center justify-center">
-                  <span className="text-primary-foreground font-bold text-lg">С</span>
-                </div>
-                <span className="text-2xl font-bold">{restaurantInfo.name}</span>
-              </div>
-              <p className="text-background/80 leading-relaxed">
-                {restaurantInfo.description.split('.')[0]}.
-              </p>
+            <div className="flex justify-center lg:justify-start">
+              <Button
+                variant="hero"
+                size="lg"
+                asChild
+                className="bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 text-background hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 shadow-lg backdrop-blur-sm group relative overflow-hidden"
+              >
+                <a 
+                  href="#" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 relative z-10"
+                >
+                  <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <span className="text-xl font-bold">Follow us on Instagram</span>
+                </a>
+              </Button>
             </div>
-            
-            <Button 
-              variant="hero" 
-              onClick={scrollToTop}
-              className="w-full sm:w-auto"
-            >
-              Book a Table
-            </Button>
           </div>
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold mb-6">Contact</h3>
+            <h3 className="text-xl font-bold mb-6 text-center">Contact</h3>
             
             <div className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-background/90 font-medium">Address</p>
+                <p className="text-background/90 font-medium ">Address</p>
                 <p className="text-background/70 text-sm">{restaurantInfo.address}</p>
               </div>
             </div>
@@ -58,12 +76,12 @@ export const Footer = () => {
               <Phone className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
               <div>
                 <p className="text-background/90 font-medium">Phone</p>
-                <a 
-                  href={`tel:${restaurantInfo.phone}`}
-                  className="text-background/70 text-sm hover:text-primary transition-colors"
+                <button 
+                  onClick={handleBookTable}
+                  className="text-background/70 text-sm hover:text-primary transition-colors cursor-pointer"
                 >
                   {restaurantInfo.phone}
-                </a>
+                </button>
               </div>
             </div>
 
@@ -83,7 +101,7 @@ export const Footer = () => {
 
           {/* Working Hours */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold mb-6">Working Hours</h3>
+            <h3 className="text-xl font-bold mb-6 text-center">Working Hours</h3>
             <div className="space-y-3">
               {Object.entries(restaurantInfo.workingHours).map(([day, hours]) => (
                 <div key={day} className="flex justify-between">
@@ -93,68 +111,32 @@ export const Footer = () => {
               ))}
             </div>
           </div>
-
-          {/* Social Media */}
-          <div className="space-y-4">
-            <h3 className="text-xl font-bold mb-6">Social Media</h3>
-            <div className="space-y-3">
-              {Object.entries(restaurantInfo.socialMedia).map(([platform, url]) => {
-                if (!url) return null;
-                
-                const IconComponent = socialIcons[platform as keyof typeof socialIcons];
-                const platformNames = {
-                  instagram: 'Instagram',
-                  facebook: 'Facebook',
-                  telegram: 'Telegram',
-                  tiktok: 'TikTok'
-                };
-                
-                return (
-                  <a
-                    key={platform}
-                    href={url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-3 text-background/80 hover:text-primary transition-colors group"
-                  >
-                    <IconComponent className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                    <span className="text-sm">{platformNames[platform as keyof typeof platformNames]}</span>
-                  </a>
-                );
-              })}
-            </div>
-            
-            <div className="pt-4">
-              <p className="text-background/60 text-sm mb-4">
-                Follow us on social media for the latest news and promotions!
-              </p>
-            </div>
-          </div>
         </div>
 
         <Separator className="bg-background/20 mb-8" />
 
         {/* Bottom Bar */}
-        <div className="flex flex-col sm:flex-row justify-between items-center gap-4 text-sm text-background/60">
-          <div>
-            <p>© 2024 {restaurantInfo.name}. All rights reserved.</p>
-          </div>
-          <div className="flex gap-6">
-            <button 
-              onClick={scrollToTop}
-              className="hover:text-primary transition-colors"
-            >
-              Privacy Policy
-            </button>
-            <button 
-              onClick={scrollToTop}
-              className="hover:text-primary transition-colors"
-            >
-              Terms of Use
-            </button>
-          </div>
+        <div className="flex flex-col items-center text-center text-sm text-background/60 space-y-2">
+          <p>© 2024 {restaurantInfo.name}. All rights reserved.</p>
+          <a 
+            href="https://www.linkedin.com/in/vsevolod-bastiuchenko-203a31196/" 
+            target="_blank" 
+            rel="noopener noreferrer"
+            className="hover:text-primary transition-colors font-semibold text-background/80"
+          >
+            Created by VB
+          </a>
         </div>
       </div>
+      
+      {/* Call Popup - тільки для комп'ютерної версії */}
+      <CallPopup
+        isOpen={isBookTablePopupOpen}
+        onClose={() => setIsBookTablePopupOpen(false)}
+        title="Book a Table"
+        description="Call us to make a reservation at our restaurant"
+        phoneNumber="+421910000000"
+      />
     </footer>
   );
 };

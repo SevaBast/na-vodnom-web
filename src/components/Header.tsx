@@ -7,6 +7,7 @@ export const Header = () => {
 
   const menuItems = [
     { href: "#home", label: "Home" },
+    { href: "#celebrations", label: "Celebrations" },
     { href: "#menu", label: "Menu" },
     { href: "#gallery", label: "Gallery" },
     { href: "#about", label: "About" },
@@ -27,8 +28,8 @@ export const Header = () => {
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Desktop: Centered macOS Style Navigation Bar */}
       <div className="hidden md:flex justify-center pt-4">
-        <nav className="bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-6 py-3 shadow-lg mx-4 max-w-2xl w-full">
-          <div className="flex items-center justify-between">
+        <nav className="bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-6 py-3 shadow-lg mx-4 max-w-4xl w-full">
+          <div className="flex items-center justify-between gap-4">
             {/* Logo - Left side */}
             <div className="flex items-center flex-shrink-0">
               <img 
@@ -39,12 +40,12 @@ export const Header = () => {
             </div>
 
             {/* Desktop Navigation - Center */}
-            <div className="flex items-center space-x-6 flex-1 justify-center">
+            <div className="flex items-center justify-center flex-1 gap-4">
               {menuItems.map((item) => (
                 <button
                   key={item.href}
                   onClick={() => scrollToSection(item.href)}
-                  className="text-foreground/80 hover:text-primary hover:bg-white/10 px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-sm"
+                  className="text-foreground/80 hover:text-primary hover:bg-white/10 px-3 py-1.5 rounded-full transition-all duration-300 font-medium text-sm whitespace-nowrap"
                 >
                   {item.label}
                 </button>

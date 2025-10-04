@@ -29,7 +29,7 @@ export interface MyOrder {
   totalItems: number;
 }
 
-export type MenuType = 'main' | 'breakfast' | 'kids' | 'drinks';
+export type MenuType = 'main' | 'breakfast' | 'kids' | 'drinks' | 'celebrations';
 
 export type MenuCategory = 
   | 'appetizers' 
@@ -68,7 +68,11 @@ export type MenuCategory =
   | 'teas'
   | 'homemade-lemonades'
   | 'roku-gin-cocktails'
-  | 'beer-on-tap';
+  | 'beer-on-tap'
+  // Celebrations and Events categories
+  | 'cold-buffet'
+  | 'hot-buffet'
+  | 'candy-bar';
 
 
 export const menuCategories: Record<MenuCategory, { name: string; icon: string; order: number }> = {
@@ -81,7 +85,7 @@ export const menuCategories: Record<MenuCategory, { name: string; icon: string; 
   'sauces': { name: 'Sauces', icon: '🫙', order: 7 },
   'desserts': { name: 'Desserts', icon: '🧁', order: 8 },
   'something-for-beer': { name: 'Something for Beer', icon: '🍺', order: 9 },
-  'my-choice': { name: 'My Choice', icon: '🛒', order: 999 },
+  'my-choice': { name: 'My Favorites', icon: '❤️', order: 999 },
   // Breakfast menu categories
   'special-breakfast': { name: 'Special Breakfast', icon: '🌟', order: 1 },
   'classic': { name: 'Classic', icon: '🍳', order: 2 },
@@ -109,6 +113,10 @@ export const menuCategories: Record<MenuCategory, { name: string; icon: string; 
   'homemade-lemonades': { name: 'Homemade Lemonades', icon: '🍋', order: 16 },
   'non-alcoholic-beverages': { name: 'Non-Alcoholic Beverages', icon: '🥤', order: 17 },
   'non-alcoholic-drinks': { name: 'Non-Alcoholic Drinks', icon: '🧃', order: 18 },
+  // Celebrations and Events categories
+  'cold-buffet': { name: 'Cold Buffet', icon: '🥗', order: 19 },
+  'hot-buffet': { name: 'Hot Buffet', icon: '🍲', order: 20 },
+  'candy-bar': { name: 'Candy Bar', icon: '🍭', order: 21 },
 };
 
 export const menuTypes: Record<MenuType, { name: string; icon: string }> = {
@@ -116,6 +124,7 @@ export const menuTypes: Record<MenuType, { name: string; icon: string }> = {
   'breakfast': { name: 'Breakfast Menu', icon: '☀️' },
   'kids': { name: 'Kids Menu', icon: '🧸' },
   'drinks': { name: 'Drinks', icon: '🍹' },
+  'celebrations': { name: 'Celebrations and Events', icon: '🎉' },
 };
 
 export const menuItems: MenuItem[] = [
@@ -1986,5 +1995,198 @@ export const menuItems: MenuItem[] = [
     category: 'beer-on-tap',
     menuType: 'drinks',
     displayAsList: true
+  },
+
+  // ====== CELEBRATIONS AND EVENTS MENU ======
+
+  // Cold Buffet
+  {
+    id: 'cold-buffet-1',
+    name: 'Assorted Cheese and Meat Platter',
+    description: 'Selection of premium cheeses, cured meats, olives, and crackers',
+    price: 1,
+    category: 'cold-buffet',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 500
+  },
+  {
+    id: 'cold-buffet-2',
+    name: 'Fresh Vegetable Crudité',
+    description: 'Seasonal fresh vegetables with various dips and hummus',
+    price: 1,
+    category: 'cold-buffet',
+    menuType: 'celebrations',
+    displayAsList: true,
+    isVegetarian: true,
+    weight: 400
+  },
+  {
+    id: 'cold-buffet-3',
+    name: 'Smoked Salmon Canapés',
+    description: 'Mini canapés with smoked salmon, cream cheese, and capers',
+    price: 1,
+    category: 'cold-buffet',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 300
+  },
+  {
+    id: 'cold-buffet-4',
+    name: 'Mediterranean Mezze',
+    description: 'Hummus, tzatziki, tapenade, stuffed grape leaves, and pita bread',
+    price: 1,
+    category: 'cold-buffet',
+    menuType: 'celebrations',
+    displayAsList: true,
+    isVegetarian: true,
+    weight: 450
+  },
+  {
+    id: 'cold-buffet-5',
+    name: 'Shrimp Cocktail Display',
+    description: 'Fresh shrimp with cocktail sauce and lemon wedges',
+    price: 1,
+    category: 'cold-buffet',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 400
+  },
+
+  // Hot Buffet
+  {
+    id: 'hot-buffet-1',
+    name: 'Grilled Chicken Skewers',
+    description: 'Marinated chicken breast skewers with herbs and vegetables',
+    price: 1,
+    category: 'hot-buffet',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 350
+  },
+  {
+    id: 'hot-buffet-2',
+    name: 'Beef Meatballs in Tomato Sauce',
+    description: 'Homemade beef meatballs in rich tomato and herb sauce',
+    price: 1,
+    category: 'hot-buffet',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 400
+  },
+  {
+    id: 'hot-buffet-3',
+    name: 'Vegetarian Stuffed Peppers',
+    description: 'Bell peppers stuffed with rice, vegetables, and herbs',
+    price: 1,
+    category: 'hot-buffet',
+    menuType: 'celebrations',
+    displayAsList: true,
+    isVegetarian: true,
+    weight: 300
+  },
+  {
+    id: 'hot-buffet-4',
+    name: 'Garlic Herb Roasted Potatoes',
+    description: 'Golden roasted baby potatoes with garlic and fresh herbs',
+    price: 1,
+    category: 'hot-buffet',
+    menuType: 'celebrations',
+    displayAsList: true,
+    isVegetarian: true,
+    weight: 350
+  },
+  {
+    id: 'hot-buffet-5',
+    name: 'Honey Glazed Salmon',
+    description: 'Atlantic salmon fillets with honey glaze and seasonal vegetables',
+    price: 1,
+    category: 'hot-buffet',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 250
+  },
+  {
+    id: 'hot-buffet-6',
+    name: 'Pasta Primavera',
+    description: 'Penne pasta with seasonal vegetables in cream sauce',
+    price: 1,
+    category: 'hot-buffet',
+    menuType: 'celebrations',
+    displayAsList: true,
+    isVegetarian: true,
+    weight: 300
+  },
+
+  // Candy Bar
+  {
+    id: 'candy-bar-1',
+    name: 'Mini Chocolate Éclairs',
+    description: 'Bite-sized éclairs filled with vanilla cream and chocolate glaze',
+    price: 1,
+    category: 'candy-bar',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 150
+  },
+  {
+    id: 'candy-bar-2',
+    name: 'Assorted Macarons',
+    description: 'French macarons in various flavors: vanilla, chocolate, raspberry, pistachio',
+    price: 1,
+    category: 'candy-bar',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 120
+  },
+  {
+    id: 'candy-bar-3',
+    name: 'Chocolate-Dipped Strawberries',
+    description: 'Fresh strawberries dipped in premium dark and white chocolate',
+    price: 1,
+    category: 'candy-bar',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 200
+  },
+  {
+    id: 'candy-bar-4',
+    name: 'Mini Cheesecake Bites',
+    description: 'Individual cheesecake portions with berry compote',
+    price: 1,
+    category: 'candy-bar',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 100
+  },
+  {
+    id: 'candy-bar-5',
+    name: 'Chocolate Truffles Selection',
+    description: 'Handmade chocolate truffles with various fillings',
+    price: 1,
+    category: 'candy-bar',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 150
+  },
+  {
+    id: 'candy-bar-6',
+    name: 'Fruit Tart Miniatures',
+    description: 'Mini fruit tarts with pastry cream and seasonal fruits',
+    price: 1,
+    category: 'candy-bar',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 120
+  },
+  {
+    id: 'candy-bar-7',
+    name: 'Tiramisu Cups',
+    description: 'Individual tiramisu servings in elegant dessert cups',
+    price: 1,
+    category: 'candy-bar',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 110
   }
 ];

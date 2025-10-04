@@ -9,13 +9,13 @@ const buttonVariants = cva(
   {
     variants: {
       variant: {
-        default: "bg-gradient-primary text-white/80 backdrop-blur-lg border border-white/5 hover:shadow-lg font-medium transition-all duration-500 shadow-sm hover:text-white/90",
+        default: "bg-gradient-primary text-white/80 backdrop-blur-lg border border-white/5 hover:shadow-lg font-medium transition-all duration-500 shadow-sm",
         destructive: "bg-gradient-primary text-white/80 backdrop-blur-lg border border-red/10 hover:shadow-lg font-medium transition-all duration-500",
-        outline: "bg-white/10 backdrop-blur-md border border-white/20 text-foreground/80 hover:bg-white/20 hover:text-white transition-all duration-300",
+        outline: "bg-white/10 backdrop-blur-md border border-white/20 text-foreground/80 hover:bg-white/20 transition-all duration-300",
         secondary: "bg-white/10 backdrop-blur-md border border-white/20 text-foreground/80 hover:bg-white/20 transition-all duration-300",
-        ghost: "hover:bg-white/10 backdrop-blur-md hover:text-white/90 transition-all duration-300",
-        link: "text-white/70 underline-offset-4 hover:underline hover:text-white/90 transition-all duration-300",
-        hero: "bg-gradient-primary text-white/80 backdrop-blur-lg border border-white/5 hover:shadow-lg hover:scale-105 font-medium transition-all duration-500 shadow-sm hover:text-white/90",
+        ghost: "hover:bg-white/10 backdrop-blur-md transition-all duration-300",
+        link: "text-white/70 underline-offset-4 hover:underline transition-all duration-300",
+        hero: "bg-gradient-primary text-white/80 backdrop-blur-lg border border-white/5 hover:shadow-lg hover:scale-105 font-medium transition-all duration-500 shadow-sm",
         glass: "bg-white/10 backdrop-blur-md border border-white/20 text-foreground/80 hover:bg-white/20 hover:shadow-md transition-all duration-300",
       },
       size: {

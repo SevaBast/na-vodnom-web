@@ -2,22 +2,48 @@ import { restaurantInfo } from "@/data/restaurantData";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Phone, Mail } from "lucide-react";
+import { useState } from "react";
+import { CallPopup } from "./CallPopup";
 
 export const About = () => {
+  const [isBookTablePopupOpen, setIsBookTablePopupOpen] = useState(false);
+
+  // Функція для перевірки чи це мобільний пристрій
+  const isMobile = () => {
+    // Перевіряємо розмір екрану та UserAgent
+    return window.matchMedia('(max-width: 768px)').matches || 
+           /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  };
+
+  const handleBookTable = () => {
+    if (isMobile()) {
+      // На мобільних пристроях створюємо невидиме посилання та клікаємо по ньому
+      const link = document.createElement('a');
+      link.href = 'tel:+421910000000';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // На комп'ютері показуємо попап
+      setIsBookTablePopupOpen(true);
+    }
+  };
+
   return (
     <section id="about" className="py-20 bg-background">
       <div className="container mx-auto px-4">
         {/* Section Header */}
-        <div className="text-center mb-16 animate-fade-in-up">
-          <h2 className="text-4xl md:text-5xl font-bold text-foreground mb-6">
+        <div className="text-center mb-12 tablet:mb-16 animate-fade-in-up">
+          <h2 className="text-3xl tablet:text-4xl md:text-5xl font-bold text-foreground mb-4 tablet:mb-6">
             About <span className="text-primary">Us</span>
           </h2>
-          <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base tablet:text-lg text-muted-foreground max-w-2xl mx-auto">
             Learn more about our restaurant, our story and values
           </p>
         </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-2 gap-8 tablet:gap-12 items-center">
           {/* Story Section */}
           <div className="space-y-8 animate-slide-in">
             <div>
@@ -121,12 +147,12 @@ export const About = () => {
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-0">
-                  <a 
-                    href={`tel:${restaurantInfo.phone}`}
-                    className="text-foreground font-medium hover:text-primary transition-colors"
+                  <button 
+                    onClick={handleBookTable}
+                    className="text-foreground font-medium hover:text-primary transition-colors cursor-pointer"
                   >
                     {restaurantInfo.phone}
-                  </a>
+                  </button>
                 </CardContent>
               </Card>
 
@@ -150,6 +176,15 @@ export const About = () => {
           </div>
         </div>
       </div>
+      
+      {/* Call Popup - тільки для комп'ютерної версії */}
+      <CallPopup
+        isOpen={isBookTablePopupOpen}
+        onClose={() => setIsBookTablePopupOpen(false)}
+        title="Book a Table"
+        description="Call us to make a reservation at our restaurant"
+        phoneNumber="+421910000000"
+      />
     </section>
   );
 };

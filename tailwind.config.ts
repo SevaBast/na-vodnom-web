@@ -17,7 +17,9 @@ export default {
       'xs': '475px',
       'sm': '640px',
       'md': '768px',
+      'tablet': '820px', // iPad Air and similar tablets
       'lg': '1024px',
+      'tablet-lg': '1080px', // Large tablets like iPad Pro
       'xl': '1280px',
       '2xl': '1400px',
     },

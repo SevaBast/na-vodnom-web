@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { restaurantInfo } from "@/data/restaurantData";
 import Aurora from "./Aurora";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
+import { CallPopup } from "./CallPopup";
 
 export const Hero = () => {
+  const [isBookTablePopupOpen, setIsBookTablePopupOpen] = useState(false);
+  const [isEventManagerPopupOpen, setIsEventManagerPopupOpen] = useState(false);
+
   const scrollToMenu = () => {
     const menuElement = document.querySelector("#menu");
     if (menuElement) {
@@ -11,10 +15,40 @@ export const Hero = () => {
     }
   };
 
-  const scrollToContact = () => {
-    const contactElement = document.querySelector("#contact");
-    if (contactElement) {
-      contactElement.scrollIntoView({ behavior: "smooth" });
+  // Функція для перевірки чи це мобільний пристрій
+  const isMobile = () => {
+    // Перевіряємо розмір екрану та UserAgent
+    return window.matchMedia('(max-width: 768px)').matches || 
+           /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  };
+
+  const handleBookTable = () => {
+    if (isMobile()) {
+      // На мобільних пристроях створюємо невидиме посилання та клікаємо по ньому
+      const link = document.createElement('a');
+      link.href = 'tel:+421910000000';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // На комп'ютері показуємо попап
+      setIsBookTablePopupOpen(true);
+    }
+  };
+
+  const handleCallEventManager = () => {
+    if (isMobile()) {
+      // На мобільних пристроях створюємо невидиме посилання та клікаємо по ньому
+      const link = document.createElement('a');
+      link.href = 'tel:+421910000000';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // На комп'ютері показуємо попап
+      setIsEventManagerPopupOpen(true);
     }
   };
 
@@ -37,7 +71,7 @@ export const Hero = () => {
   }, []);
 
   return (
-    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-smooth-hero overflow-hidden pt-32 md:pt-20 pb-16 md:pb-8">
+    <section id="home" className="relative min-h-screen flex items-center justify-center bg-gradient-smooth-hero overflow-hidden pt-32 tablet:pt-20 lg:pt-20 pb-16 tablet:pb-12 lg:pb-8">
       {/* Aurora Background */}
       <div className="absolute inset-0 w-full h-full opacity-60">
         <Aurora
@@ -48,38 +82,47 @@ export const Hero = () => {
         />
       </div>
 
-      <div className="container mx-auto px-4 text-center relative z-10">
-        <div className="max-w-4xl mx-auto space-y-8">
+      <div className="container mx-auto px-4 tablet:px-6 text-center relative z-10">
+        <div className="max-w-4xl mx-auto space-y-6 tablet:space-y-7 lg:space-y-8">
           {/* Restaurant Logo */}
           <div className="flex justify-center animate-blur-in">
             <img 
               src="./logo-new.svg" 
               alt={restaurantInfo.name}
-              className="h-64 md:h-40 lg:h-48 w-auto"
+              className="h-48 tablet:h-52 lg:h-48 w-auto"
             />
           </div>
 
           {/* Description */}
-          <p className="text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-blur-in-delay-1">
+          <p className="text-base tablet:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-blur-in-delay-1">
             {restaurantInfo.description}
           </p>
 
           {/* CTA Buttons */}
-          <div className="flex flex-col sm:flex-row gap-4 justify-center items-center pt-8 animate-blur-in-delay-2">
+          <div className="flex flex-col tablet:flex-row gap-3 lg:gap-4 justify-center items-center pt-6 tablet:pt-7 lg:pt-8 animate-blur-in-delay-2">
             <Button 
               variant="hero"
               size="lg" 
               onClick={scrollToMenu}
-              className="animate-glow"
+              className="animate-glow w-full tablet:w-auto"
             >
               View Menu
             </Button>
             <Button 
               variant="glass" 
               size="lg"
-              onClick={scrollToContact}
+              onClick={handleBookTable}
+              className="w-full tablet:w-auto"
             >
               Book a Table
+            </Button>
+            <Button 
+              variant="glass" 
+              size="lg"
+              onClick={handleCallEventManager}
+              className="w-full tablet:w-auto"
+            >
+              Call Event Manager
             </Button>
           </div>
 
@@ -97,6 +140,23 @@ export const Hero = () => {
           </div>
         </div>
       </div>
+
+      {/* Call Popups - тільки для комп'ютерної версії */}
+      <CallPopup
+        isOpen={isBookTablePopupOpen}
+        onClose={() => setIsBookTablePopupOpen(false)}
+        title="Book a Table"
+        description="Call us to make a reservation at our restaurant"
+        phoneNumber="+421910000000"
+      />
+      
+      <CallPopup
+        isOpen={isEventManagerPopupOpen}
+        onClose={() => setIsEventManagerPopupOpen(false)}
+        title="Event Manager"
+        description="Contact our event manager for special occasions and private events"
+        phoneNumber="+421910000000"
+      />
     </section>
   );
 };

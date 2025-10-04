@@ -1,41 +1,50 @@
-import { useState } from "react";
-import { MenuCategory, MenuItem, MenuType, menuCategories, menuItems, menuTypes } from "@/data/menuData";
-import { Badge } from "@/components/ui/badge";
-import { Button } from "@/components/ui/button";
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
-import { Plus, Minus } from "lucide-react";
+import { useState, useEffect } from 'react';
+import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Button } from '@/components/ui/button';
+import { Badge } from '@/components/ui/badge';
+import { Heart, Plus, Minus } from 'lucide-react';
+import { menuCategories, menuItems, menuTypes } from '@/data/menuData';
+import { MenuCategory, MenuType, MenuItem } from '@/data/menuData';
 import { useMyOrder } from "@/context/MyOrderContext";
 import { MyOrder } from "./MyOrder";
 
 export const MenuSection = () => {
   const [selectedMenuType, setSelectedMenuType] = useState<MenuType>('main');
-  const [selectedCategory, setSelectedCategory] = useState<MenuCategory | 'all'>('all');
-  const { myOrder, addItem, getItemQuantity, decreaseItemQuantity, increaseItemQuantity } = useMyOrder();
-
-  // Function to handle My Choice navigation with smooth scroll
-  const handleMyChoiceClick = () => {
-    setSelectedCategory('my-choice');
-    
-    // Add a small delay to ensure the component renders first
-    setTimeout(() => {
-      const menuSection = document.querySelector('#menu');
-      if (menuSection) {
-        menuSection.scrollIntoView({ 
-          behavior: 'smooth',
-          block: 'start'
-        });
-      }
-    }, 100);
+  
+  // Function to get default category for menu type
+  const getDefaultCategory = (menuType: MenuType): MenuCategory => {
+    const filtered = menuItems.filter(item => item.menuType === menuType);
+    const availableCategories = Array.from(
+      new Set(filtered.map(item => item.category))
+    ).filter(category => category !== 'my-choice');
+    return availableCategories[0] || 'appetizers'; // Return first category or fallback
   };
 
-  // Filter items by menu type and category
+  const [selectedCategory, setSelectedCategory] = useState<MenuCategory | 'my-choice'>(
+    getDefaultCategory('main')
+  );
+  
+  const { myOrder, addItem, getItemQuantity, decreaseItemQuantity, increaseItemQuantity } = useMyOrder();
+
+  // Handle favorites button click
+  const handleMyChoiceClick = () => {
+    setSelectedCategory('my-choice');
+    setSelectedMenuType('main');
+    
+    // Smooth scroll to menu section
+    const menuSection = document.getElementById('menu');
+    if (menuSection) {
+      menuSection.scrollIntoView({ 
+        behavior: 'smooth',
+        block: 'start'
+      });
+    }
+  };  // Filter items by menu type and category
   const filteredByMenuType = menuItems.filter(item => 
     item.menuType === selectedMenuType
   );
 
-  const filteredItems = selectedCategory === 'all' 
-    ? filteredByMenuType 
-    : selectedCategory === 'my-choice'
+  const filteredItems = selectedCategory === 'my-choice'
     ? [] // For "My Choice" category don't show regular menu
     : filteredByMenuType.filter(item => item.category === selectedCategory);
 
@@ -45,75 +54,53 @@ export const MenuSection = () => {
   ).filter(category => category !== 'my-choice');
 
   return (
-    <section id="menu" className="pt-0 pb-10 sm:pb-16 lg:pb-20 bg-background -mt-8">
-      <div className="container mx-auto px-3 sm:px-4 lg:px-6 pt-10 sm:pt-16 lg:pt-20">
+    <section id="menu" className="pt-0 pb-10 tablet:pb-14 lg:pb-20 bg-background -mt-8">
+      <div className="container mx-auto px-3 tablet:px-5 lg:px-6 pt-10 tablet:pt-14 lg:pt-20">
         {/* Section Header */}
-        <div className="text-center mb-8 sm:mb-12 lg:mb-16 animate-fade-in-up px-2">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6">
+        <div className="text-center mb-8 tablet:mb-10 lg:mb-16 animate-fade-in-up px-2">
+          <h2 className="text-3xl tablet:text-4xl lg:text-5xl font-bold text-foreground mb-4 tablet:mb-5 lg:mb-6">
             Our <span className="text-primary">Menu</span>
           </h2>
-          <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-sm tablet:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
             Discover unique flavors of our cuisine - from traditional dishes to modern European culinary
           </p>
         </div>
 
         {/* Menu Type Tabs */}
-        <div className="flex flex-col sm:flex-row justify-center gap-2 sm:gap-3 mb-8 animate-fade-in-up">
-          {Object.entries(menuTypes).map(([key, menuType]) => (
+        <div className="flex flex-col tablet:flex-row justify-center gap-2 tablet:gap-3 lg:gap-4 mb-8 animate-fade-in-up">
+          {Object.entries(menuTypes)
+            .filter(([key]) => key !== 'celebrations') // Exclude celebrations from Our Menu
+            .map(([key, menuType]) => (
             <Button
               key={key}
               variant={selectedMenuType === key ? 'hero' : 'outline'}
               onClick={() => {
                 setSelectedMenuType(key as MenuType);
-                setSelectedCategory('all'); // Reset category when changing menu type
+                setSelectedCategory(getDefaultCategory(key as MenuType)); // Set default category when changing menu type
               }}
-              className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105"
+              className="w-full tablet:w-auto px-4 tablet:px-5 lg:px-6 py-2 tablet:py-3 text-sm tablet:text-base lg:text-lg font-semibold transition-all duration-300 hover:scale-105"
               size="default"
             >
               <span className="mr-2">{menuType.icon}</span>
-              <span className="hidden xs:inline sm:inline">{menuType.name}</span>
-              <span className="xs:hidden sm:hidden">{menuType.name.split(' ')[0]}</span>
+              <span className="truncate">{menuType.name}</span>
             </Button>
           ))}
           
-          {/* My Choice Button */}
+          {/* My Favorites Button */}
           <Button
             variant={selectedCategory === 'my-choice' ? 'hero' : 'outline'}
             onClick={handleMyChoiceClick}
-            className="w-full sm:w-auto px-4 sm:px-6 py-2 sm:py-3 text-base sm:text-lg font-semibold transition-all duration-300 hover:scale-105 relative"
+            className="w-full tablet:w-auto px-4 tablet:px-5 lg:px-6 py-2 tablet:py-3 text-sm tablet:text-base lg:text-lg font-semibold transition-all duration-300 hover:scale-105 relative"
             size="default"
           >
             <span className="mr-2">{menuCategories['my-choice'].icon}</span>
-            <span className="hidden xs:inline sm:inline">{menuCategories['my-choice'].name}</span>
-            <span className="xs:hidden sm:hidden">My</span>
-            {myOrder.totalItems > 0 && (
-              <Badge 
-                variant="destructive" 
-                className="absolute -top-2 -right-2 w-5 h-5 rounded-full p-0 flex items-center justify-center text-xs"
-              >
-                {myOrder.totalItems}
-              </Badge>
-            )}
+            <span className="truncate">{menuCategories['my-choice'].name}</span>
           </Button>
         </div>
 
         {/* Category Filter - Hidden when My Choice is selected */}
         {selectedCategory !== 'my-choice' && (
-          <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-12 animate-slide-in">
-            {selectedMenuType !== 'kids' && (
-              <button
-                onClick={() => setSelectedCategory('all')}
-                className={`${
-                  selectedCategory === 'all' 
-                    ? 'bg-gradient-primary text-primary-foreground hover:shadow-elegant hover:scale-105 font-semibold' 
-                    : 'bg-white/20 backdrop-blur-md border border-white/30 text-foreground/80 hover:bg-white/10 hover:text-primary'
-                } transition-[background-color,color,transform,box-shadow] duration-300 text-xs sm:text-sm px-3 py-2 sm:px-4 sm:py-2 rounded-full shadow-lg`}
-              >
-                <span className="mr-1">🍽️</span>
-                <span className="hidden xs:inline">All {menuTypes[selectedMenuType].name.toLowerCase()}</span>
-                <span className="xs:hidden">All</span>
-              </button>
-            )}
+          <div className="flex flex-wrap justify-center gap-2 tablet:gap-3 lg:gap-4 mb-10 tablet:mb-12 animate-slide-in">
             {availableCategories.map((categoryKey) => {
               const category = menuCategories[categoryKey as MenuCategory];
               if (!category) return null;
@@ -127,11 +114,10 @@ export const MenuSection = () => {
                     selectedCategory === categoryKey 
                       ? 'bg-gradient-primary text-primary-foreground hover:shadow-elegant hover:scale-105 font-semibold' 
                       : 'bg-white/20 backdrop-blur-md border border-white/30 text-foreground/80 hover:bg-white/10 hover:text-primary'
-                  } transition-[background-color,color,transform,box-shadow] duration-300 text-xs sm:text-sm px-2 sm:px-4 py-2 rounded-full shadow-lg`}
+                  } transition-[background-color,color,transform,box-shadow] duration-300 text-xs tablet:text-sm lg:text-base px-3 tablet:px-4 lg:px-5 py-2 tablet:py-2.5 rounded-full shadow-lg whitespace-nowrap`}
                 >
-                  <span className="mr-1">{category.icon}</span>
-                  <span className="hidden sm:inline">{category.name}</span>
-                  <span className="sm:hidden">{category.name.split(' ')[0]}</span>
+                  <span className="mr-1 tablet:mr-2">{category.icon}</span>
+                  <span className="truncate">{category.name}</span>
                 </button>
               );
             })}
@@ -140,7 +126,7 @@ export const MenuSection = () => {
 
         {/* Content based on selected category */}
         {selectedCategory === 'my-choice' ? (
-          <MyOrder onBackToMenu={() => setSelectedCategory('all')} />
+          <MyOrder onBackToMenu={() => setSelectedCategory(getDefaultCategory(selectedMenuType))} />
         ) : selectedMenuType === 'drinks' ? (
           <DrinksMenu 
             filteredItems={filteredByMenuType}
@@ -166,7 +152,7 @@ export const MenuSection = () => {
             ) : (
               <>
                 {/* Menu Items Grid */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 animate-fade-in px-2 sm:px-0">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 lg:grid-cols-3 gap-4 tablet:gap-5 lg:gap-6 animate-fade-in px-2 tablet:px-0">
                   {filteredItems.map((item, index) => (
                     <MenuItemCard 
                       key={item.id} 
@@ -194,7 +180,7 @@ export const MenuSection = () => {
         )}
       </div>
 
-      {/* Floating My Choice Button - only visible when items are selected */}
+      {/* Floating Favorites Button - only visible when items are in favorites */}
       {myOrder.totalItems > 0 && selectedCategory !== 'my-choice' && (
         <div className="fixed bottom-6 right-6 z-50 animate-bounce-in">
           <Button
@@ -203,7 +189,7 @@ export const MenuSection = () => {
             className="h-14 w-14 rounded-full shadow-elegant hover:scale-110 transition-all duration-300 relative"
             size="default"
           >
-            <span className="text-2xl">{menuCategories['my-choice'].icon}</span>
+            <Heart className="w-6 h-6 fill-current" />
             <Badge 
               variant="destructive" 
               className="absolute -top-1 -right-1 w-6 h-6 rounded-full p-0 flex items-center justify-center text-xs font-bold border-2 border-white"
@@ -305,31 +291,19 @@ const MenuItemCard = ({ item, index, onAddToOrder, onIncreaseQuantity, onDecreas
               onClick={() => onAddToOrder(item)}
               className="w-full sm:w-auto flex items-center justify-center gap-2 transition-all duration-300 text-primary hover:text-primary-foreground hover:bg-primary px-4 py-2"
             >
-              <Plus className="w-4 h-4" />
-              <span className="text-sm font-medium">Add to Choice</span>
+              <Heart className="w-4 h-4" />
+              <span className="text-sm font-medium">Add to Favorites</span>
             </Button>
           ) : (
-            <div className="flex items-center justify-center gap-3">
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => onDecreaseQuantity(item.id)}
-                className="h-9 w-9 sm:h-8 sm:w-8 p-0 transition-all duration-300 hover:bg-destructive hover:text-destructive-foreground"
-              >
-                <Minus className="w-4 h-4" />
-              </Button>
-              <span className="text-base sm:text-sm font-medium min-w-[2.5rem] sm:min-w-[2rem] text-center">
-                {itemQuantity}
-              </span>
-              <Button
-                variant="outline"
-                size="sm"
-                onClick={() => onIncreaseQuantity(item.id)}
-                className="h-9 w-9 sm:h-8 sm:w-8 p-0 transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
-              >
-                <Plus className="w-4 h-4" />
-              </Button>
-            </div>
+            <Button
+              variant="outline"
+              size="sm"
+              onClick={() => onDecreaseQuantity(item.id)}
+              className="w-full sm:w-auto flex items-center justify-center gap-2 transition-all duration-300 text-destructive hover:text-destructive-foreground hover:bg-destructive px-4 py-2"
+            >
+              <Heart className="w-4 h-4 fill-current" />
+              <span className="text-sm font-medium">Remove from Favorites</span>
+            </Button>
           )}
         </div>
       </CardContent>
@@ -443,7 +417,7 @@ const DrinksMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQ
                       €{item.price}
                     </span>
                     
-                    {/* Add to Order Buttons */}
+                    {/* Add to Favorites Button */}
                     {itemQuantity === 0 ? (
                       <Button
                         variant="outline"
@@ -451,31 +425,19 @@ const DrinksMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQ
                         onClick={() => onAddToOrder(item)}
                         className="flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-primary-foreground px-3 py-2"
                       >
-                        <Plus className="w-4 h-4" />
+                        <Heart className="w-4 h-4" />
                         <span className="hidden sm:inline text-sm">Add</span>
                       </Button>
                     ) : (
-                      <div className="flex items-center gap-2">
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => onDecreaseQuantity(item.id)}
-                          className="h-8 w-8 p-0 transition-all duration-300 hover:bg-destructive hover:text-destructive-foreground"
-                        >
-                          <Minus className="w-4 h-4" />
-                        </Button>
-                        <span className="text-sm font-medium min-w-[1.5rem] text-center">
-                          {itemQuantity}
-                        </span>
-                        <Button
-                          variant="outline"
-                          size="sm"
-                          onClick={() => onIncreaseQuantity(item.id)}
-                          className="h-8 w-8 p-0 transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
-                        >
-                          <Plus className="w-4 h-4" />
-                        </Button>
-                      </div>
+                      <Button
+                        variant="outline"
+                        size="sm"
+                        onClick={() => onDecreaseQuantity(item.id)}
+                        className="flex items-center gap-2 transition-all duration-300 text-destructive hover:text-destructive-foreground hover:bg-destructive px-3 py-2"
+                      >
+                        <Heart className="w-4 h-4 fill-current" />
+                        <span className="hidden sm:inline text-sm">Remove</span>
+                      </Button>
                     )}
                   </div>
                 </div>
@@ -605,7 +567,7 @@ const ListMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQua
                           €{item.price}
                         </span>
                         
-                        {/* Add to Order Buttons */}
+                        {/* Add to Favorites Button */}
                         {itemQuantity === 0 ? (
                           <Button
                             variant="outline"
@@ -613,31 +575,19 @@ const ListMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQua
                             onClick={() => onAddToOrder(item)}
                             className="flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-primary-foreground px-3 py-2"
                           >
-                            <Plus className="w-4 h-4" />
+                            <Heart className="w-4 h-4" />
                             <span className="hidden sm:inline text-sm">Add</span>
                           </Button>
                         ) : (
-                          <div className="flex items-center gap-2">
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              onClick={() => onDecreaseQuantity(item.id)}
-                              className="h-8 w-8 p-0 transition-all duration-300 hover:bg-destructive hover:text-destructive-foreground"
-                            >
-                              <Minus className="w-4 h-4" />
-                            </Button>
-                            <span className="text-sm font-medium min-w-[1.5rem] text-center">
-                              {itemQuantity}
-                            </span>
-                            <Button
-                              variant="outline"
-                              size="sm"
-                              onClick={() => onIncreaseQuantity(item.id)}
-                              className="h-8 w-8 p-0 transition-all duration-300 hover:bg-primary hover:text-primary-foreground"
-                            >
-                              <Plus className="w-4 h-4" />
-                            </Button>
-                          </div>
+                          <Button
+                            variant="outline"
+                            size="sm"
+                            onClick={() => onDecreaseQuantity(item.id)}
+                            className="flex items-center gap-2 transition-all duration-300 text-destructive hover:text-destructive-foreground hover:bg-destructive px-3 py-2"
+                          >
+                            <Heart className="w-4 h-4 fill-current" />
+                            <span className="hidden sm:inline text-sm">Remove</span>
+                          </Button>
                         )}
                       </div>
                     </div>
