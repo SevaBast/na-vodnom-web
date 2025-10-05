@@ -3,24 +3,37 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Na Vodnom - Restaurant and Bar | Zilina</title>
-    <meta name="description" content="Na Vodnom restaurant and bar in Zilina. Cesta na Mojš 1375, 010 01 Žilina." />
-    <meta name="keywords" content="restaurant, Zilina, European cuisine, Cesta na Mojš, cafe, food" />
+    <title>Na Vodnom - Reštaurácia a Bar v Žiline | Európska Kuchyňa</title>
+    <meta name="description" content="Na Vodnom - exkluzívna reštaurácia a bar v centre Žiliny. Európska kuchyňa, fresh šaláty, dezerty a káva. Cesta na Mojš 1375, Žilina. Rezervácie: +421 901 90 00 08" />
+    <meta name="keywords" content="reštaurácia Žilina, bar Žilina, európska kuchyňa, Na Vodnom, Cesta na Mojš, jedlo Žilina, reštaurácia centrum Žilina, rezervácia stola, fresh šaláty, dezerty Žilina" />
     <meta name="author" content="Na Vodnom" />
+    <meta name="geo.region" content="SK-ZI" />
+    <meta name="geo.placename" content="Žilina" />
+    <meta name="geo.position" content="49.2226;18.7397" />
+    <meta name="ICBM" content="49.2226, 18.7397" />
     <link rel="canonical" href="https://na-vodnom.com/" />
 
     <!-- Open Graph -->
-    <meta property="og:title" content="Na Vodnom - Restaurant and Bar | Zilina" />
-    <meta property="og:description" content="Restaurant and bar in Zilina" />
+    <meta property="og:title" content="Na Vodnom - Reštaurácia a Bar v Žiline | Európska Kuchyňa" />
+    <meta property="og:description" content="Exkluzívna reštaurácia a bar v centre Žiliny s európskou kuchyňou. Fresh šaláty, dezerty a káva. Rezervácie: +421 901 90 00 08" />
     <meta property="og:type" content="restaurant" />
     <meta property="og:url" content="https://na-vodnom.com/" />
-    <meta property="og:locale" content="en_US" />
-    <meta property="og:site_name" content="Na Vodnom" />
+    <meta property="og:locale" content="sk_SK" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:site_name" content="Na Vodnom Žilina" />
+    <meta property="og:image" content="https://na-vodnom.com/images/restaurant-og.jpg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Na Vodnom reštaurácia v Žiline" />
+    <meta property="place:location:latitude" content="49.2226" />
+    <meta property="place:location:longitude" content="18.7397" />
 
     <!-- Twitter Card -->
     <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:title" content="Restaurant and bar in Zilina" />
-    <meta name="twitter:description" content="Na Vodnom restaurant and bar in Zilina. Cesta na Mojš 1375, 010 01 Žilina." />
+    <meta name="twitter:title" content="Na Vodnom - Reštaurácia v Žiline" />
+    <meta name="twitter:description" content="Exkluzívna reštaurácia a bar v centre Žiliny. Európska kuchyňa, fresh šaláty, dezerty. Rezervácie: +421 901 90 00 08" />
+    <meta name="twitter:image" content="https://na-vodnom.com/images/restaurant-og.jpg" />
+    <meta name="twitter:image:alt" content="Na Vodnom reštaurácia Žilina" />
 
     <!-- Structured Data for Restaurant -->
     <script type="application/ld+json">
@@ -28,19 +41,28 @@
       "@context": "https://schema.org",
       "@type": "Restaurant",
       "name": "Na Vodnom",
-      "alternateName": "Na Vodnom",
-      "description": "Na Vodnom restaurant and bar in Zilina. Cesta na Mojš 1375, 010 01 Žilina.",
+      "alternateName": "Na Vodnom Žilina",
+      "description": "Exkluzívna reštaurácia a bar v centre Žiliny s európskou kuchyňou. Ponúkame fresh šaláty, dezerty, kávu a širokú ponuku jedál v elegantnon prostredí.",
+      "url": "https://na-vodnom.com",
+      "image": [
+        "https://na-vodnom.com/images/restaurant-interior.jpg",
+        "https://na-vodnom.com/images/food-signature-dish.jpg",
+        "https://na-vodnom.com/images/bar-area.jpg"
+      ],
       "address": {
         "@type": "PostalAddress",
         "streetAddress": "Cesta na Mojš 1375",
         "addressLocality": "Žilina",
-        "postalCode": "01001",
+        "postalCode": "010 01",
+        "addressRegion": "Žilinský kraj",
         "addressCountry": "SK"
       },
-      "telephone": "+421 xx xxx xx xx",
-      "email": "info@navodnom.com",
-      "servesCuisine": ["Slovak", "European"],
+      "telephone": "+421901900008",
+      "email": "info@na-vodnom.com",
+      "servesCuisine": ["Európska", "Slovenská", "Moderná"],
       "priceRange": "$$",
+      "paymentAccepted": ["Cash", "Credit Card", "Debit Card"],
+      "currenciesAccepted": "EUR",
       "openingHours": [
         "Mo-Th 10:00-22:00",
         "Fr-Sa 10:00-23:00", 
@@ -48,14 +70,40 @@
       ],
       "geo": {
         "@type": "GeoCoordinates",
-        "latitude": 50.4501,
-        "longitude": 30.5234
+        "latitude": 49.2226,
+        "longitude": 18.7397
+      },
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "120"
       },
       "sameAs": [
-        "https://instagram.com/navodnom",
-        "https://facebook.com/navodnom",
-        "https://t.me/navodnom"
-      ]
+        "https://www.instagram.com/na.vodnom",
+        "https://www.facebook.com/navodnom"
+      ],
+      "amenityFeature": [
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Wi-Fi",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification", 
+          "name": "Parking",
+          "value": true
+        },
+        {
+          "@type": "LocationFeatureSpecification",
+          "name": "Outdoor Seating",
+          "value": true
+        }
+      ],
+      "hasMenu": {
+        "@type": "Menu",
+        "name": "Hlavné menu",
+        "description": "Európska kuchyňa s modernými prvkami"
+      }
     }
     </script>
   </head>

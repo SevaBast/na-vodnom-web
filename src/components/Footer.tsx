@@ -48,7 +48,7 @@ export const Footer = () => {
                 className="bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 text-background hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 shadow-lg backdrop-blur-sm group relative overflow-hidden"
               >
                 <a 
-                  href="#" 
+                  href="https://www.instagram.com/na.vodnom" 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="flex items-center gap-3 relative z-10"
@@ -135,7 +135,7 @@ export const Footer = () => {
         onClose={() => setIsBookTablePopupOpen(false)}
         title="Book a Table"
         description="Call us to make a reservation at our restaurant"
-        phoneNumber="+421910000000"
+        phoneNumber="+421901900008"
       />
     </footer>
   );

@@ -30,7 +30,7 @@ export const restaurantInfo: RestaurantInfo = {
   name: 'Na Vodnom',
   description: 'Great cuisine, charcoal-grilled dishes, wood-fired pizza, modern bowls, and a children\'s corner.\nThe perfect place for foodies and families alike. 🍽🌿 \nEnjoy the best dishes and drinks in a cozy atmosphere.🤎',
   address: 'Cesta na Mojš 1375, 010 01 Žilina',
-  phone: '+421 xx xxx xx xx',
+  phone: '+421 901 90 00 08',
   email: 'info@navodnom.com',
   workingHours: {
     'Monday': '8:00 - 20:00',
@@ -46,10 +46,10 @@ export const restaurantInfo: RestaurantInfo = {
     lng: 18.775513
   },
   socialMedia: {
-    instagram: 'https://instagram.com/navodnom',
-    facebook: 'https://facebook.com/navodnom',
-    telegram: 'https://t.me/navodnom',
-    tiktok: 'https://tiktok.com/@navodnom'
+    instagram: 'https://www.instagram.com/na.vodnom',
+    facebook: 'https://www.instagram.com/na.vodnom',
+    telegram: 'https://www.instagram.com/na.vodnom',
+    tiktok: 'https://www.instagram.com/na.vodnom'
   }
 };
 

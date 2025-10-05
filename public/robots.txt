@@ -1,4 +1,33 @@
+User-agent: *
+Allow: /
+
+# Prioritné crawling pre hlavné boty
 User-agent: Googlebot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Bingbot
+Allow: /
+Crawl-delay: 1
+
+User-agent: Twitterbot
+Allow: /
+
+User-agent: facebookexternalhit
+Allow: /
+
+# Zablokovať zbytočné súbory
+Disallow: /node_modules/
+Disallow: /src/
+Disallow: /*.json$
+Disallow: /*.config.*$
+Disallow: /dist/
+
+# Sitemap lokácia
+Sitemap: https://na-vodnom.com/sitemap.xml
+
+# Crawl delay pre ostatných
+Crawl-delay: 5oglebot
 Allow: /
 
 User-agent: Bingbot

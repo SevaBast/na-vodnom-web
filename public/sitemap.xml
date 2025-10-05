@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+        xmlns:image="http://www.google.com/schemas/sitemap-image/1.1"
+        xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">
+  
+  <!-- Hlavná stránka -->
+  <url>
+    <loc>https://na-vodnom.com/</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>1.0</priority>
+    <image:image>
+      <image:loc>https://na-vodnom.com/images/restaurant-interior.jpg</image:loc>
+      <image:title>Na Vodnom reštaurácia interiér</image:title>
+      <image:caption>Elegantný interiér reštaurácie Na Vodnom v Žiline</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://na-vodnom.com/images/food-signature-dish.jpg</image:loc>
+      <image:title>Špecialita reštaurácie Na Vodnom</image:title>
+      <image:caption>Podpísové jedlo reštaurácie Na Vodnom</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Menu sekcia -->
+  <url>
+    <loc>https://na-vodnom.com/#menu</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.8</priority>
+    <image:image>
+      <image:loc>https://na-vodnom.com/images/fresh-salads.jpg</image:loc>
+      <image:title>Fresh šaláty Na Vodnom</image:title>
+      <image:caption>Čerstvé šaláty v reštaurácii Na Vodnom Žilina</image:caption>
+    </image:image>
+  </url>
+
+  <!-- O nás sekcia -->
+  <url>
+    <loc>https://na-vodnom.com/#about</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Galéria -->
+  <url>
+    <loc>https://na-vodnom.com/#gallery</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+    <image:image>
+      <image:loc>https://na-vodnom.com/images/romantic-atmosphere.jpg</image:loc>
+      <image:title>Romantická atmosféra</image:title>
+      <image:caption>Romantická atmosféra v reštaurácii Na Vodnom</image:caption>
+    </image:image>
+    <image:image>
+      <image:loc>https://na-vodnom.com/images/bar-area.jpg</image:loc>
+      <image:title>Bar priestor</image:title>
+      <image:caption>Bar priestor reštaurácie Na Vodnom Žilina</image:caption>
+    </image:image>
+  </url>
+
+  <!-- Kontakt -->
+  <url>
+    <loc>https://na-vodnom.com/#contact</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+
+  <!-- Rezervácia -->
+  <url>
+    <loc>https://na-vodnom.com/#rezervacia</loc>
+    <lastmod>2025-10-05</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.9</priority>
+  </url>
+
+</urlset>

@@ -19,7 +19,7 @@ export const About = () => {
     if (isMobile()) {
       // На мобільних пристроях створюємо невидиме посилання та клікаємо по ньому
       const link = document.createElement('a');
-      link.href = 'tel:+421910000000';
+      link.href = 'tel:+421901900008';
       link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
@@ -183,7 +183,7 @@ export const About = () => {
         onClose={() => setIsBookTablePopupOpen(false)}
         title="Book a Table"
         description="Call us to make a reservation at our restaurant"
-        phoneNumber="+421910000000"
+        phoneNumber="+421901900008"
       />
     </section>
   );
