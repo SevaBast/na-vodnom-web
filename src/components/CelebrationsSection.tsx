@@ -63,7 +63,7 @@ export const CelebrationsSection = () => {
         {isExpanded && (
           <>
             {/* Category Filter */}
-            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 animate-fade-in-up px-2">
+            <div className="flex flex-wrap justify-center gap-2 sm:gap-3 mb-8 sm:mb-12 px-2">
               {availableCategories.map(categoryKey => {
                 const category = menuCategories[categoryKey];
                 return (
@@ -84,6 +84,7 @@ export const CelebrationsSection = () => {
 
             {/* Menu Items List - Using Original Style */}
             <CelebrationsList 
+              key={selectedCategory}
               filteredItems={filteredItems}
               selectedCategory={selectedCategory}
               onAddToOrder={addItem}
@@ -140,7 +141,7 @@ const CelebrationsList = ({
         const categoryItems = itemsByCategory[category] || [];
         
         return (
-          <div key={category} className="mb-8" style={{ animationDelay: `${categoryIndex * 0.1}s` }}>
+          <div key={category} className="mb-8">
             {selectedCategory === 'all' && (
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 flex items-center">
                 <span className="mr-2">{menuCategories[category]?.icon}</span>
@@ -156,8 +157,7 @@ const CelebrationsList = ({
                 return (
                   <div 
                     key={item.id}
-                    className="flex items-center justify-between p-4 bg-gradient-card border border-glass-border rounded-lg hover:shadow-elegant transition-all duration-300 hover:bg-accent/10"
-                    style={{ animationDelay: `${(categoryIndex * 0.1) + (index * 0.05)}s` }}
+                    className="flex items-center justify-between p-4 bg-gradient-card border border-glass-border rounded-lg hover:shadow-elegant hover:scale-105 transition-all duration-300 hover:bg-accent/10"
                   >
                     <div className="flex-1">
                       <h4 className="text-lg font-semibold text-foreground mb-1">

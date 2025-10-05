@@ -126,18 +126,22 @@ export const MenuSection = () => {
 
         {/* Content based on selected category */}
         {selectedCategory === 'my-choice' ? (
-          <MyOrder onBackToMenu={() => setSelectedCategory(getDefaultCategory(selectedMenuType))} />
+          <div key="my-choice" className="animate-fade-in">
+            <MyOrder onBackToMenu={() => setSelectedCategory(getDefaultCategory(selectedMenuType))} />
+          </div>
         ) : selectedMenuType === 'drinks' ? (
-          <DrinksMenu 
-            filteredItems={filteredByMenuType}
-            selectedCategory={selectedCategory}
-            onAddToOrder={addItem}
-            onIncreaseQuantity={increaseItemQuantity}
-            onDecreaseQuantity={decreaseItemQuantity}
-            getItemQuantity={getItemQuantity}
-          />
+          <div key={`${selectedMenuType}-${selectedCategory}`} className="animate-fade-in">
+            <DrinksMenu 
+              filteredItems={filteredByMenuType}
+              selectedCategory={selectedCategory}
+              onAddToOrder={addItem}
+              onIncreaseQuantity={increaseItemQuantity}
+              onDecreaseQuantity={decreaseItemQuantity}
+              getItemQuantity={getItemQuantity}
+            />
+          </div>
         ) : (
-          <>
+          <div key={`${selectedMenuType}-${selectedCategory}`} className="animate-fade-in">
             {/* Check if we have items that should be displayed as list */}
             {filteredItems.some(item => item.displayAsList) ? (
               <ListMenu 
@@ -152,7 +156,7 @@ export const MenuSection = () => {
             ) : (
               <>
                 {/* Menu Items Grid */}
-                <div className="grid grid-cols-1 tablet:grid-cols-2 lg:grid-cols-3 gap-4 tablet:gap-5 lg:gap-6 animate-fade-in px-2 tablet:px-0">
+                <div className="grid grid-cols-1 tablet:grid-cols-2 lg:grid-cols-3 gap-4 tablet:gap-5 lg:gap-6 px-2 tablet:px-0">
                   {filteredItems.map((item, index) => (
                     <MenuItemCard 
                       key={item.id} 
@@ -176,7 +180,7 @@ export const MenuSection = () => {
                 )}
               </>
             )}
-          </>
+          </div>
         )}
       </div>
 

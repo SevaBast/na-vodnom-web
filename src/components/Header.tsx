@@ -1,15 +1,20 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { CallPopup } from "./CallPopup";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const [isAnimating, setIsAnimating] = useState(false);
+  const [animationType, setAnimationType] = useState<'in' | 'out'>('in');
+  const [isReservePopupOpen, setIsReservePopupOpen] = useState(false);
 
   const menuItems = [
     { href: "#home", label: "Home" },
     { href: "#celebrations", label: "Celebrations" },
     { href: "#menu", label: "Menu" },
     { href: "#gallery", label: "Gallery" },
+    { href: "#reviews", label: "Reviews" },
     { href: "#about", label: "About" },
     { href: "#contact", label: "Contact" }
   ];
@@ -18,7 +23,46 @@ export const Header = () => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
+      handleMenuClose();
+    }
+  };
+
+  const handleMenuToggle = () => {
+    if (isMenuOpen) {
+      handleMenuClose();
+    } else {
+      setIsMenuOpen(true);
+      setAnimationType('in');
+    }
+  };
+
+  const handleMenuClose = () => {
+    setIsAnimating(true);
+    setAnimationType('out');
+    setTimeout(() => {
       setIsMenuOpen(false);
+      setIsAnimating(false);
+    }, 300); // Match fade-out duration
+  };
+
+  // Функція для перевірки чи це мобільний пристрій
+  const isMobile = () => {
+    return window.matchMedia('(max-width: 768px)').matches || 
+           /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+  };
+
+  const handleReserve = () => {
+    if (isMobile()) {
+      // На мобільних пристроях створюємо невидиме посилання та клікаємо по ньому
+      const link = document.createElement('a');
+      link.href = 'tel:+421910000000';
+      link.style.display = 'none';
+      document.body.appendChild(link);
+      link.click();
+      document.body.removeChild(link);
+    } else {
+      // На комп'ютері показуємо попап
+      setIsReservePopupOpen(true);
     }
   };
 
@@ -57,7 +101,7 @@ export const Header = () => {
               <Button 
                 size="sm"
                 className="bg-gradient-primary text-primary-foreground hover:shadow-md hover:scale-105 font-medium transition-all duration-300 px-4 py-2 text-sm rounded-full"
-                onClick={() => scrollToSection("#contact")}
+                onClick={handleReserve}
               >
                 Reserve
               </Button>
@@ -84,7 +128,7 @@ export const Header = () => {
               variant="ghost"
               size="sm"
               className="p-2 hover:bg-white/10 rounded-full"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
+              onClick={handleMenuToggle}
             >
               {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </Button>
@@ -94,7 +138,7 @@ export const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className="md:hidden flex justify-center px-4 mt-2 animate-fade-in">
+        <div className={`md:hidden flex justify-center px-4 mt-2 ${animationType === 'out' ? 'animate-fade-out' : 'animate-fade-in'}`}>
           <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl px-4 py-4 shadow-lg w-full max-w-sm">
             <div className="space-y-2">
               {menuItems.map((item) => (
@@ -110,7 +154,7 @@ export const Header = () => {
               <div className="pt-2 border-t border-white/20 mt-4">
                 <Button 
                   className="w-full bg-gradient-primary text-primary-foreground hover:shadow-md font-medium transition-all duration-300 py-2.5 text-sm rounded-xl"
-                  onClick={() => scrollToSection("#contact")}
+                  onClick={handleReserve}
                 >
                   Reserve
                 </Button>
@@ -119,6 +163,15 @@ export const Header = () => {
           </div>
         </div>
       )}
+
+      {/* Call Popup - тільки для комп'ютерної версії */}
+      <CallPopup
+        isOpen={isReservePopupOpen}
+        onClose={() => setIsReservePopupOpen(false)}
+        title="Reserve"
+        description="Call us to make a reservation at our restaurant"
+        phoneNumber="+421910000000"
+      />
     </header>
   );
 };

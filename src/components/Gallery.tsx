@@ -41,7 +41,7 @@ export const Gallery = () => {
               key={category.key}
               variant={selectedCategory === category.key ? 'hero' : 'glass'}
               onClick={() => setSelectedCategory(category.key)}
-              className="transition-all duration-300 text-sm tablet:text-base px-3 tablet:px-4 lg:px-5 py-2 tablet:py-2.5"
+              className="transition-all duration-300 hover:scale-105 text-sm tablet:text-base px-3 tablet:px-4 lg:px-5 py-2 tablet:py-2.5"
             >
               <span className="mr-1 tablet:mr-2">{category.icon}</span>
               <span>{category.name}</span>
@@ -50,7 +50,7 @@ export const Gallery = () => {
         </div>
 
         {/* Gallery Carousel */}
-        <div className="animate-fade-in">
+        <div key={selectedCategory} className="animate-fade-in">
           <GalleryCarousel category={selectedCategory} />
         </div>
       </div>
