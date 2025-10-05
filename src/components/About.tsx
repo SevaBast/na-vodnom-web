@@ -38,7 +38,7 @@ export const About = () => {
           <h2 className="text-3xl tablet:text-4xl md:text-5xl font-bold text-foreground mb-4 tablet:mb-6">
             About <span className="text-primary">Us</span>
           </h2>
-          <p className="text-base tablet:text-lg text-muted-foreground max-w-2xl mx-auto">
+          <p className="text-base tablet:text-lg text-darkBrown-foreground max-w-2xl mx-auto">
             Learn more about our restaurant, our story and values
           </p>
         </div>

@@ -65,6 +65,11 @@ export default {
           bg: "hsl(var(--glass-bg))",
           border: "hsl(var(--glass-border))",
         },
+        darkBrown: {
+          DEFAULT: "#000000ff", // Dark brown color
+          foreground: "#000000ff", // Slightly darker shade for text
+          light: "#000000ff", // Lighter brown for variations
+        },
       },
       backgroundImage: {
         'gradient-primary': 'var(--gradient-primary)',

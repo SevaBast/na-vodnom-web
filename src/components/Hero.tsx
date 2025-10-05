@@ -4,6 +4,20 @@ import Aurora from "./Aurora";
 import { useEffect, useState } from "react";
 import { CallPopup } from "./CallPopup";
 
+// Manual logo size and positioning controls
+const LOGO_CONFIG = {
+  // Logo size classes (change these for different sizes)
+  sizeClasses: "h-60 tablet:h-52 lg:h-72 xl:h-80", // Mobile: 192px, Tablet: 208px, Desktop: 288px, XL: 320px
+  
+  // Manual style adjustments (uncomment and modify as needed)
+  manualStyle: {
+    transform: 'scale(1.2)', // Make logo bigger/smaller (1.0 = normal, 1.2 = 20% bigger)
+    marginTop: '-0px', // Move logo up (negative) or down (positive)
+    // marginLeft: '0px', // Move logo left (negative) or right (positive)
+    marginBottom: '50px', // Add space below logo
+  }
+};
+
 export const Hero = () => {
   const [isBookTablePopupOpen, setIsBookTablePopupOpen] = useState(false);
   const [isEventManagerPopupOpen, setIsEventManagerPopupOpen] = useState(false);
@@ -84,17 +98,18 @@ export const Hero = () => {
 
       <div className="container mx-auto px-4 tablet:px-6 text-center relative z-10">
         <div className="max-w-4xl mx-auto space-y-6 tablet:space-y-7 lg:space-y-8">
-          {/* Restaurant Logo */}
+          {/* Restaurant Logo - Manual size and positioning controls */}
           <div className="flex justify-center animate-blur-in">
             <img 
               src="./logo-new.svg" 
               alt={restaurantInfo.name}
-              className="h-48 tablet:h-52 lg:h-48 w-auto"
+              className={`${LOGO_CONFIG.sizeClasses} w-auto`}
+              style={LOGO_CONFIG.manualStyle}
             />
           </div>
 
           {/* Description */}
-          <p className="text-base tablet:text-lg text-muted-foreground max-w-3xl mx-auto leading-relaxed animate-blur-in-delay-1">
+          <p className="text-base tablet:text-lg text-[#5c4a38] max-w-3xl mx-auto leading-relaxed animate-blur-in-delay-1">
             {restaurantInfo.description}
           </p>
 

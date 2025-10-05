@@ -5,8 +5,6 @@ import { CallPopup } from "./CallPopup";
 
 export const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isAnimating, setIsAnimating] = useState(false);
-  const [animationType, setAnimationType] = useState<'in' | 'out'>('in');
   const [isReservePopupOpen, setIsReservePopupOpen] = useState(false);
 
   const menuItems = [
@@ -23,26 +21,8 @@ export const Header = () => {
     const element = document.querySelector(href);
     if (element) {
       element.scrollIntoView({ behavior: "smooth" });
-      handleMenuClose();
-    }
-  };
-
-  const handleMenuToggle = () => {
-    if (isMenuOpen) {
-      handleMenuClose();
-    } else {
-      setIsMenuOpen(true);
-      setAnimationType('in');
-    }
-  };
-
-  const handleMenuClose = () => {
-    setIsAnimating(true);
-    setAnimationType('out');
-    setTimeout(() => {
       setIsMenuOpen(false);
-      setIsAnimating(false);
-    }, 300); // Match fade-out duration
+    }
   };
 
   // Функція для перевірки чи це мобільний пристрій
@@ -128,7 +108,7 @@ export const Header = () => {
               variant="ghost"
               size="sm"
               className="p-2 hover:bg-white/10 rounded-full"
-              onClick={handleMenuToggle}
+              onClick={() => setIsMenuOpen(!isMenuOpen)}
             >
               {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
             </Button>
@@ -138,7 +118,7 @@ export const Header = () => {
 
       {/* Mobile Menu */}
       {isMenuOpen && (
-        <div className={`md:hidden flex justify-center px-4 mt-2 ${animationType === 'out' ? 'animate-fade-out' : 'animate-fade-in'}`}>
+        <div className="md:hidden flex justify-center px-4 mt-2">
           <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl px-4 py-4 shadow-lg w-full max-w-sm">
             <div className="space-y-2">
               {menuItems.map((item) => (
