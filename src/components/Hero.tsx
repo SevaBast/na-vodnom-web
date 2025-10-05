@@ -40,7 +40,7 @@ export const Hero = () => {
     if (isMobile()) {
       // На мобільних пристроях створюємо невидиме посилання та клікаємо по ньому
       const link = document.createElement('a');
-      link.href = 'tel:+421910000000';
+      link.href = 'tel:+421901900008';
       link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
@@ -55,7 +55,7 @@ export const Hero = () => {
     if (isMobile()) {
       // На мобільних пристроях створюємо невидиме посилання та клікаємо по ньому
       const link = document.createElement('a');
-      link.href = 'tel:+421910000000';
+      link.href = 'tel:+421902966666';
       link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
@@ -162,7 +162,7 @@ export const Hero = () => {
         onClose={() => setIsBookTablePopupOpen(false)}
         title="Book a Table"
         description="Call us to make a reservation at our restaurant"
-        phoneNumber="+421910000000"
+        phoneNumber="+421901900008"
       />
       
       <CallPopup
@@ -170,7 +170,7 @@ export const Hero = () => {
         onClose={() => setIsEventManagerPopupOpen(false)}
         title="Event Manager"
         description="Contact our event manager for special occasions and private events"
-        phoneNumber="+421910000000"
+        phoneNumber="+421902966666"
       />
     </section>
   );

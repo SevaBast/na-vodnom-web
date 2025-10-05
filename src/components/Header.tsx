@@ -35,7 +35,7 @@ export const Header = () => {
     if (isMobile()) {
       // На мобільних пристроях створюємо невидиме посилання та клікаємо по ньому
       const link = document.createElement('a');
-      link.href = 'tel:+421910000000';
+      link.href = 'tel:+421901900008';
       link.style.display = 'none';
       document.body.appendChild(link);
       link.click();
@@ -51,7 +51,7 @@ export const Header = () => {
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
       {/* Desktop: Centered macOS Style Navigation Bar */}
-      <div className="hidden md:flex justify-center pt-4">
+      <div className="hidden md:flex justify-center pt-4 pb-2">
         <nav className="bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-6 py-3 shadow-lg mx-4 max-w-4xl w-full">
           <div className="flex items-center justify-between gap-4">
             {/* Logo - Left side */}
@@ -90,8 +90,14 @@ export const Header = () => {
         </nav>
       </div>
 
-      {/* Mobile: Centered Navigation Bar */}
-      <div className="md:hidden flex justify-center pt-3 px-4">
+      {/* Mobile: Centered Navigation Bar with Safe Area */}
+      <div 
+        className="md:hidden flex justify-center mobile-nav-safe android-nav-fix"
+        style={{
+          paddingTop: 'max(12px, env(safe-area-inset-top, 12px))',
+          paddingBottom: '8px'
+        }}
+      >
         <nav className="bg-white/20 backdrop-blur-md border border-white/30 rounded-full px-4 py-2.5 shadow-lg w-full max-w-sm">
           <div className="flex items-center justify-between">
             {/* Logo */}
@@ -116,9 +122,9 @@ export const Header = () => {
         </nav>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu with improved positioning */}
       {isMenuOpen && (
-        <div className="md:hidden flex justify-center px-4 mt-2">
+        <div className="md:hidden flex justify-center mobile-nav-safe mt-2">
           <div className="bg-white/20 backdrop-blur-md border border-white/30 rounded-2xl px-4 py-4 shadow-lg w-full max-w-sm">
             <div className="space-y-2">
               {menuItems.map((item) => (
@@ -150,7 +156,7 @@ export const Header = () => {
         onClose={() => setIsReservePopupOpen(false)}
         title="Reserve"
         description="Call us to make a reservation at our restaurant"
-        phoneNumber="+421910000000"
+        phoneNumber="+421901900008"
       />
     </header>
   );

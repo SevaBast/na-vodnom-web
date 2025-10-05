@@ -10,7 +10,6 @@ export const GalleryCarousel = ({ category }: GalleryCarouselProps) => {
   const [touchStart, setTouchStart] = useState({ x: 0, y: 0 });
   const [touchEnd, setTouchEnd] = useState({ x: 0, y: 0 });
   const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
-  const [isSwipeInProgress, setIsSwipeInProgress] = useState(false);
   
   const images = galleryCategoriesImages[category] || [];
 
@@ -43,52 +42,28 @@ export const GalleryCarousel = ({ category }: GalleryCarouselProps) => {
     return () => clearTimeout(timer);
   }, [isAutoplayPaused]);
 
-  // Свайп-навігація
+  // Свайп-навігація - спрощена версія без preventDefault
   const handleTouchStart = (e: React.TouchEvent) => {
     const touch = e.targetTouches[0];
     setTouchStart({ x: touch.clientX, y: touch.clientY });
     setTouchEnd({ x: 0, y: 0 });
-    setIsSwipeInProgress(false);
   };
 
   const handleTouchMove = (e: React.TouchEvent) => {
     if (!touchStart.x) return;
     
     const touch = e.targetTouches[0];
-    const deltaX = Math.abs(touchStart.x - touch.clientX);
-    const deltaY = Math.abs(touchStart.y - touch.clientY);
-    
-    // Як тільки почався рух - визначаємо напрямок
-    if (deltaX > 8 || deltaY > 8) {
-      if (deltaX > deltaY * 1.5) {
-        // Явно горизонтальний свайп - блокуємо тільки тоді
-        setIsSwipeInProgress(true);
-        e.preventDefault();
-        e.stopPropagation();
-      } else if (deltaY > deltaX * 1.5) {
-        // Явно вертикальний рух - дозволяємо скрол
-        return;
-      }
-    }
-    
-    // Якщо горизонтальний свайп вже почався - продовжуємо блокувати
-    if (isSwipeInProgress) {
-      e.preventDefault();
-      e.stopPropagation();
-    }
-    
     setTouchEnd({ x: touch.clientX, y: touch.clientY });
   };
 
   const handleTouchEnd = () => {
     if (!touchStart.x || !touchEnd.x) {
-      setIsSwipeInProgress(false);
       return;
     }
     
     const deltaX = touchStart.x - touchEnd.x;
     const deltaY = Math.abs(touchStart.y - touchEnd.y);
-    const isHorizontalSwipe = Math.abs(deltaX) > deltaY && Math.abs(deltaX) > 30;
+    const isHorizontalSwipe = Math.abs(deltaX) > deltaY && Math.abs(deltaX) > 50; // Збільшили поріг
     
     if (isHorizontalSwipe) {
       setIsAutoplayPaused(true);
@@ -102,7 +77,6 @@ export const GalleryCarousel = ({ category }: GalleryCarouselProps) => {
 
     setTouchStart({ x: 0, y: 0 });
     setTouchEnd({ x: 0, y: 0 });
-    setIsSwipeInProgress(false);
   };
 
   const goToSlide = (index: number) => {
@@ -121,10 +95,9 @@ export const GalleryCarousel = ({ category }: GalleryCarouselProps) => {
   return (
     <div className="w-full">
       <div 
-        className="relative w-full h-64 tablet:h-80 lg:h-96 overflow-hidden rounded-xl bg-gradient-card border border-glass-border shadow-lg"
+        className="gallery-carousel relative w-full h-64 tablet:h-80 lg:h-96 overflow-hidden rounded-xl bg-gradient-card border border-glass-border shadow-lg"
         style={{ 
-          boxShadow: '0 8px 32px -8px hsl(30 67% 22% / 0.16), 0 4px 16px -4px hsl(30 67% 22% / 0.12)',
-          touchAction: 'pan-y'
+          boxShadow: '0 8px 32px -8px hsl(30 67% 22% / 0.16), 0 4px 16px -4px hsl(30 67% 22% / 0.12)'
         }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}

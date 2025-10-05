@@ -23,7 +23,7 @@ export const Footer = () => {
     if (isMobile()) {
       // На мобільних пристроях створюємо невидиме посилання та клікаємо по ньому
       const link = document.createElement('a');
-      link.href = 'tel:+421910000000';
+      link.href = 'tel:+421901900008';
       link.style.display = 'none';
       document.body.appendChild(link);
       link.click();

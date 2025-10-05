@@ -332,4 +332,57 @@ button svg {
   display: inline-block !important;
 }
 
+/* Mobile Navigation Bar Fixes */
+@media screen and (max-width: 768px) {
+  /* Fix for various mobile browsers and safe areas */
+  .mobile-nav-safe {
+    padding-top: max(12px, env(safe-area-inset-top, 12px));
+    padding-left: max(16px, env(safe-area-inset-left, 16px));
+    padding-right: max(16px, env(safe-area-inset-right, 16px));
+  }
+  
+  /* Prevent content jumping on iOS Safari */
+  header {
+    transform: translateZ(0);
+    backface-visibility: hidden;
+  }
+  
+  /* Fix backdrop blur performance on mobile */
+  .backdrop-blur-md {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+}
+
+/* iOS specific fixes */
+@supports (-webkit-touch-callout: none) {
+  .mobile-nav-safe {
+    padding-top: max(12px, constant(safe-area-inset-top, 12px));
+    padding-left: max(16px, constant(safe-area-inset-left, 16px));
+    padding-right: max(16px, constant(safe-area-inset-right, 16px));
+  }
+}
+
+/* Android specific fixes */
+@media screen and (max-width: 768px) and (-webkit-min-device-pixel-ratio: 1) {
+  .android-nav-fix {
+    transform: translate3d(0, 0, 0);
+  }
+}
+
+/* Gallery Carousel Touch Optimization */
+.gallery-carousel, .celebrations-carousel {
+  touch-action: pan-y pinch-zoom;
+  -webkit-overflow-scrolling: touch;
+}
+
+/* Prevent unwanted scroll behavior during swipes */
+.gallery-carousel img, .celebrations-carousel img {
+  pointer-events: none;
+  user-select: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+}
+
 
