@@ -1,0 +1,218 @@
+{
+  "nav": {
+    "home": "Home",
+    "celebrations": "Celebrations", 
+    "menu": "Menu",
+    "gallery": "Gallery",
+    "reviews": "Reviews",
+    "about": "About",
+    "contact": "Contact"
+  },
+  "hero": {
+    "title": "Na Vodnom",
+    "subtitle": "Best Restaurant in Zilina",
+    "description": "Great cuisine, charcoal-grilled dishes, wood-fired pizza, modern bowls, and a children's corner. The perfect place for foodies and families alike. 🍽🌿 Enjoy the best dishes and drinks in a cozy atmosphere.🤎.",
+    "bookTable": "Book a Table",
+    "viewMenu": "View Menu",
+    "eventManager": "Event Manager",
+    "workingHours": "Working Hours"
+  },
+  "sections": {
+    "celebrations": {
+      "title": "Celebrations and Events",
+      "titlePart1": "Celebrations and",
+      "titlePart2": "Events",
+      "description": "Deliciously crafted catering for every special moment — from cozy gatherings to unforgettable celebrations.",
+      "showMenu": "Show Celebrations Menu",
+      "hideMenu": "Hide Celebrations Menu"
+    },
+    "menu": {
+      "title": "Our Menu",
+      "titlePart1": "Our",
+      "titlePart2": "Menu",
+      "description": "Discover the unique flavors of our cuisine — from traditional recipes to modern creations."
+    },
+    "reviews": {
+      "title": "Customer Reviews",
+      "titlePart1": "Customer",
+      "titlePart2": "Reviews",
+      "description": "Read what our guests say about their dining experience at our restaurant"
+    }
+  },
+  "values": {
+    "quality": {
+      "title": "Quality",
+      "description": "We use only the freshest and highest quality ingredients"
+    },
+    "hospitality": {
+      "title": "Hospitality",
+      "description": "Every guest is special and unique to us"
+    },
+    "creativity": {
+      "title": "Creativity", 
+      "description": "We constantly experiment and create new flavors"
+    },
+    "coziness": {
+      "title": "Coziness",
+      "description": "We create a homely atmosphere for pleasant relaxation"
+    }
+  },
+  "workingHours": {
+    "title": "Working Hours",
+    "days": {
+      "Monday": "Monday",
+      "Tuesday": "Tuesday",
+      "Wednesday": "Wednesday", 
+      "Thursday": "Thursday",
+      "Friday": "Friday",
+      "Saturday": "Saturday",
+      "Sunday": "Sunday"
+    }
+  },
+  "menu": {
+    "title": "Our Menu",
+    "subtitle": "Discover European Flavors",
+    "freshSalads": "Fresh Salads",
+    "freshSaladsDesc": "Fresh and healthy salads from the finest ingredients",
+    "signatureDishes": "Signature Dishes",
+    "signatureDishesDesc": "Unique European specialties prepared with love",
+    "dessertsAndCoffee": "Desserts & Coffee",
+    "dessertsAndCoffeeDesc": "Sweet endings and aromatic coffees",
+    "addToOrder": "Add to Order",
+    "myFavorites": "My Favorites",
+    "emptyFavorites": "Your favorites is empty",
+    "addFavoritesHint": "Add dishes from the menu by clicking the \"Add to Favorites\" button",
+    "viewMenu": "View Menu",
+    "clearAll": "Clear All",
+    "favoriteDishes": "favorite dishes",
+    "badges": {
+      "new": "New",
+      "popular": "Popular",
+      "vegetarian": "Vegetarian",
+      "spicy": "Spicy"
+    },
+    "actions": {
+      "addToFavorites": "Add to Favorites",
+      "removeFromFavorites": "Remove from Favorites",
+      "add": "Add",
+      "remove": "Remove"
+    },
+    "categories": {
+      "appetizers": "Appetizers",
+      "soups": "Soups",
+      "main-dishes": "Main Dishes",
+      "side-dishes": "Side Dishes",
+      "garden-bowls": "Garden Bowls",
+      "pizza": "Pizza",
+      "desserts": "Desserts",
+      "sauces": "Sauces",
+      "something-for-beer": "Something for Beer",
+      "my-choice": "My Choice",
+      "special-breakfast": "Special Breakfast",
+      "breakfast-side-dishes": "Breakfast Sides",
+      "classic": "Classic",
+      "toasts": "Toasts",
+      "bowls": "Bowls",
+      "all-kids-menu": "Kids Menu",
+      "alcoholic-drinks": "Alcoholic Drinks",
+      "vodka": "Vodka",
+      "gin": "Gin",
+      "roku-gin-cocktails": "Roku Gin Cocktails",
+      "distillates": "Distillates",
+      "tequila": "Tequila",
+      "rum": "Rum",
+      "whiskey-bourbon": "Whiskey & Bourbon",
+      "liqueurs": "Liqueurs",
+      "cognac-brandy": "Cognac & Brandy",
+      "beer-on-tap": "Beer (on tap)",
+      "coffee": "Coffee",
+      "specialty-coffee": "Specialty Coffee",
+      "matcha": "Matcha",
+      "teas": "Teas",
+      "homemade-lemonades": "Homemade Lemonades",
+      "non-alcoholic-beverages": "Non-Alcoholic Beverages",
+      "non-alcoholic-drinks": "Non-Alcoholic Drinks",
+      "cold-buffet": "Cold Buffet",
+      "hot-buffet": "Hot Buffet",
+      "candy-bar": "Candy Bar"
+    },
+    "types": {
+      "main": "Main Menu",
+      "breakfast": "Breakfast Menu",
+      "kids": "Kids Menu",
+      "drinks": "Drinks",
+      "celebrations": "Celebrations and Events"
+    }
+  },
+  "about": {
+    "title": "About Us",
+    "titlePart1": "About",
+    "titlePart2": "Us",
+    "subtitle": "",
+    "description": "Experience fine dining at Na Vodnom restaurant, where European cuisine meets elegant atmosphere. Located in the heart of Zilina, we offer an unforgettable culinary journey with capacity for 92 guests.",
+    "features": {
+      "capacity": "92 guests capacity",
+      "cuisine": "European cuisine",
+      "atmosphere": "Elegant & romantic",
+      "location": "Heart of Zilina"
+    },
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email"
+  },
+  "footer": {
+    "title": "Na Vodnom Restaurant",
+    "subtitle": "Best European cuisine in Zilina",
+    "contact": "Contact",
+    "hours": "Opening Hours",
+    "address": "Address",
+    "phone": "Phone",
+    "email": "Email",
+    "followUs": "Follow Us",
+    "allRightsReserved": "All rights reserved"
+  },
+  "gallery": {
+    "title": "Our Gallery",
+    "titlePart1": "Our",
+    "titlePart2": "Gallery",
+    "subtitle": "Immerse yourself in the atmosphere of our restaurant through photos of our dishes, interior and unforgettable moments",
+    "categories": {
+      "food": "Food",
+      "interior": "Interior",
+      "atmosphere": "Atmosphere",
+      "staff": "Staff"
+    }
+  },
+  "myOrder": {
+    "title": "My Favorites",
+    "itemCount_one": "{{count}} favorite dish",
+    "itemCount_other": "{{count}} favorite dishes",
+    "clearAll": "Clear All",
+    "removeFromFavorites": "Remove from Favorites",
+    "empty": {
+      "title": "Your favorites is empty",
+      "description": "Add dishes from the menu by clicking the \"Add to Favorites\" button",
+      "viewMenu": "View Menu"
+    }
+  },
+  "common": {
+    "loading": "Loading...",
+    "error": "Error",
+    "success": "Success",
+    "close": "Close",
+    "save": "Save",
+    "cancel": "Cancel",
+    "edit": "Edit",
+    "delete": "Delete",
+    "add": "Add",
+    "remove": "Remove"
+  },
+  "callPopup": {
+    "bookingTitle": "Book a Table",
+    "bookingDescription": "Call us to make a reservation at our restaurant",
+    "eventTitle": "Event Manager",
+    "eventDescription": "Contact our event manager for special occasions and private events",
+    "call": "Call",
+    "businessHours": "Business Hours: Mon-Thu 10:00-22:00, Fri-Sat 10:00-23:00, Sun 11:00-21:00"
+  }
+}

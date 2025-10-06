@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { MenuCategory, MenuItem, menuCategories, menuItems } from "@/data/menuData";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
@@ -7,6 +8,9 @@ import { useMyOrder } from "@/context/MyOrderContext";
 import { CelebrationsCarousel } from "./CelebrationsCarousel";
 
 export const CelebrationsSection = () => {
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language as 'sk' | 'en';
+  
   // Function to get default category for celebrations
   const getDefaultCategory = (): MenuCategory => {
     const celebrationsItems = menuItems.filter(item => item.menuType === 'celebrations');
@@ -37,11 +41,11 @@ export const CelebrationsSection = () => {
       <div className="container mx-auto px-3 sm:px-4 lg:px-6 pt-10 sm:pt-16 lg:pt-20">
         {/* Section Header */}
         <div className="text-center mb-8 sm:mb-12 lg:mb-16 animate-fade-in-up px-2">
-          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6">
-            Celebrations and <span className="text-primary">Events</span>
+          <h2 className="text-5xl sm:text-4xl md:text-5xl font-bold text-foreground mb-4 sm:mb-6">
+            {t('sections.celebrations.titlePart1')} <span className="text-primary">{t('sections.celebrations.titlePart2')}</span>
           </h2>
           <p className="text-sm sm:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto mb-6">
-            Perfect catering solutions for your special occasions - from intimate gatherings to grand celebrations
+            {t('sections.celebrations.description')}
           </p>
           
           {/* Expand/Collapse Button */}
@@ -52,7 +56,7 @@ export const CelebrationsSection = () => {
             size="default"
           >
             <span className="mr-2">🎉</span>
-            {isExpanded ? 'Hide Celebrations Menu' : 'Show Celebrations Menu'}
+            {isExpanded ? t('sections.celebrations.hideMenu') : t('sections.celebrations.showMenu')}
           </Button>
         </div>
 
@@ -75,8 +79,8 @@ export const CelebrationsSection = () => {
                     size="default"
                   >
                     <span className="mr-2">{category.icon}</span>
-                    <span className="hidden xs:inline sm:inline">{category.name}</span>
-                    <span className="xs:hidden sm:hidden">{category.name.split(' ')[0]}</span>
+                    <span className="hidden xs:inline sm:inline">{t(`menu.categories.${categoryKey}`)}</span>
+                    <span className="xs:hidden sm:hidden">{t(`menu.categories.${categoryKey}`).split(' ')[0]}</span>
                   </Button>
                 );
               })}
@@ -117,6 +121,9 @@ const CelebrationsList = ({
   onDecreaseQuantity, 
   getItemQuantity 
 }: CelebrationsListProps) => {
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language as 'sk' | 'en';
+  
   // Group items by category
   const itemsByCategory = filteredItems.reduce((acc, item) => {
     if (!acc[item.category]) {
@@ -145,7 +152,7 @@ const CelebrationsList = ({
             {selectedCategory === 'all' && (
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 flex items-center">
                 <span className="mr-2">{menuCategories[category]?.icon}</span>
-                {menuCategories[category]?.name || category}
+                {t(`menu.categories.${category}`) || category}
               </h3>
             )}
             
@@ -161,11 +168,11 @@ const CelebrationsList = ({
                   >
                     <div className="flex-1">
                       <h4 className="text-lg font-semibold text-foreground mb-1">
-                        {item.name}
+                        {item.name[currentLanguage]}
                       </h4>
                       {item.description && (
                         <p className="text-sm text-muted-foreground mb-2">
-                          {item.description}
+                          {item.description[currentLanguage]}
                         </p>
                       )}
                       
@@ -185,22 +192,22 @@ const CelebrationsList = ({
                       <div className="flex flex-wrap gap-2">
                         {item.isNew && (
                           <Badge variant="destructive" className="bg-accent text-accent-foreground text-xs">
-                            New
+                            {t('menu.badges.new')}
                           </Badge>
                         )}
                         {item.isPopular && (
                           <Badge variant="default" className="bg-primary text-primary-foreground text-xs">
-                            Popular
+                            {t('menu.badges.popular')}
                           </Badge>
                         )}
                         {item.isVegetarian && (
                           <Badge variant="secondary" className="bg-success/20 text-success text-xs">
-                            🥬 Vegan
+                            {t('menu.badges.vegetarian')}
                           </Badge>
                         )}
                         {item.isSpicy && (
                           <Badge variant="secondary" className="bg-destructive/20 text-destructive text-xs">
-                            🌶️ Spicy
+                            {t('menu.badges.spicy')}
                           </Badge>
                         )}
                       </div>
@@ -220,7 +227,7 @@ const CelebrationsList = ({
                           className="flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-primary-foreground px-3 py-2"
                         >
                           <Heart className="w-4 h-4" />
-                          <span className="hidden sm:inline text-sm">Add to Favorites</span>
+                          <span className="hidden sm:inline text-sm">{t('menu.actions.addToFavorites')}</span>
                         </Button>
                       ) : (
                         <Button
@@ -230,7 +237,7 @@ const CelebrationsList = ({
                           className="flex items-center gap-2 transition-all duration-300 text-destructive hover:text-destructive-foreground hover:bg-destructive px-3 py-2"
                         >
                           <Heart className="w-4 h-4 fill-current" />
-                          <span className="hidden sm:inline text-sm">Remove from Favorites</span>
+                          <span className="hidden sm:inline text-sm">{t('menu.actions.removeFromFavorites')}</span>
                         </Button>
                       )}
                     </div>

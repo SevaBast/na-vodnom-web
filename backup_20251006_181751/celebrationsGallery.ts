@@ -6,7 +6,6 @@ export interface CelebrationImage {
   url: string;
   alt: string;
   title?: string;
-  loading?: 'lazy' | 'eager';
 }
 
 export const celebrationsGalleryImages: CelebrationImage[] = [
@@ -14,22 +13,19 @@ export const celebrationsGalleryImages: CelebrationImage[] = [
     id: 'celebration-1',
     url: './bar-area.jpg',
     alt: 'Celebration Event 1',
-    title: 'Bar Area for Events',
-    loading: 'eager' // Перше зображення завантажується негайно
+    title: 'Bar Area for Events'
   },
   {
     id: 'celebration-2',
     url: './romantic-atmosphere.jpg',
     alt: 'Celebration Event 2',
-    title: 'Romantic Atmosphere',
-    loading: 'lazy'
+    title: 'Romantic Atmosphere'
   },
   {
     id: 'celebration-3',
     url: './restaurant-interior.jpg',
     alt: 'Celebration Event 3',
-    title: 'Restaurant Interior',
-    loading: 'lazy'
+    title: 'Restaurant Interior'
   }
 ];
 
@@ -41,7 +37,6 @@ export interface GalleryCarouselImage {
   url: string;
   alt: string;
   title?: string;
-  loading?: 'lazy' | 'eager';
 }
 
 export const galleryCategoriesImages: Record<string, GalleryCarouselImage[]> = {
@@ -50,22 +45,19 @@ export const galleryCategoriesImages: Record<string, GalleryCarouselImage[]> = {
       id: 'food-1',
       url: './food-signature-dish.jpg',
       alt: 'Signature Dish',
-      title: 'Our Signature Dishes',
-      loading: 'eager'
+      title: 'Our Signature Dishes'
     },
     {
       id: 'food-2',
       url: './fresh-salads.jpg',
       alt: 'Fresh Salads',
-      title: 'Fresh & Healthy Salads',
-      loading: 'lazy'
+      title: 'Fresh & Healthy Salads'
     },
     {
       id: 'food-3',
       url: './desserts-coffee.jpg',
       alt: 'Desserts & Coffee',
-      title: 'Desserts & Coffee',
-      loading: 'lazy'
+      title: 'Desserts & Coffee'
     },
     {
       id: 'food-4',

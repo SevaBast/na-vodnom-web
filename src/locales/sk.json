@@ -1,0 +1,220 @@
+{
+  "nav": {
+    "home": "Domov",
+    "celebrations": "Oslavy",
+    "menu": "Menu",
+    "gallery": "Galéria",
+    "reviews": "Recenzie",
+    "about": "O nás",
+    "contact": "Kontakt"
+  },
+  "hero": {
+    "title": "Na Vodnom",
+    "subtitle": "Najlepšia reštaurácia v Žiline",
+    "description": "Skvelá kuchyňa, jedlá grilované na drevenom uhlí, pizza pečená v peci na drevo, moderné misy a detský kútik. Ideálne miesto pre gurmánov aj rodiny. 🍽🌿 Vychutnajte si najlepšie jedlá a nápoje v útulnej atmosfére.🤎",
+    "bookTable": "Rezervovať stôl",
+    "viewMenu": "Zobraziť menu",
+    "eventManager": "Správca udalostí",
+    "workingHours": "Otváracie hodiny"
+  },
+  "sections": {
+    "celebrations": {
+      "title": "Oslavy a udalosti",
+      "titlePart1": "Oslavy a",
+      "titlePart2": "udalosti",
+      "description": "Lahodné cateringové služby pre každú špeciálnu príležitosť – od útulných posedení po nezabudnuteľné oslavy.",
+      "showMenu": "Zobraziť menu osláv",
+      "hideMenu": "Skryť menu osláv"
+    },
+    "menu": {
+      "title": "Naše menu",
+      "titlePart1": "Naše",
+      "titlePart2": "menu",
+      "description": "Objavte jedinečné chute našej kuchyne – od tradičných receptov po moderné kreácie."
+    },
+    "reviews": {
+      "title": "Recenzie zákazníkov",
+      "titlePart1": "Recenzie",
+      "titlePart2": "zákazníkov",
+      "description": "Prečítajte si, co hovoria naši hostia o svojich kulinárskych zážitkoch v našej reštaurácii"
+    }
+  },
+  "values": {
+    "quality": {
+      "title": "Kvalita",
+      "description": "Používame len najčerstvejšie a najkvalitnejšie ingrediencie"
+    },
+    "hospitality": {
+      "title": "Pohostinnosť", 
+      "description": "Každý hosť je pre nás výnimočný a jedinečný"
+    },
+    "creativity": {
+      "title": "Kreativita",
+      "description": "Neustále experimentujeme a vytvárame nové chute"
+    },
+    "coziness": {
+      "title": "Útulnosť",
+      "description": "Vytvárame domácu atmosféru pre príjemné oddýchnutie"
+    }
+  },
+  "workingHours": {
+    "title": "Otváracie hodiny",
+    "days": {
+      "Monday": "Pondelok",
+      "Tuesday": "Utorok", 
+      "Wednesday": "Streda",
+      "Thursday": "Štvrtok",
+      "Friday": "Piatok",
+      "Saturday": "Sobota",
+      "Sunday": "Nedeľa"
+    }
+  },
+  "menu": {
+    "title": "Naše Menu",
+    "subtitle": "Objavte chuť Európy",
+    "freshSalads": "Fresh Šaláty",
+    "freshSaladsDesc": "Čerstvé a zdravé šaláty z najlepších ingrediencií",
+    "signatureDishes": "Podpisové jedlá",
+    "signatureDishesDesc": "Jedinečné európske špeciality pripravené s láskou",
+    "dessertsCoffee": "Dezerty & Káva",
+    "dessertsCoffeeDesc": "Sladké potešenie a prémiová káva",
+    "addToOrder": "Pridať do objednávky",
+    "myFavorites": "Moje obľúbené",
+    "emptyFavorites": "Váš výber je prázdny",
+    "addFavoritesHint": "Pridajte jedlá z menu kliknutím na tlačidlo \"Pridať do obľúbených\"",
+    "viewMenu": "Zobraziť menu",
+    "clearAll": "Vymazať všetko",
+    "favoriteDishes": "obľúbených jedál",
+    "badges": {
+      "new": "Novinka",
+      "popular": "Populárne",
+      "vegetarian": "Vegetariánske",
+      "spicy": "Ostré"
+    },
+    "actions": {
+      "addToFavorites": "Pridať do obľúbených",
+      "removeFromFavorites": "Odstrániť z obľúbených",
+      "add": "Pridať",
+      "remove": "Odstrániť"
+    },
+    "categories": {
+      "appetizers": "Predjedlá",
+      "soups": "Polievky", 
+      "main-dishes": "Hlavné jedlá",
+      "side-dishes": "Prílohy",
+      "garden-bowls": "Garden Bowls",
+      "pizza": "Pizza",
+      "desserts": "Dezerty",
+      "sauces": "Omáčky",
+      "something-for-beer": "Niečo k pívečku",
+      "my-choice": "Môj výber",
+      "special-breakfast": "Špeciálne raňajky",
+      "breakfast-side-dishes": "Raňajkové prílohy",
+      "classic": "Klasické",
+      "toasts": "Tosty",
+      "bowls": "Bowls",
+      "all-kids-menu": "Detské menu",
+      "alcoholic-drinks": "Alkoholické nápoje",
+      "vodka": "Vodka",
+      "gin": "Gin",
+      "roku-gin-cocktails": "Roku Gin Cocktails",
+      "distillates": "Destiláty",
+      "tequila": "Tequila",
+      "rum": "Rum",
+      "whiskey-bourbon": "Whiskey & Bourbon",
+      "liqueurs": "Likéry",
+      "cognac-brandy": "Cognac & Brandy",
+      "beer-on-tap": "Pivo (točené)",
+      "coffee": "Káva",
+      "specialty-coffee": "Špeciálna káva",
+      "matcha": "Matcha",
+      "teas": "Čaje",
+      "homemade-lemonades": "Domáce limonády",
+      "non-alcoholic-beverages": "Nealkoholické nápoje",
+      "non-alcoholic-drinks": "Nealkoholické drinky",
+      "cold-buffet": "Studený bufet",
+      "hot-buffet": "Teplý bufet",
+      "candy-bar": "Candy Bar"
+    },
+    "types": {
+      "main": "Hlavné menu",
+      "breakfast": "Raňajkové menu",
+      "kids": "Detské menu",
+      "drinks": "Nápoje",
+      "celebrations": "Oslavy a eventy"
+    }
+  },
+  "about": {
+    "title": "O nás",
+    "titlePart1": "O",
+    "titlePart2": "nás",
+    "subtitle": "",
+    "description": "Zažite výnimočné jedenie v reštaurácii Na Vodnom, kde sa európska kuchyňa stretáva s elegantnou atmosférou. Nachádzame sa v srdci Žiliny a ponúkame nezabudnuteľnú kulinársku cestu s kapacitou pre 92 hostí.",
+    "features": {
+      "capacity": "Kapacita 92 hostí",
+      "cuisine": "Európska kuchyňa",
+      "atmosphere": "Elegantná a romantická",
+      "location": "Srdce Žiliny"
+    },
+    "address": "Adresa",
+    "addressText": "Žilina, Slovensko",
+    "phone": "Telefón",
+    "email": "Email"
+  },
+  "footer": {
+    "title": "Reštaurácia Na Vodnom",
+    "subtitle": "Najlepšia európska kuchyňa v Žiline",
+    "contact": "Kontakt",
+    "hours": "Otváracie hodiny",
+    "address": "Adresa",
+    "phone": "Telefón",
+    "email": "Email",
+    "followUs": "Sledujte nás na Instagrame",
+    "allRightsReserved": "All rights reserved"
+  },
+  "common": {
+    "loading": "Načítava...",
+    "error": "Chyba",
+    "success": "Úspech",
+    "close": "Zavrieť",
+    "save": "Uložiť",
+    "cancel": "Zrušiť",
+    "edit": "Upraviť",
+    "delete": "Vymazať",
+    "add": "Pridať",
+    "remove": "Odobrať"
+  },
+  "callPopup": {
+    "bookingTitle": "Rezervovať stôl",
+    "bookingDescription": "Zavolajte nám pre rezerváciu stolu v našej reštaurácii",
+    "eventTitle": "Event Manager", 
+    "eventDescription": "Kontaktujte nášho event manažéra pre špeciálne príležitosti a súkromné akcie",
+    "call": "Zavolať",
+    "businessHours": ""
+  },
+  "gallery": {
+    "title": "Naša Galéria",
+    "titlePart1": "Naša",
+    "titlePart2": "Galéria",
+    "subtitle": "Ponorte sa do atmosféry našej reštaurácie prostredníctvom fotografií našich jedál, interiéru a nezabudnuteľných chvíľ",
+    "categories": {
+      "food": "Jedlo",
+      "interior": "Interiér", 
+      "atmosphere": "Atmosféra",
+      "staff": "Personál"
+    }
+  },
+  "myOrder": {
+    "title": "Moje Obľúbené",
+    "itemCount_one": "{{count}} obľúbené jedlo",
+    "itemCount_few": "{{count}} obľúbené jedlá",
+    "itemCount_other": "{{count}} obľúbených jedál",
+    "clearAll": "Vyčistiť všetko",
+    "removeFromFavorites": "Odstrániť z obľúbených",
+    "empty": {
+      "title": "Vaše obľúbené je prázdne",
+      "description": "Pridajte jedlá z menu kliknutím na tlačidlo \"Pridať do obľúbených\"",
+      "viewMenu": "Zobraziť menu"
+    }
+  }
+}

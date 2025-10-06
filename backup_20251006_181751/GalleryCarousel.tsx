@@ -1,40 +1,6 @@
 import { useState, useEffect } from 'react';
 import { galleryCategoriesImages, GalleryCarouselImage } from '@/data/celebrationsGallery';
 
-// Компонент оптимізованого зображення з lazy loading
-const OptimizedImage = ({ 
-  image, 
-  loading, 
-  className 
-}: { 
-  image: GalleryCarouselImage; 
-  loading: 'lazy' | 'eager'; 
-  className: string; 
-}) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  return (
-    <div className="relative w-full h-full">
-      {/* Placeholder поки завантажується */}
-      {!imageLoaded && (
-        <div className="absolute inset-0 bg-muted/20 animate-pulse flex items-center justify-center">
-          <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
-      
-      <img 
-        src={image.url}
-        alt={image.alt}
-        className={`${className} transition-opacity duration-300 ${
-          imageLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
-        loading={loading}
-        onLoad={() => setImageLoaded(true)}
-      />
-    </div>
-  );
-};
-
 interface GalleryCarouselProps {
   category: string;
 }
@@ -147,10 +113,11 @@ export const GalleryCarousel = ({ category }: GalleryCarouselProps) => {
               index === currentIndex ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <OptimizedImage
-              image={image}
-              loading={index === 0 ? "eager" : "lazy"}
+            <img 
+              src={image.url}
+              alt={image.alt}
               className="w-full h-full object-cover"
+              loading={index === 0 ? "eager" : "lazy"}
             />
             {/* Gradient Overlay */}
             <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent"></div>

@@ -3,6 +3,7 @@ import { restaurantInfo } from "@/data/restaurantData";
 import Aurora from "./Aurora";
 import { useEffect, useState } from "react";
 import { CallPopup } from "./CallPopup";
+import { useTranslation } from 'react-i18next';
 
 // Manual logo size and positioning controls
 const LOGO_CONFIG = {
@@ -19,6 +20,7 @@ const LOGO_CONFIG = {
 };
 
 export const Hero = () => {
+  const { t } = useTranslation();
   const [isBookTablePopupOpen, setIsBookTablePopupOpen] = useState(false);
   const [isEventManagerPopupOpen, setIsEventManagerPopupOpen] = useState(false);
 
@@ -110,7 +112,7 @@ export const Hero = () => {
 
           {/* Description */}
           <p className="text-base tablet:text-lg text-[#5c4a38] max-w-3xl mx-auto leading-relaxed animate-blur-in-delay-1">
-            {restaurantInfo.description}
+            {t('hero.description')}
           </p>
 
           {/* CTA Buttons */}
@@ -121,7 +123,7 @@ export const Hero = () => {
               onClick={scrollToMenu}
               className="animate-glow w-full tablet:w-auto"
             >
-              View Menu
+              {t('hero.viewMenu')}
             </Button>
             <Button 
               variant="glass" 
@@ -129,7 +131,7 @@ export const Hero = () => {
               onClick={handleBookTable}
               className="w-full tablet:w-auto"
             >
-              Book a Table
+              {t('hero.bookTable')}
             </Button>
             <Button 
               variant="glass" 
@@ -137,17 +139,17 @@ export const Hero = () => {
               onClick={handleCallEventManager}
               className="w-full tablet:w-auto"
             >
-              Call Event Manager
+              {t('hero.eventManager')}
             </Button>
           </div>
 
           {/* Working Hours */}
           <div className="pt-5 text-center animate-blur-in-delay-3">
-            <p className="text-sm text-muted-foreground mb-2">Working Hours</p>
+            <p className="text-sm text-muted-foreground mb-2">{t('hero.workingHours')}</p>
             <div className="text-sm text-foreground">
               {Object.entries(restaurantInfo.workingHours).map(([day, hours]) => (
                 <div key={day} className="text-sm text-foreground flex justify-between">
-                  <span className="font-medium mr-0.5">{day}:</span>
+                  <span className="font-medium mr-0.5">{t(`workingHours.days.${day}`)}:</span>
                   <span>{hours}</span>
                 </div>
               ))}
@@ -160,17 +162,13 @@ export const Hero = () => {
       <CallPopup
         isOpen={isBookTablePopupOpen}
         onClose={() => setIsBookTablePopupOpen(false)}
-        title="Book a Table"
-        description="Call us to make a reservation at our restaurant"
-        phoneNumber="+421901900008"
+        purpose="booking"
       />
       
       <CallPopup
         isOpen={isEventManagerPopupOpen}
         onClose={() => setIsEventManagerPopupOpen(false)}
-        title="Event Manager"
-        description="Contact our event manager for special occasions and private events"
-        phoneNumber="+421902966666"
+        purpose="events"
       />
     </section>
   );

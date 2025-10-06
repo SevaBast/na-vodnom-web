@@ -4,8 +4,10 @@ import { Button } from "@/components/ui/button";
 import { MapPin, Clock, Phone, Mail } from "lucide-react";
 import { useState } from "react";
 import { CallPopup } from "./CallPopup";
+import { useTranslation } from 'react-i18next';
 
 export const About = () => {
+  const { t } = useTranslation();
   const [isBookTablePopupOpen, setIsBookTablePopupOpen] = useState(false);
 
   // Функція для перевірки чи це мобільний пристрій
@@ -35,11 +37,11 @@ export const About = () => {
       <div className="container mx-auto px-4">
         {/* Section Header */}
         <div className="text-center mb-12 tablet:mb-16 animate-fade-in-up">
-          <h2 className="text-3xl tablet:text-4xl md:text-5xl font-bold text-foreground mb-4 tablet:mb-6">
-            About <span className="text-primary">Us</span>
+          <h2 className="text-5xl tablet:text-4xl lg:text-5xl font-bold text-foreground mb-4 tablet:mb-6">
+            {t('about.titlePart1')} <span className="text-primary">{t('about.titlePart2')}</span>
           </h2>
           <p className="text-base tablet:text-lg text-darkBrown-foreground max-w-2xl mx-auto">
-            Learn more about our restaurant, our story and values
+            {t('about.subtitle')}
           </p>
         </div>
 
@@ -48,10 +50,10 @@ export const About = () => {
           <div className="space-y-8 animate-slide-in">
             <div>
               <h3 className="text-3xl font-bold text-foreground mb-4">
-                Our Story
+                {t('about.subtitle')}
               </h3>
               <p className="text-muted-foreground leading-relaxed mb-6">
-                {restaurantInfo.description}
+                {t('about.description')}
               </p>
               <p className="text-muted-foreground leading-relaxed">
                 We take pride in creating not just dishes, but true culinary masterpieces 
@@ -64,30 +66,30 @@ export const About = () => {
             <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
               <div className="bg-gradient-card p-4 rounded-lg border border-glass-border">
                 <div className="text-2xl mb-2">🌟</div>
-                <h4 className="font-semibold text-foreground mb-2">Quality</h4>
+                <h4 className="font-semibold text-foreground mb-2">{t('values.quality.title')}</h4>
                 <p className="text-sm text-muted-foreground">
-                  We use only the freshest and highest quality ingredients
+                  {t('values.quality.description')}
                 </p>
               </div>
               <div className="bg-gradient-card p-4 rounded-lg border border-glass-border">
                 <div className="text-2xl mb-2">❤️</div>
-                <h4 className="font-semibold text-foreground mb-2">Hospitality</h4>
+                <h4 className="font-semibold text-foreground mb-2">{t('values.hospitality.title')}</h4>
                 <p className="text-sm text-muted-foreground">
-                  Every guest is special and unique to us
+                  {t('values.hospitality.description')}
                 </p>
               </div>
               <div className="bg-gradient-card p-4 rounded-lg border border-glass-border">
                 <div className="text-2xl mb-2">🎨</div>
-                <h4 className="font-semibold text-foreground mb-2">Creativity</h4>
+                <h4 className="font-semibold text-foreground mb-2">{t('values.creativity.title')}</h4>
                 <p className="text-sm text-muted-foreground">
-                  We constantly experiment and create new flavors
+                  {t('values.creativity.description')}
                 </p>
               </div>
               <div className="bg-gradient-card p-4 rounded-lg border border-glass-border">
                 <div className="text-2xl mb-2">🏡</div>
-                <h4 className="font-semibold text-foreground mb-2">Coziness</h4>
+                <h4 className="font-semibold text-foreground mb-2">{t('values.coziness.title')}</h4>
                 <p className="text-sm text-muted-foreground">
-                  We create a homely atmosphere for pleasant relaxation
+                  {t('values.coziness.description')}
                 </p>
               </div>
             </div>
@@ -99,7 +101,7 @@ export const About = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-primary">
                   <MapPin className="w-5 h-5" />
-                  Address
+                  {t('about.address')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
@@ -123,14 +125,14 @@ export const About = () => {
               <CardHeader>
                 <CardTitle className="flex items-center gap-2 text-primary">
                   <Clock className="w-5 h-5" />
-                  Working Hours
+                  {t('workingHours.title')}
                 </CardTitle>
               </CardHeader>
               <CardContent>
                 <div className="space-y-2">
                   {Object.entries(restaurantInfo.workingHours).map(([day, hours]) => (
                     <div key={day} className="flex justify-between items-center">
-                      <span className="text-muted-foreground">{day}</span>
+                      <span className="text-muted-foreground">{t(`workingHours.days.${day}`)}</span>
                       <span className="font-medium text-foreground">{hours}</span>
                     </div>
                   ))}
@@ -143,7 +145,7 @@ export const About = () => {
                 <CardHeader className="pb-3">
                   <CardTitle className="flex items-center gap-2 text-primary text-base">
                     <Phone className="w-4 h-4" />
-                    Phone
+                    {t('about.phone')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-0">
@@ -160,7 +162,7 @@ export const About = () => {
                 <CardHeader className="pb-3">
                   <CardTitle className="flex items-center gap-2 text-primary text-base">
                     <Mail className="w-4 h-4" />
-                    Email
+                    {t('about.email')}
                   </CardTitle>
                 </CardHeader>
                 <CardContent className="pt-0">
@@ -181,9 +183,7 @@ export const About = () => {
       <CallPopup
         isOpen={isBookTablePopupOpen}
         onClose={() => setIsBookTablePopupOpen(false)}
-        title="Book a Table"
-        description="Call us to make a reservation at our restaurant"
-        phoneNumber="+421901900008"
+        purpose="booking"
       />
     </section>
   );

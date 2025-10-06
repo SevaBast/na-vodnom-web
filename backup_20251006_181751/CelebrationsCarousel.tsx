@@ -1,66 +1,23 @@
 import { useState, useEffect } from 'react';
-import { galleryCategoriesImages, GalleryCarouselImage } from '@/data/celebrationsGallery';
+import { celebrationsGalleryImages } from '@/data/celebrationsGallery';
 
-// Компонент оптимізованого зображення з lazy loading
-const OptimizedImage = ({ 
-  image, 
-  loading, 
-  className 
-}: { 
-  image: GalleryCarouselImage; 
-  loading: 'lazy' | 'eager'; 
-  className: string; 
-}) => {
-  const [imageLoaded, setImageLoaded] = useState(false);
-
-  return (
-    <div className="relative w-full h-full">
-      {/* Placeholder поки завантажується */}
-      {!imageLoaded && (
-        <div className="absolute inset-0 bg-muted/20 animate-pulse flex items-center justify-center">
-          <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
-        </div>
-      )}
-      
-      <img 
-        src={image.url}
-        alt={image.alt}
-        className={`${className} transition-opacity duration-300 ${
-          imageLoaded ? 'opacity-100' : 'opacity-0'
-        }`}
-        loading={loading}
-        onLoad={() => setImageLoaded(true)}
-      />
-    </div>
-  );
-};
-
-interface GalleryCarouselProps {
-  category: string;
-}
-
-export const GalleryCarousel = ({ category }: GalleryCarouselProps) => {
+export const CelebrationsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [touchStart, setTouchStart] = useState({ x: 0, y: 0 });
   const [touchEnd, setTouchEnd] = useState({ x: 0, y: 0 });
   const [isAutoplayPaused, setIsAutoplayPaused] = useState(false);
   
-  const images = galleryCategoriesImages[category] || [];
+  const images = celebrationsGalleryImages;
 
-  // Reset index when category changes
+  // Автоматичне прокручування кожні 3 секунди
   useEffect(() => {
-    setCurrentIndex(0);
-  }, [category]);
-
-  // Автоматичне прокручування кожні 4 секунди
-  useEffect(() => {
-    if (isAutoplayPaused || images.length <= 1) return;
+    if (isAutoplayPaused) return;
     
     const interval = setInterval(() => {
       setCurrentIndex((prevIndex) => 
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 4000);
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [images.length, isAutoplayPaused]);
@@ -113,31 +70,17 @@ export const GalleryCarousel = ({ category }: GalleryCarouselProps) => {
     setTouchEnd({ x: 0, y: 0 });
   };
 
-  const goToSlide = (index: number) => {
-    setCurrentIndex(index);
-    setIsAutoplayPaused(true);
-  };
-
-  if (images.length === 0) {
-    return (
-      <div className="w-full max-w-2xl mx-auto aspect-[4/3] bg-muted/30 rounded-xl flex items-center justify-center">
-        <p className="text-muted-foreground">No images available for this category</p>
-      </div>
-    );
-  }
-
   return (
-    <div className="w-full">
+    <div className="relative w-full max-w-3xl mx-auto mb-8 sm:mb-12 animate-fade-in">
+      {/* Carousel Container */}
       <div 
-        className="gallery-carousel relative w-full max-w-2xl mx-auto aspect-[4/3] overflow-hidden rounded-xl bg-gradient-card border border-glass-border shadow-lg"
+        className="celebrations-carousel relative aspect-[4/3] overflow-hidden rounded-xl border border-glass-border shadow-lg"
         style={{ 
           boxShadow: '0 8px 32px -8px hsl(30 67% 22% / 0.16), 0 4px 16px -4px hsl(30 67% 22% / 0.12)'
         }}
         onTouchStart={handleTouchStart}
         onTouchMove={handleTouchMove}
         onTouchEnd={handleTouchEnd}
-        onMouseEnter={() => setIsAutoplayPaused(true)}
-        onMouseLeave={() => setIsAutoplayPaused(false)}
       >
         {/* Images */}
         {images.map((image, index) => (
@@ -147,9 +90,9 @@ export const GalleryCarousel = ({ category }: GalleryCarouselProps) => {
               index === currentIndex ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <OptimizedImage
-              image={image}
-              loading={index === 0 ? "eager" : "lazy"}
+            <img
+              src={image.url}
+              alt={image.alt}
               className="w-full h-full object-cover"
             />
             {/* Gradient Overlay */}

@@ -1,11 +1,11 @@
 import { useState } from "react";
+import { useTranslation } from "react-i18next";
 import { galleryImages } from "@/data/restaurantData";
 import { Button } from "@/components/ui/button";
 import { GalleryCarousel } from "./GalleryCarousel";
 
-
-
 export const Gallery = () => {
+  const { t } = useTranslation();
   // Function to get default category
   const getDefaultCategory = (): string => {
     const availableCategories = Array.from(new Set(galleryImages.map(img => img.category)));
@@ -15,10 +15,10 @@ export const Gallery = () => {
   const [selectedCategory, setSelectedCategory] = useState<string>(getDefaultCategory());
 
   const categories = [
-    { key: 'food', name: 'Food', icon: '🍽️' },
-    { key: 'interior', name: 'Interior', icon: '🏛️' },
-    { key: 'atmosphere', name: 'Atmosphere', icon: '✨' },
-    { key: 'staff', name: 'Staff', icon: '👥' }
+    { key: 'food', icon: '🍽️' },
+    { key: 'interior', icon: '🏛️' },
+    { key: 'atmosphere', icon: '✨' },
+    { key: 'staff', icon: '👥' }
   ];
 
   return (
@@ -26,11 +26,11 @@ export const Gallery = () => {
       <div className="container mx-auto px-4 tablet:px-6">
         {/* Section Header */}
         <div className="text-center mb-10 tablet:mb-14 lg:mb-16 animate-fade-in-up">
-          <h2 className="text-3xl tablet:text-4xl lg:text-5xl font-bold text-foreground mb-4 tablet:mb-5 lg:mb-6">
-            Our <span className="text-primary">Gallery</span>
+          <h2 className="text-5xl tablet:text-4xl lg:text-5xl font-bold text-foreground mb-4 tablet:mb-5 lg:mb-6">
+            {t('gallery.titlePart1')} <span className="text-primary">{t('gallery.titlePart2')}</span>
           </h2>
           <p className="text-base tablet:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Immerse yourself in the atmosphere of our restaurant through photos of our dishes, interior and unforgettable moments
+            {t('gallery.subtitle')}
           </p>
         </div>
 
@@ -44,7 +44,7 @@ export const Gallery = () => {
               className="transition-all duration-300 hover:scale-105 text-sm tablet:text-base px-3 tablet:px-4 lg:px-5 py-2 tablet:py-2.5"
             >
               <span className="mr-1 tablet:mr-2">{category.icon}</span>
-              <span>{category.name}</span>
+              <span>{t(`gallery.categories.${category.key}`)}</span>
             </Button>
           ))}
         </div>

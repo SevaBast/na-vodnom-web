@@ -4,8 +4,10 @@ import { Separator } from "@/components/ui/separator";
 import { MapPin, Phone, Mail, Instagram } from "lucide-react";
 import { useState } from "react";
 import { CallPopup } from "./CallPopup";
+import { useTranslation } from 'react-i18next';
 
 export const Footer = () => {
+  const { t } = useTranslation();
   const [isBookTablePopupOpen, setIsBookTablePopupOpen] = useState(false);
 
   const scrollToTop = () => {
@@ -54,7 +56,7 @@ export const Footer = () => {
                   className="flex items-center gap-3 relative z-10"
                 >
                   <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
-                  <span className="text-xl font-bold">Follow us on Instagram</span>
+                  <span className="text-xl font-bold">{t('footer.followUs')}</span>
                 </a>
               </Button>
             </div>
@@ -62,12 +64,12 @@ export const Footer = () => {
 
           {/* Contact Info */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold mb-6 text-center">Contact</h3>
+            <h3 className="text-xl font-bold mb-6 text-center">{t('footer.contact')}</h3>
             
             <div className="flex items-start gap-3">
               <MapPin className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-background/90 font-medium ">Address</p>
+                <p className="text-background/90 font-medium ">{t('footer.address')}</p>
                 <p className="text-background/70 text-sm">{restaurantInfo.address}</p>
               </div>
             </div>
@@ -75,7 +77,7 @@ export const Footer = () => {
             <div className="flex items-start gap-3">
               <Phone className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-background/90 font-medium">Phone</p>
+                <p className="text-background/90 font-medium">{t('footer.phone')}</p>
                 <button 
                   onClick={handleBookTable}
                   className="text-background/70 text-sm hover:text-primary transition-colors cursor-pointer"
@@ -88,7 +90,7 @@ export const Footer = () => {
             <div className="flex items-start gap-3">
               <Mail className="w-5 h-5 text-primary mt-0.5 flex-shrink-0" />
               <div>
-                <p className="text-background/90 font-medium">Email</p>
+                <p className="text-background/90 font-medium">{t('footer.email')}</p>
                 <a 
                   href={`mailto:${restaurantInfo.email}`}
                   className="text-background/70 text-sm hover:text-primary transition-colors"
@@ -101,11 +103,11 @@ export const Footer = () => {
 
           {/* Working Hours */}
           <div className="space-y-4">
-            <h3 className="text-xl font-bold mb-6 text-center">Working Hours</h3>
+            <h3 className="text-xl font-bold mb-6 text-center">{t('footer.hours')}</h3>
             <div className="space-y-3">
               {Object.entries(restaurantInfo.workingHours).map(([day, hours]) => (
                 <div key={day} className="flex justify-between">
-                  <span className="text-background/80">{day}</span>
+                  <span className="text-background/80">{t(`workingHours.days.${day}`)}</span>
                   <span className="text-background/90 font-medium">{hours}</span>
                 </div>
               ))}
@@ -117,7 +119,7 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col items-center text-center text-sm text-background/60 space-y-2">
-          <p>© 2024 {restaurantInfo.name}. All rights reserved.</p>
+          <p>© 2024 {restaurantInfo.name}. {t('footer.allRightsReserved')}</p>
           <a 
             href="https://www.linkedin.com/in/vsevolod-bastiuchenko-203a31196/" 
             target="_blank" 
@@ -133,9 +135,7 @@ export const Footer = () => {
       <CallPopup
         isOpen={isBookTablePopupOpen}
         onClose={() => setIsBookTablePopupOpen(false)}
-        title="Book a Table"
-        description="Call us to make a reservation at our restaurant"
-        phoneNumber="+421901900008"
+        purpose="booking"
       />
     </footer>
   );

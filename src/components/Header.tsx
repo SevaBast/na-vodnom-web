@@ -1,20 +1,21 @@
 import { useState } from "react";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
-import { CallPopup } from "./CallPopup";
+import { LanguageSwitcher } from "./LanguageSwitcher";
+import { useTranslation } from 'react-i18next';
 
 export const Header = () => {
+  const { t } = useTranslation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-  const [isReservePopupOpen, setIsReservePopupOpen] = useState(false);
 
   const menuItems = [
-    { href: "#home", label: "Home" },
-    { href: "#celebrations", label: "Celebrations" },
-    { href: "#menu", label: "Menu" },
-    { href: "#gallery", label: "Gallery" },
-    { href: "#reviews", label: "Reviews" },
-    { href: "#about", label: "About" },
-    { href: "#contact", label: "Contact" }
+    { href: "#home", label: t('nav.home') },
+    { href: "#celebrations", label: t('nav.celebrations') },
+    { href: "#menu", label: t('nav.menu') },
+    { href: "#gallery", label: t('nav.gallery') },
+    { href: "#reviews", label: t('nav.reviews') },
+    { href: "#about", label: t('nav.about') },
+    { href: "#contact", label: t('nav.contact') }
   ];
 
   const scrollToSection = (href: string) => {
@@ -24,29 +25,6 @@ export const Header = () => {
       setIsMenuOpen(false);
     }
   };
-
-  // Функція для перевірки чи це мобільний пристрій
-  const isMobile = () => {
-    return window.matchMedia('(max-width: 768px)').matches || 
-           /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-  };
-
-  const handleReserve = () => {
-    if (isMobile()) {
-      // На мобільних пристроях створюємо невидиме посилання та клікаємо по ньому
-      const link = document.createElement('a');
-      link.href = 'tel:+421901900008';
-      link.style.display = 'none';
-      document.body.appendChild(link);
-      link.click();
-      document.body.removeChild(link);
-    } else {
-      // На комп'ютері показуємо попап
-      setIsReservePopupOpen(true);
-    }
-  };
-
-
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50">
@@ -76,15 +54,9 @@ export const Header = () => {
               ))}
             </div>
 
-            {/* Reserve Button - Right side */}
-            <div className="flex items-center flex-shrink-0">
-              <Button 
-                size="sm"
-                className="bg-gradient-primary text-primary-foreground hover:shadow-md hover:scale-105 font-medium transition-all duration-300 px-4 py-2 text-sm rounded-full"
-                onClick={handleReserve}
-              >
-                Reserve
-              </Button>
+            {/* Language Switcher - Right side */}
+            <div className="flex items-center gap-2 flex-shrink-0">
+              <LanguageSwitcher />
             </div>
           </div>
         </nav>
@@ -109,15 +81,18 @@ export const Header = () => {
               />
             </div>
 
-            {/* Mobile Menu Button */}
-            <Button
-              variant="ghost"
-              size="sm"
-              className="p-2 hover:bg-white/10 rounded-full"
-              onClick={() => setIsMenuOpen(!isMenuOpen)}
-            >
-              {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
-            </Button>
+            {/* Mobile Menu Button & Language Switcher */}
+            <div className="flex items-center gap-2">
+              <LanguageSwitcher />
+              <Button
+                variant="ghost"
+                size="sm"
+                className="p-2 hover:bg-white/10 rounded-full"
+                onClick={() => setIsMenuOpen(!isMenuOpen)}
+              >
+                {isMenuOpen ? <X size={18} /> : <Menu size={18} />}
+              </Button>
+            </div>
           </div>
         </nav>
       </div>
@@ -136,28 +111,10 @@ export const Header = () => {
                   {item.label}
                 </button>
               ))}
-              
-              <div className="pt-2 border-t border-white/20 mt-4">
-                <Button 
-                  className="w-full bg-gradient-primary text-primary-foreground hover:shadow-md font-medium transition-all duration-300 py-2.5 text-sm rounded-xl"
-                  onClick={handleReserve}
-                >
-                  Reserve
-                </Button>
-              </div>
             </div>
           </div>
         </div>
       )}
-
-      {/* Call Popup - тільки для комп'ютерної версії */}
-      <CallPopup
-        isOpen={isReservePopupOpen}
-        onClose={() => setIsReservePopupOpen(false)}
-        title="Reserve"
-        description="Call us to make a reservation at our restaurant"
-        phoneNumber="+421901900008"
-      />
     </header>
   );
 };

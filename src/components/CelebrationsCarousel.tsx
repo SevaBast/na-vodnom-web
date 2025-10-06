@@ -1,5 +1,39 @@
 import { useState, useEffect } from 'react';
-import { celebrationsGalleryImages } from '@/data/celebrationsGallery';
+import { celebrationsGalleryImages, CelebrationImage } from '@/data/celebrationsGallery';
+
+// Компонент оптимізованого зображення з lazy loading
+const OptimizedImage = ({ 
+  image, 
+  loading, 
+  className 
+}: { 
+  image: CelebrationImage; 
+  loading: 'lazy' | 'eager'; 
+  className: string; 
+}) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  return (
+    <div className="relative w-full h-full">
+      {/* Placeholder поки завантажується */}
+      {!imageLoaded && (
+        <div className="absolute inset-0 bg-muted/20 animate-pulse flex items-center justify-center">
+          <div className="w-8 h-8 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      
+      <img 
+        src={image.url}
+        alt={image.alt}
+        className={`${className} transition-opacity duration-300 ${
+          imageLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        loading={loading}
+        onLoad={() => setImageLoaded(true)}
+      />
+    </div>
+  );
+};
 
 export const CelebrationsCarousel = () => {
   const [currentIndex, setCurrentIndex] = useState(0);
@@ -71,10 +105,10 @@ export const CelebrationsCarousel = () => {
   };
 
   return (
-    <div className="relative w-full max-w-5xl mx-auto mb-8 sm:mb-12 animate-fade-in">
+    <div className="relative w-full max-w-3xl mx-auto mb-8 sm:mb-12 animate-fade-in">
       {/* Carousel Container */}
       <div 
-        className="celebrations-carousel relative h-64 tablet:h-80 lg:h-96 overflow-hidden rounded-xl border border-glass-border shadow-lg"
+        className="celebrations-carousel relative aspect-[4/3] overflow-hidden rounded-xl border border-glass-border shadow-lg"
         style={{ 
           boxShadow: '0 8px 32px -8px hsl(30 67% 22% / 0.16), 0 4px 16px -4px hsl(30 67% 22% / 0.12)'
         }}
@@ -90,9 +124,9 @@ export const CelebrationsCarousel = () => {
               index === currentIndex ? 'opacity-100' : 'opacity-0'
             }`}
           >
-            <img
-              src={image.url}
-              alt={image.alt}
+            <OptimizedImage
+              image={image}
+              loading={index === 0 ? "eager" : "lazy"}
               className="w-full h-full object-cover"
             />
             {/* Gradient Overlay */}

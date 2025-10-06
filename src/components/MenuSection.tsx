@@ -7,8 +7,50 @@ import { menuCategories, menuItems, menuTypes } from '@/data/menuData';
 import { MenuCategory, MenuType, MenuItem } from '@/data/menuData';
 import { useMyOrder } from "@/context/MyOrderContext";
 import { MyOrder } from "./MyOrder";
+import { useTranslation } from 'react-i18next';
+
+// Компонент оптимізованого зображення для меню з lazy loading
+const MenuItemOptimizedImage = ({ 
+  menuItem, 
+  currentLanguage,
+  index,
+  className 
+}: { 
+  menuItem: MenuItem; 
+  currentLanguage: 'sk' | 'en';
+  index: number;
+  className: string; 
+}) => {
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  // Перші 2-3 зображення завантажуються негайно, решта lazy
+  const loading = index < 3 ? 'eager' : 'lazy';
+
+  return (
+    <div className="relative overflow-hidden h-48">
+      {/* Placeholder поки завантажується */}
+      {!imageLoaded && (
+        <div className="absolute inset-0 bg-muted/20 animate-pulse flex items-center justify-center">
+          <div className="w-6 h-6 border-2 border-primary border-t-transparent rounded-full animate-spin"></div>
+        </div>
+      )}
+      
+      <img 
+        src={menuItem.image || './placeholder.svg'}
+        alt={menuItem.name[currentLanguage]}
+        className={`${className} transition-opacity duration-300 ${
+          imageLoaded ? 'opacity-100' : 'opacity-0'
+        }`}
+        loading={loading}
+        onLoad={() => setImageLoaded(true)}
+      />
+    </div>
+  );
+};
 
 export const MenuSection = () => {
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language as 'sk' | 'en';
   const [selectedMenuType, setSelectedMenuType] = useState<MenuType>('main');
   
   // Function to get default category for menu type
@@ -58,11 +100,11 @@ export const MenuSection = () => {
       <div className="container mx-auto px-3 tablet:px-5 lg:px-6 pt-10 tablet:pt-14 lg:pt-20">
         {/* Section Header */}
         <div className="text-center mb-8 tablet:mb-10 lg:mb-16 animate-fade-in-up px-2">
-          <h2 className="text-3xl tablet:text-4xl lg:text-5xl font-bold text-foreground mb-4 tablet:mb-5 lg:mb-6">
-            Our <span className="text-primary">Menu</span>
+          <h2 className="text-5xl tablet:text-4xl lg:text-5xl font-bold text-foreground mb-4 tablet:mb-5 lg:mb-6">
+            {t('sections.menu.titlePart1')} <span className="text-primary">{t('sections.menu.titlePart2')}</span>
           </h2>
           <p className="text-sm tablet:text-base lg:text-lg text-muted-foreground max-w-2xl mx-auto">
-            Discover unique flavors of our cuisine - from traditional dishes to modern European culinary
+            {t('sections.menu.description')}
           </p>
         </div>
 
@@ -82,7 +124,7 @@ export const MenuSection = () => {
               size="default"
             >
               <span className="mr-2">{menuType.icon}</span>
-              <span className="truncate">{menuType.name}</span>
+              <span className="truncate">{t(`menu.types.${key}`)}</span>
             </Button>
           ))}
           
@@ -94,7 +136,7 @@ export const MenuSection = () => {
             size="default"
           >
             <span className="mr-2">{menuCategories['my-choice'].icon}</span>
-            <span className="truncate">{menuCategories['my-choice'].name}</span>
+            <span className="truncate">{t('menu.categories.my-choice')}</span>
             {myOrder.totalItems > 0 && (
               <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-5 w-5 flex items-center justify-center font-bold">
                 {myOrder.totalItems}
@@ -122,7 +164,7 @@ export const MenuSection = () => {
                   } transition-[background-color,color,transform,box-shadow] duration-300 text-xs tablet:text-sm lg:text-base px-3 tablet:px-4 lg:px-5 py-2 tablet:py-2.5 rounded-full shadow-lg whitespace-nowrap`}
                 >
                   <span className="mr-1 tablet:mr-2">{category.icon}</span>
-                  <span className="truncate">{category.name}</span>
+                  <span className="truncate">{t(`menu.categories.${categoryKey}`)}</span>
                 </button>
               );
             })}
@@ -222,25 +264,27 @@ interface MenuItemCardProps {
 }
 
 const MenuItemCard = ({ item, index, onAddToOrder, onIncreaseQuantity, onDecreaseQuantity, itemQuantity }: MenuItemCardProps) => {
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language as 'sk' | 'en';
+  
   return (
     <Card 
       className="group hover:shadow-elegant transition-all duration-300 bg-gradient-card border-glass-border hover:scale-105 overflow-hidden"
       style={{ animationDelay: `${index * 0.1}s` }}
     >
       {/* Image */}
-      <div className="relative overflow-hidden h-48">
-        <img 
-          src={item.image || './placeholder.svg'}
-          alt={item.name}
-          className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
-        />
-      </div>
+      <MenuItemOptimizedImage
+        menuItem={item}
+        currentLanguage={currentLanguage}
+        index={index}
+        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+      />
 
       <CardHeader className="pb-3">
         <div className="flex justify-between items-start">
           <div className="flex-1">
             <CardTitle className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors duration-300">
-              {item.name}
+              {item.name[currentLanguage]}
             </CardTitle>
           </div>
           <div className="text-right">
@@ -253,7 +297,7 @@ const MenuItemCard = ({ item, index, onAddToOrder, onIncreaseQuantity, onDecreas
       
       <CardContent className="pt-0">
         <CardDescription className="text-muted-foreground mb-4">
-          {item.description}
+          {item.description[currentLanguage]}
         </CardDescription>
         
         {/* Weight and Calories */}
@@ -271,22 +315,22 @@ const MenuItemCard = ({ item, index, onAddToOrder, onIncreaseQuantity, onDecreas
         <div className="flex flex-wrap gap-2 mb-4">
           {item.isNew && (
             <Badge variant="destructive" className="bg-accent text-accent-foreground">
-              New
+              {t('menu.badges.new')}
             </Badge>
           )}
           {item.isPopular && (
             <Badge variant="default" className="bg-primary text-primary-foreground">
-              Popular
+              {t('menu.badges.popular')}
             </Badge>
           )}
           {item.isVegetarian && (
             <Badge variant="secondary" className="bg-success/20 text-success">
-              🥬 Vegetarian
+              {t('menu.badges.vegetarian')}
             </Badge>
           )}
           {item.isSpicy && (
             <Badge variant="secondary" className="bg-destructive/20 text-destructive">
-              🌶️ Spicy
+              {t('menu.badges.spicy')}
             </Badge>
           )}
         </div>
@@ -301,7 +345,7 @@ const MenuItemCard = ({ item, index, onAddToOrder, onIncreaseQuantity, onDecreas
               className="w-full sm:w-auto flex items-center justify-center gap-2 transition-all duration-300 text-primary hover:text-primary-foreground hover:bg-primary px-4 py-2"
             >
               <Heart className="w-4 h-4" />
-              <span className="text-sm font-medium">Add to Favorites</span>
+              <span className="text-sm font-medium">{t('menu.actions.addToFavorites')}</span>
             </Button>
           ) : (
             <Button
@@ -311,7 +355,7 @@ const MenuItemCard = ({ item, index, onAddToOrder, onIncreaseQuantity, onDecreas
               className="w-full sm:w-auto flex items-center justify-center gap-2 transition-all duration-300 text-destructive hover:text-destructive-foreground hover:bg-destructive px-4 py-2"
             >
               <Heart className="w-4 h-4 fill-current" />
-              <span className="text-sm font-medium">Remove from Favorites</span>
+              <span className="text-sm font-medium">{t('menu.actions.removeFromFavorites')}</span>
             </Button>
           )}
         </div>
@@ -330,6 +374,9 @@ interface DrinksMenuProps {
 }
 
 const DrinksMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQuantity, onDecreaseQuantity, getItemQuantity }: DrinksMenuProps) => {
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language as 'sk' | 'en';
+  
   // Group items by category
   const itemsByCategory = filteredItems.reduce((acc, item) => {
     if (!acc[item.category]) {
@@ -365,7 +412,7 @@ const DrinksMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQ
           {selectedCategory === 'all' && (
             <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 flex items-center">
               <span className="mr-2">{menuCategories[category]?.icon}</span>
-              {menuCategories[category]?.name || category}
+              {t(`menu.categories.${category}`) || category}
             </h3>
           )}
           
@@ -381,11 +428,11 @@ const DrinksMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQ
                 >
                   <div className="flex-1">
                     <h4 className="text-lg font-semibold text-foreground mb-1">
-                      {item.name}
+                      {item.name[currentLanguage]}
                     </h4>
                     {item.description && (
                       <p className="text-sm text-muted-foreground mb-2">
-                        {item.description}
+                        {item.description[currentLanguage]}
                       </p>
                     )}
                     
@@ -405,17 +452,17 @@ const DrinksMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQ
                     <div className="flex flex-wrap gap-2">
                       {item.isNew && (
                         <Badge variant="destructive" className="bg-accent text-accent-foreground text-xs">
-                          New
+                          {t('menu.badges.new')}
                         </Badge>
                       )}
                       {item.isPopular && (
                         <Badge variant="default" className="bg-primary text-primary-foreground text-xs">
-                          Popular
+                          {t('menu.badges.popular')}
                         </Badge>
                       )}
                       {item.isVegetarian && (
                         <Badge variant="secondary" className="bg-success/20 text-success text-xs">
-                          🥬 Vegan
+                          {t('menu.badges.vegetarian')}
                         </Badge>
                       )}
                     </div>
@@ -435,7 +482,7 @@ const DrinksMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQ
                         className="flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-primary-foreground px-3 py-2"
                       >
                         <Heart className="w-4 h-4" />
-                        <span className="hidden sm:inline text-sm">Add</span>
+                        <span className="hidden sm:inline text-sm">{t('menu.actions.add')}</span>
                       </Button>
                     ) : (
                       <Button
@@ -445,7 +492,7 @@ const DrinksMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQ
                         className="flex items-center gap-2 transition-all duration-300 text-destructive hover:text-destructive-foreground hover:bg-destructive px-3 py-2"
                       >
                         <Heart className="w-4 h-4 fill-current" />
-                        <span className="hidden sm:inline text-sm">Remove</span>
+                        <span className="hidden sm:inline text-sm">{t('menu.actions.remove')}</span>
                       </Button>
                     )}
                   </div>
@@ -470,6 +517,9 @@ interface ListMenuProps {
 }
 
 const ListMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQuantity, onDecreaseQuantity, getItemQuantity, selectedMenuType }: ListMenuProps) => {
+  const { t, i18n } = useTranslation();
+  const currentLanguage = i18n.language as 'sk' | 'en';
+  
   // Group ALL items by category (both list and card items)
   const allItemsByCategory = filteredItems.reduce((acc, item) => {
     if (!acc[item.category]) {
@@ -508,7 +558,7 @@ const ListMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQua
             {selectedCategory === 'all' && (
               <h3 className="text-xl sm:text-2xl font-bold text-foreground mb-4 flex items-center">
                 <span className="mr-2">{menuCategories[category]?.icon}</span>
-                {menuCategories[category]?.name || category}
+                {t(`menu.categories.${category}`) || category}
               </h3>
             )}
             
@@ -526,11 +576,11 @@ const ListMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQua
                     >
                       <div className="flex-1">
                         <h4 className="text-lg font-semibold text-foreground mb-1">
-                          {item.name}
+                          {item.name[currentLanguage]}
                         </h4>
                         {item.description && (
                           <p className="text-sm text-muted-foreground mb-2">
-                            {item.description}
+                            {item.description[currentLanguage]}
                           </p>
                         )}
                         
@@ -585,7 +635,7 @@ const ListMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQua
                             className="flex items-center gap-2 transition-all duration-300 hover:bg-primary hover:text-primary-foreground px-3 py-2"
                           >
                             <Heart className="w-4 h-4" />
-                            <span className="hidden sm:inline text-sm">Add</span>
+                            <span className="hidden sm:inline text-sm">{t('menu.actions.add')}</span>
                           </Button>
                         ) : (
                           <Button
@@ -595,7 +645,7 @@ const ListMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQua
                             className="flex items-center gap-2 transition-all duration-300 text-destructive hover:text-destructive-foreground hover:bg-destructive px-3 py-2"
                           >
                             <Heart className="w-4 h-4 fill-current" />
-                            <span className="hidden sm:inline text-sm">Remove</span>
+                            <span className="hidden sm:inline text-sm">{t('menu.actions.remove')}</span>
                           </Button>
                         )}
                       </div>

@@ -1,12 +1,28 @@
 User-agent: *
 Allow: /
 
-# Prioritné crawling pre hlavné boty
+# Prioritné crawling pre hlavné boty a AI systémy
 User-agent: Googlebot
 Allow: /
 Crawl-delay: 1
 
-User-agent: Bingbot
+User-agent: Bingbot  
+Allow: /
+Crawl-delay: 1
+
+User-agent: ChatGPT-User
+Allow: /
+Crawl-delay: 1
+
+User-agent: GPTBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: PerplexityBot
+Allow: /
+Crawl-delay: 1
+
+User-agent: ClaudeBot
 Allow: /
 Crawl-delay: 1
 
@@ -16,6 +32,10 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
+# Špecialny prístup pre AI training data
+Allow: /ai-training-data.txt
+Allow: /sitemap.xml
+
 # Zablokovať zbytočné súbory
 Disallow: /node_modules/
 Disallow: /src/
@@ -24,7 +44,7 @@ Disallow: /*.config.*$
 Disallow: /dist/
 
 # Sitemap lokácia
-Sitemap: https://na-vodnom.com/sitemap.xml
+Sitemap: https://navodnom.com/sitemap.xml
 
 # Crawl delay pre ostatných
 Crawl-delay: 5oglebot
