@@ -6,18 +6,30 @@ import { Button } from "@/components/ui/button";
 import { Plus, Minus, Heart } from "lucide-react";
 import { useMyOrder } from "@/context/MyOrderContext";
 import { CelebrationsCarousel } from "./CelebrationsCarousel";
+import { formatPrice } from "@/lib/utils";
 
 export const CelebrationsSection = () => {
   const { t, i18n } = useTranslation();
   const currentLanguage = i18n.language as 'sk' | 'en';
+  
+  // Manual control for showing/hiding specific categories
+  // To hide a category, set its value to false
+  // To show a category, set its value to true
+  const [visibleCategories, setVisibleCategories] = useState<Record<string, boolean>>({
+    'cold-buffet': true,
+    'hot-buffet': true,
+    'candy-bar': true,
+    'vianoce-2025': true,  // Set to false to hide Christmas 2025 menu
+    'grilovacka': true,    // Set to false to hide BBQ Party menu
+  });
   
   // Function to get default category for celebrations
   const getDefaultCategory = (): MenuCategory => {
     const celebrationsItems = menuItems.filter(item => item.menuType === 'celebrations');
     const availableCategories = Array.from(
       new Set(celebrationsItems.map(item => item.category))
-    );
-    return availableCategories[0] || 'cold-buffet'; // Return first category or fallback
+    ).filter(category => visibleCategories[category] !== false);
+    return availableCategories[0] || 'cold-buffet'; // Return first visible category or fallback
   };
 
   const [selectedCategory, setSelectedCategory] = useState<MenuCategory>(getDefaultCategory());
@@ -31,10 +43,10 @@ export const CelebrationsSection = () => {
 
   const filteredItems = celebrationsItems.filter(item => item.category === selectedCategory);
 
-  // Get available categories for celebrations menu
+  // Get available categories for celebrations menu (only visible ones)
   const availableCategories = Array.from(
     new Set(celebrationsItems.map(item => item.category))
-  );
+  ).filter(category => visibleCategories[category] !== false);
 
   return (
     <section id="celebrations" className="pt-0 pb-10 sm:pb-16 lg:pb-20 bg-background -mt-8">
@@ -215,7 +227,7 @@ const CelebrationsList = ({
                     
                     <div className="flex items-center gap-4 ml-4">
                       <span className="text-xl font-bold text-primary">
-                        €{item.price}
+                        {formatPrice(item.price, currentLanguage)}
                       </span>
                       
                       {/* Add to Favorites Buttons */}

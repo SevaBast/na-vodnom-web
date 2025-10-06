@@ -7,8 +7,6 @@ interface MyOrderContextType {
   myOrder: MyOrder;
   addItem: (menuItem: MenuItem) => void;
   removeItem: (orderItemId: string) => void;
-  decreaseQuantity: (orderItemId: string) => void;
-  increaseQuantity: (orderItemId: string) => void;
   decreaseItemQuantity: (menuItemId: string) => void;
   increaseItemQuantity: (menuItemId: string) => void;
   clearOrder: () => void;
@@ -68,7 +66,6 @@ export const MyOrderProvider = ({ children }: MyOrderProviderProps) => {
         const newOrderItem: OrderItem = {
           id: `favorites-${menuItem.id}-${Date.now()}`,
           menuItem,
-          quantity: 1, // Always 1 for favorites
           addedAt: new Date()
         };
         updatedItems = [...prevItems, newOrderItem];
@@ -133,8 +130,7 @@ export const MyOrderProvider = ({ children }: MyOrderProviderProps) => {
   // Calculate total metrics for favorites
   const myOrder: MyOrder = {
     items: orderItems,
-    totalItems: orderItems.length, // For favorites, count unique items, not quantities
-    totalPrice: parseFloat(orderItems.reduce((sum, item) => sum + item.menuItem.price, 0).toFixed(2)) // Sum prices without quantity multiplier
+    totalItems: orderItems.length // For favorites, count unique items
   };
 
   // Check if dish is in favorites
@@ -151,8 +147,6 @@ export const MyOrderProvider = ({ children }: MyOrderProviderProps) => {
     myOrder,
     addItem,
     removeItem,
-    decreaseQuantity,
-    increaseQuantity,
     decreaseItemQuantity,
     increaseItemQuantity,
     clearOrder,

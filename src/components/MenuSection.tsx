@@ -8,6 +8,7 @@ import { MenuCategory, MenuType, MenuItem } from '@/data/menuData';
 import { useMyOrder } from "@/context/MyOrderContext";
 import { MyOrder } from "./MyOrder";
 import { useTranslation } from 'react-i18next';
+import { formatPrice } from "@/lib/utils";
 
 // Компонент оптимізованого зображення для меню з lazy loading
 const MenuItemOptimizedImage = ({ 
@@ -289,7 +290,7 @@ const MenuItemCard = ({ item, index, onAddToOrder, onIncreaseQuantity, onDecreas
           </div>
           <div className="text-right">
             <p className="text-xl font-bold text-primary">
-              €{item.price}
+              {formatPrice(item.price, currentLanguage)}
             </p>
           </div>
         </div>
@@ -470,7 +471,7 @@ const DrinksMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQ
                   
                   <div className="flex items-center gap-4 ml-4">
                     <span className="text-xl font-bold text-primary">
-                      €{item.price}
+                      {formatPrice(item.price, currentLanguage)}
                     </span>
                     
                     {/* Add to Favorites Button */}
@@ -623,7 +624,7 @@ const ListMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQua
                       
                       <div className="flex items-center gap-4 ml-4">
                         <span className="text-xl font-bold text-primary">
-                          €{item.price}
+                          {formatPrice(item.price, currentLanguage)}
                         </span>
                         
                         {/* Add to Favorites Button */}

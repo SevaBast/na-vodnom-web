@@ -8,7 +8,10 @@ export interface MenuItem {
     sk: string;
     en: string;
   };
-  price: number;
+  price: number | string | {
+    sk: string;
+    en: string;
+  };
   image?: string;
   loading?: 'lazy' | 'eager'; // Для оптимізації завантаження зображень
   category: MenuCategory;
@@ -26,13 +29,11 @@ export interface MenuItem {
 export interface OrderItem {
   id: string;
   menuItem: MenuItem;
-  quantity: number;
   addedAt: Date;
 }
 
 export interface MyOrder {
   items: OrderItem[];
-  totalPrice: number;
   totalItems: number;
 }
 
@@ -79,7 +80,9 @@ export type MenuCategory =
   // Celebrations and Events categories
   | 'cold-buffet'
   | 'hot-buffet'
-  | 'candy-bar';
+  | 'candy-bar'
+  | 'vianoce-2025'
+  | 'grilovacka';
 
 
 export const menuCategories: Record<MenuCategory, { name: string; icon: string; order: number }> = {
@@ -124,6 +127,8 @@ export const menuCategories: Record<MenuCategory, { name: string; icon: string; 
   'cold-buffet': { name: 'Cold Buffet', icon: '🥗', order: 19 },
   'hot-buffet': { name: 'Hot Buffet', icon: '🍲', order: 20 },
   'candy-bar': { name: 'Candy Bar', icon: '🍭', order: 21 },
+  'vianoce-2025': { name: 'Christmas 2025', icon: '🎄', order: 22 },
+  'grilovacka': { name: 'BBQ Party', icon: '🔥', order: 23 },
 };
 
 export const menuTypes: Record<MenuType, { name: string; icon: string }> = {
@@ -177,18 +182,12 @@ export const menuItems: MenuItem[] = [
   {
     id: 'appetizers-3',
     name: {
-
       sk: 'Pučené Baby Zemiaky',
-
       en: 'needs translation'
-
     },
     description: {
-
       sk: 'perlová cibuľka, petržlenová vňať, koriander, jalapeños, queso omačka (6*)',
-
       en: 'needs translation'
-
     },
     price: 6.50,
     image: './placeholder.svg',
@@ -204,18 +203,12 @@ export const menuItems: MenuItem[] = [
   {
     id: 'appetizers-4',
     name: {
-
       sk: 'Vyprážaný Falafel',
-
       en: 'needs translation'
-
     },
     description: {
-
       sk: 'mix šalátov, paprika, cesnak, limetkový jogurt, bagel semiačka (7,10,11*)',
-
       en: 'needs translation'
-
     },
     price: 6.90,
     image: './placeholder.svg',
@@ -231,18 +224,12 @@ export const menuItems: MenuItem[] = [
   {
     id: 'soups-1',
     name: {
-
       sk: 'Silný Kurací Vývar',
-
       en: 'needs translation'
-
     },
     description: {
-
       sk: 'zelenina, kuracie mäso, bylinkové halušky (1,3,9*)',
-
       en: 'needs translation'
-
     },
     price: 3.90,
     image: './placeholder.svg',
@@ -254,18 +241,12 @@ export const menuItems: MenuItem[] = [
   {
     id: 'soups-2',
     name: {
-
       sk: 'Polievka Dňa',
-
       en: 'needs translation'
-
     },
     description: {
-
       sk: 'Vynikajuca polievka pripravená podľa dennej ponuky šéfkuchára',
-
       en: 'needs translation'
-
     },
     price: 4.50,
     image: './placeholder.svg',
@@ -4150,24 +4131,18 @@ export const menuItems: MenuItem[] = [
   {
     id: 'cold-buffet-1',
     name: {
-
-      sk: 'Assorted Cheese and Meat Platter',
-
+      sk: 'Obložený Chlebík',
       en: 'needs translation'
-
     },
     description: {
-
       sk: 'Selection of premium cheeses, cured meats, olives, and crackers',
-
       en: 'needs translation'
-
     },
-    price: 1,
+    price: 'Na dohodu',
     category: 'cold-buffet',
     menuType: 'celebrations',
     displayAsList: true,
-    weight: 500
+    weight: 50
   },
   {
     id: 'cold-buffet-2',
@@ -4551,5 +4526,94 @@ export const menuItems: MenuItem[] = [
     menuType: 'celebrations',
     displayAsList: true,
     weight: 110
+  },
+
+  // Vianoce 2025 category items
+  {
+    id: 'vianoce-2025-1',
+    name: {
+      sk: 'Vianočné pečivo mix',
+      en: 'Christmas Cookies Mix'
+    },
+    description: {
+      sk: 'Tradičné vianočné koláčiky - vanilkové rožky, linecké, medovníky',
+      en: 'Traditional Christmas cookies - vanilla crescents, linzer cookies, gingerbread'
+    },
+    price: 2.50,
+    category: 'vianoce-2025',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 50
+  },
+  {
+    id: 'vianoce-2025-2',
+    name: {
+      sk: 'Vianočný punč',
+      en: 'Christmas Punch'
+    },
+    description: {
+      sk: 'Teplý vianočný punč s klinčekmi, škoricou a pomarančom',
+      en: 'Warm Christmas punch with cloves, cinnamon and orange'
+    },
+    price: 3.50,
+    category: 'vianoce-2025',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 200
+  },
+
+  // Grilovačka category items
+  {
+    id: 'grilovacka-1',
+    name: {
+      sk: 'Grilované mäso mix',
+      en: 'Grilled Meat Mix'
+    },
+    description: {
+      sk: 'Výber grilovaných mäs - bravčové, hovädzie, kuracie',
+      en: 'Selection of grilled meats - pork, beef, chicken'
+    },
+    price: 8.50,
+    category: 'grilovacka',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 300
+  },
+  {
+    id: 'grilovacka-2',
+    name: {
+      sk: 'Grilované klobásky',
+      en: 'Grilled Sausages'
+    },
+    description: {
+      sk: 'Domáce klobásky grilované na drevenom uhlí',
+      en: 'Homemade sausages grilled on charcoal'
+    },
+    price: 5.50,
+    category: 'grilovacka',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 200
+  },
+  
+  // Example with translated price
+  {
+    id: 'grilovacka-3',
+    name: {
+      sk: 'Špeciálne mäso na objednávku',
+      en: 'Special Meat on Order'
+    },
+    description: {
+      sk: 'Prémium mäso podľa vašich požiadaviek',
+      en: 'Premium meat according to your requirements'
+    },
+    price: {
+      sk: 'Cena na vyžiadanie',
+      en: 'Price on request'
+    },
+    category: 'grilovacka',
+    menuType: 'celebrations',
+    displayAsList: true,
+    weight: 400
   }
 ];

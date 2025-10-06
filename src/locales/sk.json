@@ -14,7 +14,7 @@
     "description": "Skvelá kuchyňa, jedlá grilované na drevenom uhlí, pizza pečená v peci na drevo, moderné misy a detský kútik. Ideálne miesto pre gurmánov aj rodiny. 🍽🌿 Vychutnajte si najlepšie jedlá a nápoje v útulnej atmosfére.🤎",
     "bookTable": "Rezervovať stôl",
     "viewMenu": "Zobraziť menu",
-    "eventManager": "Správca udalostí",
+    "eventManager": "Event Manažér",
     "workingHours": "Otváracie hodiny"
   },
   "sections": {
@@ -134,7 +134,9 @@
       "non-alcoholic-drinks": "Nealkoholické drinky",
       "cold-buffet": "Studený bufet",
       "hot-buffet": "Teplý bufet",
-      "candy-bar": "Candy Bar"
+      "candy-bar": "Candy Bar",
+      "vianoce-2025": "Vianoce 2025",
+      "grilovacka": "Grilovačka"
     },
     "types": {
       "main": "Hlavné menu",

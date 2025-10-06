@@ -6,6 +6,7 @@ import { Trash2, Heart } from "lucide-react";
 import { useTranslation } from "react-i18next";
 import { useMyOrder } from "@/context/MyOrderContext";
 import { OrderItem, MenuItem } from "@/data/menuData";
+import { formatPrice } from "@/lib/utils";
 
 // Компонент оптимізованого зображення для замовлення з lazy loading
 const OrderItemOptimizedImage = ({ 
@@ -139,7 +140,7 @@ const OrderItemCard = ({ orderItem, onRemove }: OrderItemCardProps) => {
 
             <div className="flex items-center gap-2 mt-1 mb-3">
               <span className="text-sm font-medium text-primary">
-                €{menuItem.price}
+                {formatPrice(menuItem.price, currentLanguage)}
               </span>
 
               {/* Weight and Calories */}
