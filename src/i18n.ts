@@ -20,6 +20,7 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
+    lng: 'sk', // Примусово встановлюємо SK як початкову мову
     fallbackLng: 'sk', // Default language
     debug: false,
     
@@ -33,7 +34,7 @@ i18n
     },
 
     react: {
-      useSuspense: false,
+      useSuspense: false, // Відключаємо, оскільки керуємо готовністю вручну
     }
   });
 

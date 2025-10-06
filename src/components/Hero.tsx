@@ -146,7 +146,7 @@ export const Hero = () => {
           {/* Working Hours */}
           <div className="pt-5 text-center animate-blur-in-delay-3">
             <p className="text-sm text-muted-foreground mb-2">{t('hero.workingHours')}</p>
-            <div className="text-sm text-foreground">
+            <div className="text-sm text-foreground max-w-xs mx-auto">
               {Object.entries(restaurantInfo.workingHours).map(([day, hours]) => (
                 <div key={day} className="text-sm text-foreground flex justify-between">
                   <span className="font-medium mr-0.5">{t(`workingHours.days.${day}`)}:</span>
