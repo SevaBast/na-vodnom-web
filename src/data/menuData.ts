@@ -145,11 +145,11 @@ export const menuItems: MenuItem[] = [
     id: 'appetizers-1',
     name: {
       sk: 'Grilovaná Feta',
-      en: 'needs translation'
+      en: 'Grilled Feta'
     },
     description: {
       sk: 'paprikovo-paradajková omačka, grilované paradajky, petržlenová vňať, vypražené kapary (7,11*)',
-      en: 'needs translation'
+      en: 'paprika-tomato sauce, grilled tomatoes, parsley, fried capers (7,11*)'
     },
     price: 7.50,
     image: './dishtest.jpg',
@@ -164,11 +164,11 @@ export const menuItems: MenuItem[] = [
     id: 'appetizers-2',
     name: {
       sk: 'Domáci Hummus',
-      en: 'needs translation'
+      en: 'Homemade Hummus'
     },
     description: {
       sk: 'cícer, grilovaný bakalažan, tahini (sezamová pasta), olej s pepper flakes, sezamové semiačka (5,10,11*)',
-      en: 'needs translation'
+      en: 'chickpeas, grilled eggplant, tahini (sesame paste), oil with pepper flakes, sesame seeds (5,10,11*)'
     },
     price: 6.50,
     image: './placeholder.svg',
@@ -183,11 +183,11 @@ export const menuItems: MenuItem[] = [
     id: 'appetizers-3',
     name: {
       sk: 'Pučené Baby Zemiaky',
-      en: 'needs translation'
+      en: 'Smoked Baby Potatoes'
     },
     description: {
       sk: 'perlová cibuľka, petržlenová vňať, koriander, jalapeños, queso omačka (6*)',
-      en: 'needs translation'
+      en: 'pearl onions, parsley, coriander, jalapeños, queso sauce (6*)'
     },
     price: 6.50,
     image: './placeholder.svg',
@@ -204,11 +204,11 @@ export const menuItems: MenuItem[] = [
     id: 'appetizers-4',
     name: {
       sk: 'Vyprážaný Falafel',
-      en: 'needs translation'
+      en: 'Fried Falafel'
     },
     description: {
       sk: 'mix šalátov, paprika, cesnak, limetkový jogurt, bagel semiačka (7,10,11*)',
-      en: 'needs translation'
+      en: 'salad mix, bell pepper, garlic, lime yogurt, bagel seeds (7,10,11*)'
     },
     price: 6.90,
     image: './placeholder.svg',
@@ -225,11 +225,11 @@ export const menuItems: MenuItem[] = [
     id: 'soups-1',
     name: {
       sk: 'Silný Kurací Vývar',
-      en: 'needs translation'
+      en: 'Strong Chicken Broth'
     },
     description: {
       sk: 'zelenina, kuracie mäso, bylinkové halušky (1,3,9*)',
-      en: 'needs translation'
+      en: 'vegetables, chicken, herb dumplings (1,3,9*)'
     },
     price: 3.90,
     image: './placeholder.svg',
@@ -242,11 +242,11 @@ export const menuItems: MenuItem[] = [
     id: 'soups-2',
     name: {
       sk: 'Polievka Dňa',
-      en: 'needs translation'
+      en: 'Soup of the Day'
     },
     description: {
-      sk: 'Vynikajuca polievka pripravená podľa dennej ponuky šéfkuchára',
-      en: 'needs translation'
+      sk: 'vynikajúca polievka pripravená podľa dennej ponuky šéfkuchára',
+      en: 'delicious soup prepared according to the chef\'s daily selection'
     },
     price: 4.50,
     image: './placeholder.svg',
@@ -261,11 +261,11 @@ export const menuItems: MenuItem[] = [
     id: 'main-dishes-1',
     name: {
       sk: 'Lemon Mustard Chicken',
-      en: 'needs translation'
+      en: 'Lemon Mustard Chicken'
     },
     description: {
       sk: 'marinované kuracie supreme grilované na drevenom uhlí s horčicovo-medovou omačkou (10,11*)',
-      en: 'needs translation'
+      en: 'marinated chicken supreme grilled over charcoal with mustard-honey sauce (10,11*)'
     },
     price: 10.90,
     image: './placeholder.svg',
@@ -280,11 +280,11 @@ export const menuItems: MenuItem[] = [
     id: 'main-dishes-2',
     name: {
       sk: 'Rib Eye',
-      en: 'needs translation'
+      en: 'Rib Eye'
     },
     description: {
       sk: 'servirovaný s chimichurri omačkou (10,11*)',
-      en: 'needs translation'
+      en: 'served with chimichurri sauce (10,11*)'
     },
     price: 21.90,
     image: './placeholder.svg',
@@ -298,14 +298,17 @@ export const menuItems: MenuItem[] = [
   {
     id: 'main-dishes-3',
     name: {
-      sk: 'UPRAVIT - Steak',
-      en: 'needs translation'
+      sk: 'Steak',
+      en: 'Steak'
     },
     description: {
       sk: 'pre viac informacií a dostupných steakoch kontaktujte našu obsluhu',
-      en: 'needs translation'
+      en: 'for more information and available steaks, please contact our staff.'
     },
-    price: 0,
+    price: {
+      sk: 'podľa ponuky',
+      en: 'from the offer'
+    },
     image: './placeholder.svg',
     category: 'main-dishes',
     menuType: 'main',
@@ -317,11 +320,11 @@ export const menuItems: MenuItem[] = [
     id: 'main-dishes-4',
     name: {
       sk: 'Hot Halloumi Syr',
-      en: 'needs translation'
+      en: 'Hot Halloumi Cheese'
     },
     description: {
       sk: 'marinovný v pikantno-medovej omačke (7,10,11*)',
-      en: 'needs translation'
+      en: 'marinated in a spicy honey sauce (7,10,11*)'
     },
     price: 10.90,
     image: './placeholder.svg',
@@ -336,11 +339,11 @@ export const menuItems: MenuItem[] = [
     id: 'main-dishes-5',
     name: {
       sk: 'Ryba (podľa dennej ponuky)',
-      en: 'needs translation'
+      en: 'Fish (according to daily offer)'
     },
     description: {
       sk: 'servirované s bearnaise omáčkou (4,10,11*)',
-      en: 'needs translation'
+      en: 'served with bearnaise sauce (4,10,11*)'
     },
     price: 12.90,
     image: './placeholder.svg',
@@ -355,11 +358,11 @@ export const menuItems: MenuItem[] = [
     id: 'main-dishes-6',
     name: {
       sk: 'Krevety',
-      en: 'needs translation'
+      en: 'Shrimp'
     },
     description: {
       sk: 'servirované s aioli omáčkou (2,10,11*)',
-      en: 'needs translation'
+      en: 'served with aioli sauce (2,10,11*)'
     },
     price: 12.90,
     image: './placeholder.svg',
@@ -374,11 +377,11 @@ export const menuItems: MenuItem[] = [
     id: 'main-dishes-7',
     name: {
       sk: 'Bylinkové Tofu',
-      en: 'needs translation'
+      en: 'Herb Tofu'
     },
     description: {
       sk: 'marinované tofu s bylinkami (6,10,11*)',
-      en: 'needs translation'
+      en: 'herb-marinated tofu (6,10,11*)'
     },
     price: 9.90,
     image: './placeholder.svg',
@@ -395,11 +398,11 @@ export const menuItems: MenuItem[] = [
     id: 'side-dishes-1',
     name: {
       sk: 'diva ryža',
-      en: 'needs translation'
+      en: 'wild rice'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 4.20,
     image: './placeholder.svg',
@@ -413,11 +416,11 @@ export const menuItems: MenuItem[] = [
     id: 'side-dishes-2',
     name: {
       sk: 'pučené baby zemiaky, hĺuzovková majonéza',
-      en: 'needs translation'
+      en: 'mashed baby potatoes, truffle mayonnaise'
     },
     description: {
       sk: '(3*)',
-      en: 'needs translation'
+      en: '(3*)'
     },
     price: 3.90,
     image: './placeholder.svg',
@@ -431,11 +434,11 @@ export const menuItems: MenuItem[] = [
     id: 'side-dishes-3',
     name: {
       sk: 'grilované avokádo, pico de gallo, chipotie majonéza',
-      en: 'needs translation'
+      en: 'grilled avocado, pico de gallo, chipotle mayonnaise'
     },
     description: {
       sk: '(3,9*)',
-      en: 'needs translation'
+      en: '(3,9*)'
     },
     price: 5.50,
     image: './placeholder.svg',
@@ -449,11 +452,11 @@ export const menuItems: MenuItem[] = [
     id: 'side-dishes-4',
     name: {
       sk: 'grilovaná sezónna zelenina',
-      en: 'needs translation'
+      en: 'grilled seasonal vegetables'
     },
     description: {
       sk: '(9*)',
-      en: 'needs translation'
+      en: '(9*)'
     },
     price: 4.50,
     image: './placeholder.svg',
@@ -467,11 +470,11 @@ export const menuItems: MenuItem[] = [
     id: 'side-dishes-5',
     name: {
       sk: 'domáci hummus, chilli olej, sezam, petržlenová vňať',
-      en: 'needs translation'
+      en: 'homemade hummus, chili oil, sesame, parsley'
     },
     description: {
       sk: '(10,11*)',
-      en: 'needs translation'
+      en: '(10,11*)'
     },
     price: 4.50,
     image: './placeholder.svg',
@@ -485,11 +488,11 @@ export const menuItems: MenuItem[] = [
     id: 'side-dishes-6',
     name: {
       sk: 'grilované batatové zemiaky, achiote strúhanka',
-      en: 'needs translation'
+      en: 'grilled sweet potatoes, achiote breadcrumbs'
     },
     description: {
       sk: '(1*)',
-      en: 'needs translation'
+      en: '(1*)'
     },
     price: 4.50,
     image: './placeholder.svg',
@@ -505,11 +508,11 @@ export const menuItems: MenuItem[] = [
     id: 'garden-bowls-1',
     name: {
       sk: 'Mediterranean Delight',
-      en: 'needs translation'
+      en: 'Mediterranean Delight'
     },
     description: {
       sk: 'quinoa, baby špenát, halloumi syr, hokkaido, perlová cibuľka, grilovaná paprika, nakladaná červená cibuľa, granatové jablko, sezamové semiačka, limetkový jogurt (7,11*)',
-      en: 'needs translation'
+      en: 'quinoa, baby spinach, halloumi cheese, hokkaido squash, pearl onions, grilled peppers, pickled red onions, pomegranate, sesame seeds, lime yogurt (7,11*)'
     },
     price: 12.50,
     image: './placeholder.svg',
@@ -522,11 +525,11 @@ export const menuItems: MenuItem[] = [
     id: 'garden-bowls-2',
     name: {
       sk: 'Green Earth',
-      en: 'needs translation'
+      en: 'Green Earth'
     },
     description: {
       sk: 'hnedá ryža, poľníček, rukola, tofu, falafel, hummus, nakladaná červená cibuľa, granatové jablko, sezamové semiačka, limetkový jogurt (7,11*)',
-      en: 'needs translation'
+      en: 'brown rice, lamb’s lettuce, arugula, tofu, falafel, hummus, pickled red onions, pomegranate, sesame seeds, lime yogurt (7,11*)'
     },
     price: 13.50,
     image: './placeholder.svg',
@@ -540,11 +543,11 @@ export const menuItems: MenuItem[] = [
     id: 'garden-bowls-3',
     name: {
       sk: 'Goddess Fuel',
-      en: 'needs translation'
+      en: 'Goddess Fuel'
     },
     description: {
       sk: 'bulgur, baby špenát, rukola, kuracie mäso, batátové zemiaky, grilovaná cuketa, cherry paradajky, bagel seeds, bazalkovo-limetková omáčka (Green Goddess) (1,7,3*)',
-      en: 'needs translation'
+      en: 'bulgur, baby spinach, arugula, chicken, sweet potatoes, grilled zucchini, cherry tomatoes, bagel seeds, basil-lime sauce (Green Goddess) (1,7,3*)'
     },
     price: 14.50,
     image: './placeholder.svg',
@@ -559,11 +562,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-1',
     name: {
       sk: 'Pizza Bread',
-      en: 'needs translation'
+      en: 'Pizza Bread'
     },
     description: {
       sk: 'cesto, olivový olej, cesnak, čerstvé oregano (1,7*)',
-      en: 'needs translation'
+      en: 'dough, olive oil, garlic, fresh oregano (1,7*)'
     },
     price: 5.50,
     image: './placeholder.svg',
@@ -576,11 +579,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-2',
     name: {
       sk: 'Margherita',
-      en: 'needs translation'
+      en: 'Margherita'
     },
     description: {
       sk: 'San Marzano paradajkový základ, mozzarella fior di latte, čerstvá bazalka, extra panenský olivový olej (1,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, fresh basil, extra virgin olive oil (1,7*)'
     },
     price: 8.50,
     image: './placeholder.svg',
@@ -593,11 +596,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-3',
     name: {
       sk: 'Salami',
-      en: 'needs translation'
+      en: 'Salami'
     },
     description: {
       sk: 'San Marzano paradajkový základ, mozzarella fior di latte, pikantná saláma (napr. humenský sčipák), chili papričky (1,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, spicy salami, chili peppers (1,7*)'
     },
     price: 9.90,
     image: './placeholder.svg',
@@ -610,11 +613,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-4',
     name: {
       sk: 'Prosciutto E Funghi',
-      en: 'needs translation'
+      en: 'Prosciutto E Funghi'
     },
     description: {
       sk: 'San Marzano paradajkový základ, mozzarella fior di latte, šunka, šampiňóny (1,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, ham, mushrooms (1,7*)'
     },
     price: 9.90,
     image: './placeholder.svg',
@@ -627,11 +630,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-5',
     name: {
       sk: 'Quattro Stagioni',
-      en: 'needs translation'
+      en: 'Four Seasons'
     },
     description: {
       sk: 'San Marzano paradajkový základ, mozzarella fior di latte, šunka, šampiňóny, artičoky, čierne olivy (1,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, ham, mushrooms, artichokes, black olives (1,7*)'
     },
     price: 10.50,
     image: './placeholder.svg',
@@ -644,11 +647,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-6',
     name: {
       sk: 'Vegetariana',
-      en: 'needs translation'
+      en: 'Vegetarian'
     },
     description: {
       sk: 'San Marzano paradajkový základ, mozzarella fior di latte, nakladané antipasty (cuketa, baklažán, paprika, cherry paradajky) (1,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, pickled antipasti (zucchini, eggplant, bell peppers, cherry tomatoes) (1,7*)'
     },
     price: 10.50,
     image: './placeholder.svg',
@@ -662,11 +665,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-7',
     name: {
       sk: 'Tonno E Cipolla',
-      en: 'needs translation'
+      en: 'Tonno E Cipolla'
     },
     description: {
       sk: 'San Marzano paradajkový základ, mozzarella fior di latte, tuniak, červená cibuľa (1,4,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, tuna, red onion (1,4,7*)'
     },
     price: 11.50,
     image: './placeholder.svg',
@@ -679,11 +682,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-8',
     name: {
       sk: 'Quattro Formaggi',
-      en: 'needs translation'
+      en: 'Quattro Formaggi'
     },
     description: {
       sk: 'San Marzano paradajkový základ, mozzarella fior di latte, niva, parmezán, provola (1,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, gorgonzola, parmesan, provola (1,7*)'
     },
     price: 12.50,
     image: './placeholder.svg',
@@ -696,11 +699,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-9',
     name: {
       sk: 'Napoli',
-      en: 'needs translation'
+      en: 'Napoli'
     },
     description: {
       sk: 'San Marzano paradajkový základ, mozzarella fior di latte, ančovičky, kapary, čerstvé oregano (1,4,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, anchovies, capers, fresh oregano (1,4,7*)'
     },
     price: 12.50,
     image: './placeholder.svg',
@@ -713,11 +716,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-10',
     name: {
       sk: 'Carmel',
-      en: 'needs translation'
+      en: 'Carmel'
     },
     description: {
       sk: 'paradajkový základ, mozzarella fior di latte, šunka, niva, kukurica (1,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, ham, gorgonzola, corn (1,7*)'
     },
     price: 10.90,
     image: './placeholder.svg',
@@ -730,11 +733,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-11',
     name: {
       sk: 'Chamon',
-      en: 'needs translation'
+      en: 'Chamon'
     },
     description: {
       sk: 'paradajkový základ, mozzarella fior di latte, jamón serrano, rukola, parmezán (1,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, jamón serrano, arugula, parmesan (1,7*)'
     },
     price: 13.90,
     image: './placeholder.svg',
@@ -747,11 +750,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-12',
     name: {
       sk: 'Chorizo',
-      en: 'needs translation'
+      en: 'Chorizo'
     },
     description: {
       sk: 'paradajkový základ, mozzarella fior di latte, chorizo, jalapeños, ricotta, petržlenová vňať (1,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, chorizo, jalapeños, ricotta, parsley (1,7*)'
     },
     price: 13.90,
     image: './placeholder.svg',
@@ -764,11 +767,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-13',
     name: {
       sk: 'Naturalis',
-      en: 'needs translation'
+      en: 'Naturalis'
     },
     description: {
       sk: 'paradajkový základ, mozzarella fior di latte, naturálne dusená šunka (1,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, natural steamed ham (1,7*)'
     },
     price: 14.50,
     image: './placeholder.svg',
@@ -781,11 +784,11 @@ export const menuItems: MenuItem[] = [
     id: 'pizza-14',
     name: {
       sk: 'Pancetta',
-      en: 'needs translation'
+      en: 'Pancetta'
     },
     description: {
       sk: 'paradajkový základ, mozzarella fior di latte, pancetta, nakladaná červená cibuľa, hľuzovková majonéza (1,3,7*)',
-      en: 'needs translation'
+      en: 'San Marzano tomato base, fior di latte mozzarella, pancetta, pickled red onion, truffle mayonnaise (1,3,7*)'
     },
     price: 14.90,
     image: './placeholder.svg',
@@ -800,11 +803,11 @@ export const menuItems: MenuItem[] = [
     id: 'desserts-1',
     name: {
       sk: 'Creme Catalana',
-      en: 'needs translation'
+      en: 'Creme Catalana'
     },
     description: {
       sk: 'citrusová kóra, karamelová krusta (3,7*)',
-      en: 'needs translation'
+      en: 'citrus zest, caramel crust (3,7*)'
     },
     price: 5.50,
     image: './placeholder.svg',
@@ -820,11 +823,11 @@ export const menuItems: MenuItem[] = [
     id: 'sauces-1',
     name: {
       sk: 'demi glace',
-      en: 'needs translation'
+      en: 'demi glace'
     },
     description: {
       sk: '(9*)',
-      en: 'needs translation'
+      en: '(9*)'
     },
     price: 3.50,
     image: './placeholder.svg',
@@ -838,11 +841,11 @@ export const menuItems: MenuItem[] = [
     id: 'sauces-2',
     name: {
       sk: 'chippotle mayo',
-      en: 'needs translation'
+      en: 'chipotle mayo'
     },
     description: {
       sk: '(3,7*)',
-      en: 'needs translation'
+      en: '(3,7*)'
     },
     price: 2.90,
     image: './placeholder.svg',
@@ -856,11 +859,11 @@ export const menuItems: MenuItem[] = [
     id: 'sauces-3',
     name: {
       sk: 'hľuzovková mayo',
-      en: 'needs translation'
+      en: 'truffle mayo'
     },
     description: {
       sk: '(3*)',
-      en: 'needs translation'
+      en: '(3*)'
     },
     price: 2.90,
     image: './placeholder.svg',
@@ -874,11 +877,11 @@ export const menuItems: MenuItem[] = [
     id: 'sauces-4',
     name: {
       sk: 'vegan queso',
-      en: 'needs translation'
+      en: 'vegan queso'
     },
     description: {
       sk: '(6*)',
-      en: 'needs translation'
+      en: '(6*)'
     },
     price: 2.50,
     image: './placeholder.svg',
@@ -893,11 +896,11 @@ export const menuItems: MenuItem[] = [
     id: 'sauces-5',
     name: {
       sk: 'paint based aioli',
-      en: 'needs translation'
+      en: 'paint based aioli'
     },
     description: {
       sk: '(6*)',
-      en: 'needs translation'
+      en: '(6*)'
     },
     price: 2.20,
     image: './placeholder.svg',
@@ -913,11 +916,11 @@ export const menuItems: MenuItem[] = [
     id: 'something-for-beer-1',
     name: {
       sk: 'chlebík domáci kvaskový',
-      en: 'needs translation'
+      en: 'homemade sourdough bread'
     },
     description: {
       sk: '(1*)',
-      en: 'needs translation'
+      en: '(1*)'
     },
     price: 2.50,
     image: './placeholder.svg',
@@ -931,11 +934,11 @@ export const menuItems: MenuItem[] = [
     id: 'something-for-beer-2',
     name: {
       sk: 'zeleninka mix',
-      en: 'needs translation'
+      en: 'vegetable mix'
     },
     description: {
       sk: '(1,9*)',
-      en: 'needs translation'
+      en: '(1,9*)'
     },
     price: 2.90,
     image: './placeholder.svg',
@@ -949,11 +952,11 @@ export const menuItems: MenuItem[] = [
     id: 'something-for-beer-3',
     name: {
       sk: 'degustačný tanier syrov a údenín, domáci chlebík',
-      en: 'needs translation'
+      en: 'cheese and cold cuts tasting platter, homemade bread'
     },
     description: {
       sk: '(1,7*)',
-      en: 'needs translation'
+      en: '(1,7*)'
     },
     price: 14.50,
     image: './placeholder.svg',
@@ -967,11 +970,11 @@ export const menuItems: MenuItem[] = [
     id: 'something-for-beer-4',
     name: {
       sk: 'tatarák, hrianky',
-      en: 'needs translation'
+      en: 'tartare, toast'
     },
     description: {
       sk: 'z dôvodu obsahu surového mäsa nie je vhodné pre deti a tehotné ženy (1,3,10*)',
-      en: 'needs translation'
+      en: 'due to the content of raw meat, not suitable for children and pregnant women (1,3,10*)'
     },
     price: 14.50,
     image: './placeholder.svg',
@@ -987,11 +990,11 @@ export const menuItems: MenuItem[] = [
     id: 'special-breakfast-1',
     name: {
       sk: 'Benedikt Toast',
-      en: 'needs translation'
+      en: 'Benedict Toast'
     },
     description: {
       sk: 'kváskový chlieb, pošírované vajce, šunka Naturalis, holandská omačka (1,3,7*)',
-      en: 'needs translation'
+      en: 'sourdough bread, poached egg, Naturalis ham, hollandaise sauce (1,3,7*)'
     },
     price: 8.90,
     image: './placeholder.svg',
@@ -1005,11 +1008,11 @@ export const menuItems: MenuItem[] = [
     id: 'special-breakfast-2',
     name: {
       sk: 'Turecké Vajcia',
-      en: 'needs translation'
+      en: 'Turkish Eggs'
     },
     description: {
       sk: 'jogurt, cesnak, chilli olej, pošírované vajcia, chlieb, kôpor, šalát (1,3,7*)',
-      en: 'needs translation'
+      en: 'yogurt, garlic, chili oil, poached eggs, bread, dill, salad (1,3,7*)'
     },
     price: 8.50,
     image: './placeholder.svg',
@@ -1023,11 +1026,11 @@ export const menuItems: MenuItem[] = [
     id: 'special-breakfast-3',
     name: {
       sk: 'OG French Toast',
-      en: 'needs translation'
+      en: 'OG French Toast'
     },
     description: {
       sk: 'brioška, javorový sirup, šľahačka, ovocie, práškový cukor (1,3,7*)',
-      en: 'needs translation'
+      en: 'brioche, maple syrup, whipped cream, fruit, powdered sugar (1,3,7*)'
     },
     price: 7.90,
     image: './placeholder.svg',
@@ -1041,11 +1044,11 @@ export const menuItems: MenuItem[] = [
     id: 'special-breakfast-4',
     name: {
       sk: 'Proteínové Lievance',
-      en: 'needs translation'
+      en: 'Protein Pancakes'
     },
     description: {
       sk: 'banán, proteín, arašidové maslo, tvaroh, kokos, ovocie (1,3,5,6,7,8*)',
-      en: 'needs translation'
+      en: 'banana, protein, peanut butter, cottage cheese, coconut, fruit (1,3,5,6,7,8*)'
     },
     price: 8.50,
     image: './placeholder.svg',
@@ -1059,11 +1062,11 @@ export const menuItems: MenuItem[] = [
     id: 'special-breakfast-5',
     name: {
       sk: 'Cviklový Hummus',
-      en: 'needs translation'
+      en: 'Beetroot Hummus'
     },
     description: {
       sk: 'cvikla, nakladaný karfiol, šalátový mix, chlieb alebo zelenina (1,11,12*)',
-      en: 'needs translation'
+      en: 'beetroot, pickled cauliflower, salad mix, bread or vegetables (1,11,12*)'
     },
     price: 7.50,
     image: './placeholder.svg',
@@ -1079,11 +1082,11 @@ export const menuItems: MenuItem[] = [
     id: 'breakfast-side-dishes-1',
     name: {
       sk: 'pošírované vajce',
-      en: 'needs translation'
+      en: 'poached egg'
     },
     description: {
       sk: '(3*)',
-      en: 'needs translation'
+      en: '(3*)'
     },
     price: 1.50,
     image: './placeholder.svg',
@@ -1097,11 +1100,11 @@ export const menuItems: MenuItem[] = [
     id: 'breakfast-side-dishes-2',
     name: {
       sk: 'volské oko',
-      en: 'needs translation'
+      en: 'sunnyside-up egg'
     },
     description: {
       sk: '(3*)',
-      en: 'needs translation'
+      en: '(3*)'
     },
     price: 1.20,
     image: './placeholder.svg',
@@ -1115,11 +1118,11 @@ export const menuItems: MenuItem[] = [
     id: 'breakfast-side-dishes-3',
     name: {
       sk: 'šunka',
-      en: 'needs translation'
+      en: 'ham'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 1.80,
     image: './placeholder.svg',
@@ -1133,11 +1136,11 @@ export const menuItems: MenuItem[] = [
     id: 'breakfast-side-dishes-4',
     name: {
       sk: 'slanina',
-      en: 'needs translation'
+      en: 'bacon'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2,
     image: './placeholder.svg',
@@ -1151,11 +1154,11 @@ export const menuItems: MenuItem[] = [
     id: 'breakfast-side-dishes-5',
     name: {
       sk: 'grilovaná zelenina',
-      en: 'needs translation'
+      en: 'grilled vegetables'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2.50,
     image: './placeholder.svg',
@@ -1169,11 +1172,11 @@ export const menuItems: MenuItem[] = [
     id: 'breakfast-side-dishes-6',
     name: {
       sk: 'ovocie',
-      en: 'needs translation'
+      en: 'fruit'
     },
     description: {
       sk: '(3*)',
-      en: 'needs translation'
+      en: '(3*)'
     },
     price: 2.50,
     image: './placeholder.svg',
@@ -1187,11 +1190,11 @@ export const menuItems: MenuItem[] = [
     id: 'breakfast-side-dishes-7',
     name: {
       sk: 'granola',
-      en: 'needs translation'
+      en: 'granola'
     },
     description: {
       sk: '(1,8*)',
-      en: 'needs translation'
+      en: '(1,8*)'
     },
     price: 1.50,
     image: './placeholder.svg',
@@ -1207,11 +1210,11 @@ export const menuItems: MenuItem[] = [
     id: 'classic-1',
     name: {
       sk: 'Miešané Vajíčka',
-      en: 'needs translation'
+      en: 'Scrambled Eggs'
     },
     description: {
       sk: '(3,7*)',
-      en: 'needs translation'
+      en: '(3,7*)'
     },
     price: 5.50,
     image: './placeholder.svg',
@@ -1225,11 +1228,11 @@ export const menuItems: MenuItem[] = [
     id: 'classic-2',
     name: {
       sk: 'Volské Oko',
-      en: 'needs translation'
+      en: 'Sunnyside-up egg'
     },
     description: {
       sk: '(3*)',
-      en: 'needs translation'
+      en: '(3*)'
     },
     price: 4.90,
     image: './placeholder.svg',
@@ -1242,11 +1245,11 @@ export const menuItems: MenuItem[] = [
     id: 'classic-3',
     name: {
       sk: 'Omeleta',
-      en: 'needs translation'
+      en: 'Omelette'
     },
     description: {
       sk: '(3*)',
-      en: 'needs translation'
+      en: '(3*)'
     },
     price: 5.50,
     image: './placeholder.svg',
@@ -1261,11 +1264,11 @@ export const menuItems: MenuItem[] = [
     id: 'toasts-1',
     name: {
       sk: 'Losos & Avokádo',
-      en: 'needs translation'
+      en: 'Salmon & Avocado'
     },
     description: {
       sk: 'kváskový chlieb, guacamole, údený losos, nakladaná cibuľa (1,4*)',
-      en: 'needs translation'
+      en: 'sourdough bread, guacamole, smoked salmon, pickled onion (1,4*)'
     },
     price: 8.90,
     image: './placeholder.svg',
@@ -1278,11 +1281,11 @@ export const menuItems: MenuItem[] = [
     id: 'toasts-2',
     name: {
       sk: 'Feta & Špenát',
-      en: 'needs translation'
+      en: 'Feta & Spinach'
     },
     description: {
       sk: 'nátierka z pečenej papriky, špenát, sušené paradajky, feta, chlieb (1,7*)',
-      en: 'needs translation'
+      en: 'roasted pepper spread, spinach, sun-dried tomatoes, feta, bread (1,7*)'
     },
     price: 7.90,
     image: './placeholder.svg',
@@ -1295,11 +1298,11 @@ export const menuItems: MenuItem[] = [
     id: 'toasts-3',
     name: {
       sk: 'Turbo Chlebík',
-      en: 'needs translation'
+      en: 'Turbo Bread'
     },
     description: {
       sk: 'chlieb vo vajíčku, chipotle mayo, šunka Naturalis, cheddar, rukola (1,3,7,10*)',
-      en: 'needs translation'
+      en: 'bread in egg, chipotle mayo, Naturalis ham, cheddar, arugula (1,3,7,10*)'
     },
     price: 8.90,
     image: './placeholder.svg',
@@ -1314,11 +1317,11 @@ export const menuItems: MenuItem[] = [
     id: 'bowls-1',
     name: {
       sk: 'Acaí Bowl',
-      en: 'needs translation'
+      en: 'Açaí Bowl'
     },
     description: {
       sk: 'mrazené ovocie, jogurt, banán, drobné ovocie, granola (1,7,8*)',
-      en: 'needs translation'
+      en: 'frozen fruit, yogurt, banana, berries, granola (1,7,8*)'
     },
     price: 7.90,
     image: './placeholder.svg',
@@ -1332,11 +1335,11 @@ export const menuItems: MenuItem[] = [
     id: 'bowls-2',
     name: {
       sk: 'Matcha Bowl',
-      en: 'needs translation'
+      en: 'Matcha Bowl'
     },
     description: {
       sk: 'banán, mango, avokádo, hráškové mlieko, matcha, chia, grepový džem, limetka (8*)',
-      en: 'needs translation'
+      en: 'banana, mango, avocado, pea milk, matcha, chia, grapefruit jam, lime (8*)'
     },
     price: 8.90,
     image: './placeholder.svg',
@@ -1349,11 +1352,11 @@ export const menuItems: MenuItem[] = [
     id: 'bowls-3',
     name: {
       sk: 'Domáci Termix',
-      en: 'needs translation'
+      en: 'Homemade Termix'
     },
     description: {
       sk: 'granola, čerstvé ovocie (1,7*)',
-      en: 'needs translation'
+      en: 'granola, fresh fruit (1,7*)'
     },
     price: 5.80,
     image: './placeholder.svg',
@@ -1368,11 +1371,11 @@ export const menuItems: MenuItem[] = [
     id: 'all-kids-menu-1',
     name: {
       sk: 'Kuracie Mäsko s Baby Zemiakmi',
-      en: 'needs translation'
+      en: 'Chicken Fillet with Baby Potatoes'
     },
     description: {
       sk: 'jemné kuracie prsia, podávané s baby zemiakmi a čerstvou zeleninovou oblohou (1,7*)',
-      en: 'needs translation'
+      en: 'tender chicken breast served with baby potatoes and fresh vegetable garnish (1,7*)'
     },
     price: 7.90,
     image: './placeholder.svg',
@@ -1385,11 +1388,11 @@ export const menuItems: MenuItem[] = [
     id: 'all-kids-menu-2',
     name: {
       sk: 'Detská Mini Pizza',
-      en: 'needs translation'
+      en: 'Kids Mini Pizza'
     },
     description: {
       sk: 'chrumkavá pizza s paradajkovou omáčkou, mozzarella syrom, šunkou a sladkou kukuricou (1,3,7*)',
-      en: 'needs translation'
+      en: 'crispy pizza with tomato sauce, mozzarella cheese, ham, and sweet corn (1,3,7*)'
     },
     price: 6.50,
     image: './placeholder.svg',
@@ -1402,11 +1405,11 @@ export const menuItems: MenuItem[] = [
     id: 'all-kids-menu-3',
     name: {
       sk: 'Ryžové Rizoto s Kuracím Mäsom a Brokolicou',
-      en: 'needs translation'
+      en: 'Chicken and Broccoli Rice Risotto'
     },
     description: {
       sk: 'divá ryža s kúskami kuracieho mäsa, brokolicou a maslom (1,7*)',
-      en: 'needs translation'
+      en: 'wild rice with pieces of chicken, broccoli, and butter (1,7*)'
     },
     price: 7.20,
     image: './placeholder.svg',
@@ -1421,11 +1424,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-1',
     name: {
       sk: 'Mojito',
-      en: 'needs translation'
+      en: 'Mojito'
     },
     description: {
       sk: 'rum Barceló 5cl, limetka, mäta, trstinový cukor, sóda',
-      en: 'needs translation'
+      en: 'Barceló rum 5cl, lime, mint, brown sugar, soda'
     },
     price: 6.50,
     category: 'alcoholic-drinks',
@@ -1436,11 +1439,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-2',
     name: {
       sk: 'Caipirinha',
-      en: 'needs translation'
+      en: 'Caipirinha'
     },
     description: {
       sk: 'Pitú 5cl, limetka, trstinový cukor',
-      en: 'needs translation'
+      en: 'Pitú 5cl, lime, brown sugar'
     },
     price: 6.50,
     category: 'alcoholic-drinks',
@@ -1451,11 +1454,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-3',
     name: {
       sk: 'Cuba Libre',
-      en: 'needs translation'
+      en: 'Cuba Libre'
     },
     description: {
       sk: 'rum Abuelo 7 Años 5cl, Coca-Cola, limetka',
-      en: 'needs translation'
+      en: 'Abuelo 7 Años rum 5cl, Coca-Cola, lime'
     },
     price: 6.50,
     category: 'alcoholic-drinks',
@@ -1466,11 +1469,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-4',
     name: {
       sk: 'Mai Tai',
-      en: 'needs translation'
+      en: 'Mai Tai'
     },
     description: {
       sk: 'rum Mount Gay Black Barrel 2cl, Abuelo 7 3cl, Cointreau 2cl, Amaretto 1cl, pomarančový fresh, ananás, limeta',
-      en: 'needs translation'
+      en: 'Mount Gay Black Barrel rum 2cl, Abuelo 7 3cl, Cointreau 2cl, Amaretto 1cl, orange fresh, pineapple, lime'
     },
     price: 8.50,
     category: 'alcoholic-drinks',
@@ -1481,11 +1484,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Hemingway Daiquiri',
-      en: 'needs translation'
+      en: 'Hemingway Daiquiri'
     },
     description: {
       sk: 'rum Barceló 4cl, Marashino 1cl, grep, limeta, simple sirup',
-      en: 'needs translation'
+      en: 'Barceló rum 4cl, Maraschino 1cl, grapefruit, lime, simple syrup'
     },
     price: 6.90,
     category: 'alcoholic-drinks',
@@ -1496,11 +1499,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Frozen Mango Margarita',
-      en: 'needs translation'
+      en: 'Frozen Mango Margarita'
     },
     description: {
       sk: 'Sierra Antiquo Plata 5cl, Cointreau 2cl, mango, limeta',
-      en: 'needs translation'
+      en: 'Sierra Antiquo Plata 5cl, Cointreau 2cl, mango, lime'
     },
     price: 6.90,
     category: 'alcoholic-drinks',
@@ -1511,11 +1514,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Long Island',
-      en: 'needs translation'
+      en: 'Long Island'
     },
     description: {
       sk: 'vodka Expedition 2cl, gin Roku 2cl, rum Barceló 2cl, Tequila Sierra Antiguo Plata 2cl, Cointreau 2cl, pomarančový fresh, limeta, Coca-Cola',
-      en: 'needs translation'
+      en: 'vodka Expedition 2cl, gin Roku 2cl, rum Barceló 2cl, Tequila Sierra Antiguo Plata 2cl, Cointreau 2cl, orange fresh, lime, Coca-Cola'
     },
     price: 8.90,
     category: 'alcoholic-drinks',
@@ -1526,11 +1529,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Moscow Mule',
-      en: 'needs translation'
+      en: 'Moscow Mule'
     },
     description: {
       sk: 'vodka Expedition 5cl, domáca zázvorovka, limeta, simple sirup, sóda',
-      en: 'needs translation'
+      en: 'vodka Expedition 5cl, homemade ginger syrup, lime, simple syrup, soda'
     },
     price: 6.50,
     category: 'alcoholic-drinks',
@@ -1541,11 +1544,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Porn Star Martini',
-      en: 'needs translation'
+      en: 'Porn Star Martini'
     },
     description: {
       sk: 'vodka Expedition 5cl, marakuja, vanilka, prosečko',
-      en: 'needs translation'
+      en: 'vodka Expedition 5cl, passion fruit, vanilla, prosecco'
     },
     price: 7.90,
     category: 'alcoholic-drinks',
@@ -1556,11 +1559,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Skinny B*tch',
-      en: 'needs translation'
+      en: 'Skinny B*tch'
     },
     description: {
       sk: 'vodka Expedition 4cl, limeta, sóda',
-      en: 'needs translation'
+      en: 'vodka Expedition 4cl, lime, soda'
     },
     price: 5.50,
     category: 'alcoholic-drinks',
@@ -1571,11 +1574,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Cosmopolitan',
-      en: 'needs translation'
+      en: 'Cosmopolitan'
     },
     description: {
       sk: 'vodka Expedition 4cl, Cointreau 2cl, limetka, brusnicový džús',
-      en: 'needs translation'
+      en: 'vodka Expedition 4cl, Cointreau 2cl, lime, cranberry juice'
     },
     price: 6.90,
     category: 'alcoholic-drinks',
@@ -1586,11 +1589,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Bloody Mary',
-      en: 'needs translation'
+      en: 'Bloody Mary'
     },
     description: {
       sk: 'vodka Amundsen Expedition 5cl, tajná receptúra',
-      en: 'needs translation'
+      en: 'vodka Amundsen Expedition 5cl, secret recipe'
     },
     price: 8.50,
     category: 'alcoholic-drinks',
@@ -1601,11 +1604,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Old Fashioned',
-      en: 'needs translation'
+      en: 'Old Fashioned'
     },
     description: {
       sk: 'rum Barceló Porto Cask 6cl, cukor, bitter',
-      en: 'needs translation'
+      en: 'rum Barceló Porto Cask 6cl, sugar, bitters'
     },
     price: 8.50,
     category: 'alcoholic-drinks',
@@ -1615,11 +1618,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Mimosa 0,2L',
-      en: 'needs translation'
+      en: 'Mimosa 0.2L'
     },
     description: {
       sk: 'prosečko, pomarančový fresh',
-      en: 'needs translation'
+      en: 'prosecco, orange fresh'
     },
     price: 4.50,
     category: 'alcoholic-drinks',
@@ -1630,11 +1633,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Hugo 0,25L',
-      en: 'needs translation'
+      en: 'Hugo 0.25L'
     },
     description: {
       sk: 'prosečko, bazový sirup, mäta, sóda',
-      en: 'needs translation'
+      en: 'prosecco, elderflower syrup, mint, soda'
     },
     price: 4.90,
     category: 'alcoholic-drinks',
@@ -1645,11 +1648,11 @@ export const menuItems: MenuItem[] = [
     id: 'alcoholic-drinks-5',
     name: {
       sk: 'Aperol spritz 0,25L',
-      en: 'needs translation'
+      en: 'Aperol spritz 0.25L'
     },
     description: {
       sk: 'prosečko, Aperol 5cl, sóda',
-      en: 'needs translation'
+      en: 'prosecco, Aperol 5cl, soda'
     },
     price: 5.90,
     category: 'alcoholic-drinks',
@@ -1662,11 +1665,11 @@ export const menuItems: MenuItem[] = [
     id: 'vodka-1',
     name: {
       sk: 'Amundsen Expedition',
-      en: 'needs translation'
+      en: 'Amundsen Expedition'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 3.20,
     category: 'vodka',
@@ -1677,11 +1680,11 @@ export const menuItems: MenuItem[] = [
     id: 'vodka-2',
     name: {
       sk: 'Absolut Elyx',
-      en: 'needs translation'
+      en: 'Absolut Elyx'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 5.50,
     category: 'vodka',
@@ -1692,11 +1695,11 @@ export const menuItems: MenuItem[] = [
     id: 'vodka-3',
     name: {
       sk: 'Belvedere',
-      en: 'needs translation'
+      en: 'Belvedere'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 5.90,
     category: 'vodka',
@@ -1709,11 +1712,11 @@ export const menuItems: MenuItem[] = [
     id: 'gin-1',
     name: {
       sk: 'Larios (12, rosé)',
-      en: 'needs translation'
+      en: 'Larios (12, rosé)'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 2.90,
     category: 'gin',
@@ -1724,11 +1727,11 @@ export const menuItems: MenuItem[] = [
     id: 'gin-2',
     name: {
       sk: 'Roku',
-      en: 'needs translation'
+      en: 'Roku'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 4.50,
     category: 'gin',
@@ -1739,11 +1742,11 @@ export const menuItems: MenuItem[] = [
     id: 'gin-3',
     name: {
       sk: 'The Botanist',
-      en: 'needs translation'
+      en: 'The Botanist'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 4.90,
     category: 'gin',
@@ -1754,11 +1757,11 @@ export const menuItems: MenuItem[] = [
     id: 'gin-4',
     name: {
       sk: 'Tanqueray (liehovina)',
-      en: 'needs translation'
+      en: 'Tanqueray (spirit)'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 4.60,
     category: 'gin',
@@ -1769,11 +1772,11 @@ export const menuItems: MenuItem[] = [
     id: 'gin-5',
     name: {
       sk: 'Hendrick\'s',
-      en: 'needs translation'
+      en: 'Hendrick\'s'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 4.50,
     category: 'gin',
@@ -1786,11 +1789,11 @@ export const menuItems: MenuItem[] = [
     id: 'distillates-1',
     name: {
       sk: 'Koniferum (liehovina)',
-      en: 'needs translation'
+      en: 'Koniferum (spirit)'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 2.50,
     category: 'distillates',
@@ -1801,11 +1804,11 @@ export const menuItems: MenuItem[] = [
     id: 'distillates-2',
     name: {
       sk: 'Domovina',
-      en: 'needs translation'
+      en: 'Domovina'
     },
     description: {
       sk: '4cl (slivovica, hruškovica, marhuľovica)',
-      en: 'needs translation'
+      en: '4cl (plum spirit, pear spirit, apricot spirit)'
     },
     price: 4.50,
     category: 'distillates',
@@ -1816,11 +1819,11 @@ export const menuItems: MenuItem[] = [
     id: 'distillates-3',
     name: {
       sk: 'Jelšovská marhuľovica, hruškovica',
-      en: 'needs translation'
+      en: 'Jelšovská apricot spirit, pear spirit'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 8.50,
     category: 'distillates',
@@ -1831,11 +1834,11 @@ export const menuItems: MenuItem[] = [
     id: 'distillates-4',
     name: {
       sk: 'Jelšovský bozk, Divá čerešňa',
-      en: 'needs translation'
+      en: 'Jelšovský bozk, Wild cherry'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 13.90,
     category: 'distillates',
@@ -1848,11 +1851,11 @@ export const menuItems: MenuItem[] = [
     id: 'tequila-1',
     name: {
       sk: 'Sierra Antiguo',
-      en: 'needs translation'
+      en: 'Sierra Antiguo'
     },
     description: {
       sk: '4cl (Añejo, Plata)',
-      en: 'needs translation'
+      en: '4cl (Añejo, Plata)'
     },
     price: 4.20,
     category: 'tequila',
@@ -1865,11 +1868,11 @@ export const menuItems: MenuItem[] = [
     id: 'rum-1',
     name: {
       sk: 'Legendario Elixir',
-      en: 'needs translation'
+      en: 'Legendario Elixir'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 3.50,
     category: 'rum',
@@ -1880,11 +1883,11 @@ export const menuItems: MenuItem[] = [
     id: 'rum-2',
     name: {
       sk: 'Barceló Imperial',
-      en: 'needs translation'
+      en: 'Barceló Imperial'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 4.50,
     category: 'rum',
@@ -1895,11 +1898,11 @@ export const menuItems: MenuItem[] = [
     id: 'rum-3',
     name: {
       sk: 'Abuelo Añejo 7 Años',
-      en: 'needs translation'
+      en: 'Abuelo Añejo 7 Years'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 4.90,
     category: 'rum',
@@ -1910,11 +1913,11 @@ export const menuItems: MenuItem[] = [
     id: 'rum-4',
     name: {
       sk: 'El General',
-      en: 'needs translation'
+      en: 'El General'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 5.50,
     category: 'rum',
@@ -1925,11 +1928,11 @@ export const menuItems: MenuItem[] = [
     id: 'rum-5',
     name: {
       sk: 'Bumu Rum Original',
-      en: 'needs translation'
+      en: 'Bumu Rum Original'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 5.60,
     category: 'rum',
@@ -1940,11 +1943,11 @@ export const menuItems: MenuItem[] = [
     id: 'rum-6',
     name: {
       sk: 'Abuelo Añejo 12 Años',
-      en: 'needs translation'
+      en: 'Abuelo Añejo 12 Years'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 6.50,
     category: 'rum',
@@ -1955,11 +1958,11 @@ export const menuItems: MenuItem[] = [
     id: 'rum-7',
     name: {
       sk: 'Mount Gray Black Barrel',
-      en: 'needs translation'
+      en: 'Mount Gray Black Barrel'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 6.50,
     category: 'rum',
@@ -1970,11 +1973,11 @@ export const menuItems: MenuItem[] = [
     id: 'rum-8',
     name: {
       sk: 'Don Papa',
-      en: 'needs translation'
+      en: 'Don Papa'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 6.50,
     category: 'rum',
@@ -1985,11 +1988,11 @@ export const menuItems: MenuItem[] = [
     id: 'rum-9',
     name: {
       sk: 'Barceló Porto Cask',
-      en: 'needs translation'
+      en: 'Barceló Porto Cask'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 7.50,
     category: 'rum',
@@ -2000,11 +2003,11 @@ export const menuItems: MenuItem[] = [
     id: 'rum-10',
     name: {
       sk: 'Zacapa 23 Solero',
-      en: 'needs translation'
+      en: 'Zacapa 23 Solero'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 7.50,
     category: 'rum',
@@ -2015,11 +2018,11 @@ export const menuItems: MenuItem[] = [
     id: 'rum-11',
     name: {
       sk: 'A.H.Riise Non Plus Ultra',
-      en: 'needs translation'
+      en: 'A.H.Riise Non Plus Ultra'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 11.90,
     category: 'rum',
@@ -2032,11 +2035,11 @@ export const menuItems: MenuItem[] = [
     id: 'whiskey-bourbon-1',
     name: {
       sk: 'Jameson',
-      en: 'needs translation'
+      en: 'Jameson'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 3.50,
     category: 'whiskey-bourbon',
@@ -2047,11 +2050,11 @@ export const menuItems: MenuItem[] = [
     id: 'whiskey-bourbon-2',
     name: {
       sk: 'Jack Daniel\'s',
-      en: 'needs translation'
+      en: 'Jack Daniel\'s'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 3.50,
     category: 'whiskey-bourbon',
@@ -2062,11 +2065,11 @@ export const menuItems: MenuItem[] = [
     id: 'whiskey-bourbon-3',
     name: {
       sk: 'Gentleman Jack',
-      en: 'needs translation'
+      en: 'Gentleman Jack'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 4.50,
     category: 'whiskey-bourbon',
@@ -2077,11 +2080,11 @@ export const menuItems: MenuItem[] = [
     id: 'whiskey-bourbon-4',
     name: {
       sk: 'Maker\'s Mark',
-      en: 'needs translation'
+      en: 'Maker\'s Mark'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 5.10,
     category: 'whiskey-bourbon',
@@ -2092,11 +2095,11 @@ export const menuItems: MenuItem[] = [
     id: 'whiskey-bourbon-5',
     name: {
       sk: 'Glenmorangie 10 Y.O.',
-      en: 'needs translation'
+      en: 'Glenmorangie 10 Y.O.'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 5.50,
     category: 'whiskey-bourbon',
@@ -2107,11 +2110,11 @@ export const menuItems: MenuItem[] = [
     id: 'whiskey-bourbon-6',
     name: {
       sk: 'Laphroaig 10 Y.O.',
-      en: 'needs translation'
+      en: 'Laphroaig 10 Y.O.'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 7.90,
     category: 'whiskey-bourbon',
@@ -2122,11 +2125,11 @@ export const menuItems: MenuItem[] = [
     id: 'whiskey-bourbon-7',
     name: {
       sk: 'The Classic Laddie',
-      en: 'needs translation'
+      en: 'The Classic Laddie'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 8.50,
     category: 'whiskey-bourbon',
@@ -2137,11 +2140,11 @@ export const menuItems: MenuItem[] = [
     id: 'whiskey-bourbon-8',
     name: {
       sk: 'Port Charlotte 10 Y.O.',
-      en: 'needs translation'
+      en: 'Port Charlotte 10 Y.O.'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 10.50,
     category: 'whiskey-bourbon',
@@ -2154,11 +2157,11 @@ export const menuItems: MenuItem[] = [
     id: 'liqueurs-1',
     name: {
       sk: 'Jägermeister',
-      en: 'needs translation'
+      en: 'Jägermeister'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 2.90,
     category: 'liqueurs',
@@ -2169,11 +2172,11 @@ export const menuItems: MenuItem[] = [
     id: 'liqueurs-2',
     name: {
       sk: 'Becherovka',
-      en: 'needs translation'
+      en: 'Becherovka'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 2.90,
     category: 'liqueurs',
@@ -2184,11 +2187,11 @@ export const menuItems: MenuItem[] = [
     id: 'liqueurs-3',
     name: {
       sk: 'Fernet Stock',
-      en: 'needs translation'
+      en: 'Fernet Stock'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 2.90,
     category: 'liqueurs',
@@ -2201,11 +2204,11 @@ export const menuItems: MenuItem[] = [
     id: 'cognac-brandy-1',
     name: {
       sk: 'Rémy Martin VSOP',
-      en: 'needs translation'
+      en: 'Rémy Martin VSOP'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 6.90,
     category: 'cognac-brandy',
@@ -2216,11 +2219,11 @@ export const menuItems: MenuItem[] = [
     id: 'cognac-brandy-2',
     name: {
       sk: 'Rémy Martin XO',
-      en: 'needs translation'
+      en: 'Rémy Martin XO'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 18.90,
     category: 'cognac-brandy',
@@ -2231,11 +2234,11 @@ export const menuItems: MenuItem[] = [
     id: 'cognac-brandy-3',
     name: {
       sk: 'Metaxa 12*',
-      en: 'needs translation'
+      en: 'Metaxa 12*'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 5.90,
     category: 'cognac-brandy',
@@ -2246,11 +2249,11 @@ export const menuItems: MenuItem[] = [
     id: 'cognac-brandy-4',
     name: {
       sk: 'Metaxa Private Reserve',
-      en: 'needs translation'
+      en: 'Metaxa Private Reserve'
     },
     description: {
       sk: '4cl',
-      en: 'needs translation'
+      en: '4cl'
     },
     price: 11.90,
     category: 'cognac-brandy',
@@ -2263,11 +2266,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-beverages-1',
     name: {
       sk: 'Fresh 0.1l',
-      en: 'needs translation'
+      en: 'Fresh 0.1l'
     },
     description: {
       sk: 'pomaranč, grep',
-      en: 'needs translation'
+      en: 'orange, grapefruit'
     },
     price: 2.30,
     category: 'non-alcoholic-beverages',
@@ -2278,11 +2281,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-beverages-2',
     name: {
       sk: 'Rajec 0,33l',
-      en: 'needs translation'
+      en: 'Rajec 0.33l'
     },
     description: {
       sk: 'nesýtená, jemne sýtená, sýtená',
-      en: 'needs translation'
+      en: 'still, lightly sparkling, sparkling'
     },
     price: 2.30,
     category: 'non-alcoholic-beverages',
@@ -2293,11 +2296,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-beverages-3',
     name: {
       sk: 'Targa tonic 0,25l',
-      en: 'needs translation'
+      en: 'Targa tonic 0.25l'
     },
     description: {
       sk: 'classic, ginger ale, rose',
-      en: 'needs translation'
+      en: 'classic, ginger ale, rose'
     },
     price: 2.30,
     category: 'non-alcoholic-beverages',
@@ -2308,11 +2311,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-beverages-4',
     name: {
       sk: 'Tanga Orange 0,25l',
-      en: 'needs translation'
+      en: 'Tanga Orange 0.25l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2.30,
     category: 'non-alcoholic-beverages',
@@ -2323,11 +2326,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-beverages-5',
     name: {
       sk: 'Curiosa 0,25l',
-      en: 'needs translation'
+      en: 'Curiosa 0.25l'
     },
     description: {
       sk: 'pomaranč, jablko, jahoda, multivitamín',
-      en: 'needs translation'
+      en: 'orange, apple, strawberry, multivitamin'
     },
     price: 2.50,
     category: 'non-alcoholic-beverages',
@@ -2338,11 +2341,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-beverages-6',
     name: {
       sk: 'Royal Crown 0,25l',
-      en: 'needs translation'
+      en: 'Royal Crown 0.25l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2.30,
     category: 'non-alcoholic-beverages',
@@ -2353,11 +2356,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-beverages-7',
     name: {
       sk: 'Vinea 0,25l',
-      en: 'needs translation'
+      en: 'Vinea 0.25l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2.30,
     category: 'non-alcoholic-beverages',
@@ -2368,11 +2371,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-beverages-8',
     name: {
       sk: 'Romerquelle 0,33l',
-      en: 'needs translation'
+      en: 'Romerquelle 0.33l'
     },
     description: {
       sk: 'lemongrass',
-      en: 'needs translation'
+      en: 'lemongrass'
     },
     price: 2.50,
     category: 'non-alcoholic-beverages',
@@ -2383,11 +2386,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-beverages-9',
     name: {
       sk: 'Coca-Cola 0,2l',
-      en: 'needs translation'
+      en: 'Coca-Cola 0.2l'
     },
     description: {
       sk: 'original, zero',
-      en: 'needs translation'
+      en: 'original, zero'
     },
     price: 2.50,
     category: 'non-alcoholic-beverages',
@@ -2398,11 +2401,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-beverages-10',
     name: {
       sk: 'Birell nealko 0,5l',
-      en: 'needs translation'
+      en: 'Birell non-alcoholic 0.5l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 1.90,
     category: 'non-alcoholic-beverages',
@@ -2415,11 +2418,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-drinks-1',
     name: {
       sk: 'Basil Smash',
-      en: 'needs translation'
+      en: 'Basil Smash'
     },
     description: {
       sk: 'Opius Amaro, citrón, bazalka, simple sirup',
-      en: 'needs translation'
+      en: 'Opius Amaro, lemon, basil, simple syrup'
     },
     price: 5.90,
     category: 'non-alcoholic-drinks',
@@ -2430,11 +2433,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-drinks-2',
     name: {
       sk: 'Espresso Martino',
-      en: 'needs translation'
+      en: 'Espresso Martino'
     },
     description: {
       sk: 'Opius Nigredo, espresso, simple sirup',
-      en: 'needs translation'
+      en: 'Opius Nigredo, espresso, simple syrup'
     },
     price: 5.90,
     category: 'non-alcoholic-drinks',
@@ -2445,11 +2448,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-drinks-3',
     name: {
       sk: 'Best Collins',
-      en: 'needs translation'
+      en: 'Best Collins'
     },
     description: {
       sk: 'Opius Albedo, malinové pyré, citrón, sóda',
-      en: 'needs translation'
+      en: 'Opius Albedo, raspberry puree, lemon, soda'
     },
     price: 5.90,
     category: 'non-alcoholic-drinks',
@@ -2460,11 +2463,11 @@ export const menuItems: MenuItem[] = [
     id: 'non-alcoholic-drinks-4',
     name: {
       sk: 'Virgin Mojito',
-      en: 'needs translation'
+      en: 'Virgin Mojito'
     },
     description: {
       sk: 'mäta, limetka, trstinový cukor, sóda',
-      en: 'needs translation'
+      en: 'mint, lime, brown sugar, soda'
     },
     price: 5.50,
     category: 'non-alcoholic-drinks',
@@ -2478,11 +2481,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-1',
     name: {
       sk: 'Ristretto',
-      en: 'needs translation'
+      en: 'Ristretto'
     },
     description: {
       sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      en: 'prepared from 8.5g of coffee'
     },
     price: 2.10,
     category: 'coffee',
@@ -2493,11 +2496,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-2',
     name: {
       sk: 'Espresso',
-      en: 'needs translation'
+      en: 'Espresso'
     },
     description: {
       sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      en: 'prepared from 8.5g of coffee'
     },
     price: 2.10,
     category: 'coffee',
@@ -2508,11 +2511,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-3',
     name: {
       sk: 'Espresso Lungo',
-      en: 'needs translation'
+      en: 'Espresso Lungo'
     },
     description: {
       sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      en: 'prepared from 8.5g of coffee'
     },
     price: 2.10,
     category: 'coffee',
@@ -2523,11 +2526,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-4',
     name: {
       sk: 'Doppio',
-      en: 'needs translation'
+      en: 'Doppio'
     },
     description: {
       sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      en: 'prepared from 8.5g of coffee'
     },
     price: 3.40,
     category: 'coffee',
@@ -2538,11 +2541,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-5',
     name: {
       sk: 'Americano',
-      en: 'needs translation'
+      en: 'Americano'
     },
     description: {
       sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      en: 'prepared from 8.5g of coffee'
     },
     price: 3.40,
     category: 'coffee',
@@ -2553,11 +2556,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-6',
     name: {
       sk: 'Espresso Macchiato',
-      en: 'needs translation'
+      en: 'Espresso Macchiato'
     },
     description: {
       sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      en: 'prepared from 8.5g of coffee'
     },
     price: 2.40,
     category: 'coffee',
@@ -2568,11 +2571,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-7',
     name: {
       sk: 'Cappuccino',
-      en: 'needs translation'
+      en: 'Cappuccino'
     },
     description: {
       sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      en: 'prepared from 8.5g of coffee'
     },
     price: 2.60,
     category: 'coffee',
@@ -2583,11 +2586,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-8',
     name: {
       sk: 'Caffé Latte',
-      en: 'needs translation'
+      en: 'Caffé Latte'
     },
     description: {
       sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      en: 'prepared from 8.5g of coffee'
     },
     price: 2.60,
     category: 'coffee',
@@ -2598,11 +2601,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-9',
     name: {
       sk: 'Flat White',
-      en: 'needs translation'
+      en: 'Flat White'
     },
     description: {
       sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      en: 'prepared from 8.5g of coffee'
     },
     price: 3.60,
     category: 'coffee',
@@ -2613,11 +2616,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-10',
     name: {
       sk: 'Bezkofeínová',
-      en: 'needs translation'
+      en: 'Decaffeinated'
     },
     description: {
-      sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      sk: '',
+      en: ''
     },
     price: 3.60,
     category: 'coffee',
@@ -2628,11 +2631,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-11',
     name: {
       sk: 'Mlieko',
-      en: 'needs translation'
+      en: ''
     },
     description: {
-      sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      sk: '',
+      en: ''
     },
     price: 0.30,
     category: 'coffee',
@@ -2643,11 +2646,11 @@ export const menuItems: MenuItem[] = [
     id: 'coffee-12',
     name: {
       sk: 'Rastlinné mlieko (mandľové, ovsené, sójové)',
-      en: 'needs translation'
+      en: 'Plant-based milk (almond, oat, soy)'
     },
     description: {
-      sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      sk: '',
+      en: ''
     },
     price: 0.50,
     category: 'coffee',
@@ -2660,11 +2663,11 @@ export const menuItems: MenuItem[] = [
     id: 'specialty-coffee-1',
     name: {
       sk: 'Espresso Tonic',
-      en: 'needs translation'
+      en: 'Espresso Tonic'
     },
     description: {
       sk: 'pripravené z 8,5g kávy',
-      en: 'needs translation'
+      en: 'prepared from 8.5g of coffee'
     },
     price: 3.50,
     category: 'specialty-coffee',
@@ -2675,11 +2678,11 @@ export const menuItems: MenuItem[] = [
     id: 'specialty-coffee-2',
     name: {
       sk: 'Cold Brew',
-      en: 'needs translation'
+      en: 'Cold Brew'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 3.30,
     category: 'specialty-coffee',
@@ -2690,11 +2693,11 @@ export const menuItems: MenuItem[] = [
     id: 'specialty-coffee-3',
     name: {
       sk: 'Chai Latte',
-      en: 'needs translation'
+      en: 'Chai Latte'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 3.90,
     category: 'specialty-coffee',
@@ -2705,11 +2708,11 @@ export const menuItems: MenuItem[] = [
     id: 'specialty-coffee-4',
     name: {
       sk: 'Ľadové Cappuccino',
-      en: 'needs translation'
+      en: 'Iced Cappuccino'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 3.90,
     category: 'specialty-coffee',
@@ -2720,11 +2723,11 @@ export const menuItems: MenuItem[] = [
     id: 'specialty-coffee-5',
     name: {
       sk: 'Prichuťové podľa ponuky',
-      en: 'needs translation'
+      en: 'Flavor of the Day'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 0.40,
     category: 'specialty-coffee',
@@ -2737,11 +2740,11 @@ export const menuItems: MenuItem[] = [
     id: 'matcha-1',
     name: {
       sk: 'Strawberry Matcha',
-      en: 'needs translation'
+      en: 'Strawberry Matcha'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 4.50,
     category: 'matcha',
@@ -2752,11 +2755,11 @@ export const menuItems: MenuItem[] = [
     id: 'matcha-2',
     name: {
       sk: 'Orange Matcha',
-      en: 'needs translation'
+      en: 'Orange Matcha'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 4.20,
     category: 'matcha',
@@ -2767,11 +2770,11 @@ export const menuItems: MenuItem[] = [
     id: 'matcha-3',
     name: {
       sk: 'Matcha Latte',
-      en: 'needs translation'
+      en: 'Matcha Latte'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 3.90,
     category: 'matcha',
@@ -2784,11 +2787,11 @@ export const menuItems: MenuItem[] = [
     id: 'teas-1',
     name: {
       sk: 'Z čerstvej mäty alebo zázvoru',
-      en: 'needs translation'
+      en: 'With fresh mint or ginger'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 3.90,
     category: 'teas',
@@ -2799,11 +2802,11 @@ export const menuItems: MenuItem[] = [
     id: 'teas-2',
     name: {
       sk: 'Sypaný podľa ponuky',
-      en: 'needs translation'
+      en: 'Loose Leaf Tea of the Day'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 3.30,
     category: 'teas',
@@ -2814,11 +2817,11 @@ export const menuItems: MenuItem[] = [
     id: 'teas-3',
     name: {
       sk: 'Med 7g',
-      en: 'needs translation'
+      en: 'Honey 7g'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 0.40,
     category: 'teas',
@@ -2829,11 +2832,11 @@ export const menuItems: MenuItem[] = [
     id: 'teas-4',
     name: {
       sk: 'Citrón',
-      en: 'needs translation'
+      en: 'Lemon'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 0.20,
     category: 'teas',
@@ -2846,11 +2849,11 @@ export const menuItems: MenuItem[] = [
     id: 'homemade-lemonades-1',
     name: {
       sk: 'Podľa ponuky 0.4L',
-      en: 'needs translation'
+      en: 'According to the offer 0.4L'
     },
     description: {
       sk: 'Jahodová, Mangová, Malinová s tymiánom, Zázvorová s mätou, Bazová s limetkou espumou, Uhorková, Ľadový čaj',
-      en: 'needs translation'
+      en: 'Strawberry, Mango, Raspberry with Thyme, Ginger with Mint, Elderflower with Lime Foam, Cucumber, Iced Tea'
     },
     price: 3.90,
     category: 'homemade-lemonades',
@@ -2861,11 +2864,11 @@ export const menuItems: MenuItem[] = [
     id: 'homemade-lemonades-2',
     name: {
       sk: 'Podľa ponuky 1L',
-      en: 'needs translation'
+      en: 'According to the offer 1L'
     },
     description: {
       sk: 'Jahodová, Mangová, Malinová s tymiánom, Zázvorová s mätou, Bazová s limetkou espumou, Uhorková, Ľadový čaj',
-      en: 'needs translation'
+      en: 'Strawberry, Mango, Raspberry with Thyme, Ginger with Mint, Elderflower with Lime Foam, Cucumber, Iced Tea'
     },
     price: 7.90,
     category: 'homemade-lemonades',
@@ -2876,11 +2879,11 @@ export const menuItems: MenuItem[] = [
     id: 'homemade-lemonades-3',
     name: {
       sk: 'Citronáda 0.4L',
-      en: 'needs translation'
+      en: 'Lemonade 0.4L'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2.50,
     category: 'homemade-lemonades',
@@ -2891,11 +2894,11 @@ export const menuItems: MenuItem[] = [
     id: 'homemade-lemonades-4',
     name: {
       sk: 'Citronáda 1L',
-      en: 'needs translation'
+      en: 'Lemonade 1L'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 4.50,
     category: 'homemade-lemonades',
@@ -2908,11 +2911,11 @@ export const menuItems: MenuItem[] = [
     id: 'roku-gin-cocktails-1',
     name: {
       sk: 'Gimlet',
-      en: 'needs translation'
+      en: 'Gimlet'
     },
     description: {
       sk: '(gin 5cl, limetka, limetkovo-krémová espuma)',
-      en: 'needs translation'
+      en: '(gin 5cl, lime, lime cream espuma)'
     },
     price: 6.50,
     category: 'roku-gin-cocktails',
@@ -2923,11 +2926,11 @@ export const menuItems: MenuItem[] = [
     id: 'roku-gin-cocktails-2',
     name: {
       sk: 'G&T',
-      en: 'needs translation'
+      en: 'G&T'
     },
     description: {
       sk: 'gin 4cl, limeta, tonic',
-      en: 'needs translation'
+      en: 'gin 4cl, lime, tonic'
     },
     price: 5.90,
     category: 'roku-gin-cocktails',
@@ -2938,11 +2941,11 @@ export const menuItems: MenuItem[] = [
     id: 'roku-gin-cocktails-3',
     name: {
       sk: 'Negroni',
-      en: 'needs translation'
+      en: 'Negroni'
     },
     description: {
       sk: 'gin 3cl, Campari 3cl, Martini Rubino 3cl',
-      en: 'needs translation'
+      en: 'gin 3cl, Campari 3cl, Martini Rubino 3cl'
     },
     price: 7.50,
     category: 'roku-gin-cocktails',
@@ -2955,11 +2958,11 @@ export const menuItems: MenuItem[] = [
     id: 'beer-on-tap-1',
     name: {
       sk: 'Birell pomelp-grep nealko 0,3l',
-      en: 'needs translation'
+      en: 'Birell grapefruit non-alcoholic 0.3l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 1.90,
     category: 'beer-on-tap',
@@ -2970,11 +2973,11 @@ export const menuItems: MenuItem[] = [
     id: 'beer-on-tap-2',
     name: {
       sk: 'Birell pomelp-grep nealko 0,5l',
-      en: 'needs translation'
+      en: 'Birell grapefruit non-alcoholic 0.5l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2.40,
     category: 'beer-on-tap',
@@ -2985,11 +2988,11 @@ export const menuItems: MenuItem[] = [
     id: 'beer-on-tap-3',
     name: {
       sk: 'Pilsner Urquell 12 0,3l',
-      en: 'needs translation'
+      en: 'Pilsner Urquell 12 0.3l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2.30,
     category: 'beer-on-tap',
@@ -3000,11 +3003,11 @@ export const menuItems: MenuItem[] = [
     id: 'beer-on-tap-4',
     name: {
       sk: 'Pilsner Urquell 12 0,5l',
-      en: 'needs translation'
+      en: 'Pilsner Urquell 12 0.5l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2.90,
     category: 'beer-on-tap',
@@ -3015,11 +3018,11 @@ export const menuItems: MenuItem[] = [
     id: 'beer-on-tap-5',
     name: {
       sk: 'Radegast 10 0,3l',
-      en: 'needs translation'
+      en: 'Radegast 10 0.3l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2,
     category: 'beer-on-tap',
@@ -3030,11 +3033,11 @@ export const menuItems: MenuItem[] = [
     id: 'beer-on-tap-6',
     name: {
       sk: 'Radegast 10 0,5l',
-      en: 'needs translation'
+      en: 'Radegast 10 0.5l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2.60,
     category: 'beer-on-tap',
@@ -3045,11 +3048,11 @@ export const menuItems: MenuItem[] = [
     id: 'beer-on-tap-7',
     name: {
       sk: 'Kofola 0,3l',
-      en: 'needs translation'
+      en: 'Kofola 0.3l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 1.80,
     category: 'beer-on-tap',
@@ -3060,11 +3063,11 @@ export const menuItems: MenuItem[] = [
     id: 'beer-on-tap-8',
     name: {
       sk: 'Kofola 0,5l',
-      en: 'needs translation'
+      en: 'Kofola 0.5l'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2.50,
     category: 'beer-on-tap',
@@ -3075,11 +3078,11 @@ export const menuItems: MenuItem[] = [
     id: 'beer-on-tap-9',
     name: {
       sk: 'Pohár bublín 1dcl',
-      en: 'needs translation'
+      en: 'Sparkling Water Glass 1dcl'
     },
     description: {
       sk: '',
-      en: 'needs translation'
+      en: ''
     },
     price: 2.30,
     category: 'beer-on-tap',
