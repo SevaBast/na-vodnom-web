@@ -3,13 +3,16 @@ import { useTranslation } from "react-i18next";
 
 export const Reviews = () => {
   const { t } = useTranslation();
+  
   useEffect(() => {
-    // Завантажуємо скрипт Elfsight, якщо він ще не завантажений
-    const existingScript = document.querySelector('script[src="https://elfsightcdn.com/platform.js"]');
+    // Завантажуємо скрипт Shapo, якщо він ще не завантажений
+    const existingScript = document.querySelector('script[src="https://cdn.shapo.io/js/embed.js"]');
     if (!existingScript) {
       const script = document.createElement('script');
-      script.src = 'https://elfsightcdn.com/platform.js';
-      script.async = true;
+      script.id = 'shapo-embed-js';
+      script.type = 'text/javascript';
+      script.src = 'https://cdn.shapo.io/js/embed.js';
+      script.defer = true;
       document.head.appendChild(script);
     }
   }, []);
@@ -27,13 +30,10 @@ export const Reviews = () => {
           </p>
         </div>
 
-        {/* Google Reviews Widget */}
+        {/* Shapo Reviews Widget */}
         <div className="animate-fade-in">
           <div className="max-w-4xl mx-auto">
-            <div 
-              className="elfsight-app-6a82ca81-7cbd-44d1-8c74-48688a0919dc" 
-              data-elfsight-app-lazy
-            ></div>
+            <div id="shapo-widget-dce4ca248a970ec688f4"></div>
           </div>
         </div>
       </div>
