@@ -54,13 +54,37 @@ export const MenuSection = () => {
   const currentLanguage = i18n.language as 'sk' | 'en';
   const [selectedMenuType, setSelectedMenuType] = useState<MenuType>('main');
   
+  // Manual default categories for each menu type
+  const defaultCategories: Record<MenuType, MenuCategory> = {
+    'main': 'main-dishes',           // Головне меню - починається з Предjedlá
+    'breakfast': 'special-breakfast', // Сніданки - починається з спеціальних сніданків
+    'kids': 'all-kids-menu',        // Дитяче меню - починається з всього дитячого меню
+    'drinks': 'alcoholic-drinks',   // Напої - починається з Алкогольних напоїв
+    'celebrations': 'cold-buffet'   // Celebrations (включає cold-buffet) - починається з Студеного буфету
+  };
+  
   // Function to get default category for menu type
   const getDefaultCategory = (menuType: MenuType): MenuCategory => {
+    // First try to use manually set default
+    const manualDefault = defaultCategories[menuType];
+    if (manualDefault) {
+      // Check if this category actually exists for this menu type
+      const filtered = menuItems.filter(item => item.menuType === menuType);
+      const availableCategories = Array.from(
+        new Set(filtered.map(item => item.category))
+      ).filter(category => category !== 'my-choice') as MenuCategory[];
+      
+      if (availableCategories.includes(manualDefault)) {
+        return manualDefault;
+      }
+    }
+    
+    // Fallback to first available category
     const filtered = menuItems.filter(item => item.menuType === menuType);
     const availableCategories = Array.from(
       new Set(filtered.map(item => item.category))
-    ).filter(category => category !== 'my-choice');
-    return availableCategories[0] || 'appetizers'; // Return first category or fallback
+    ).filter(category => category !== 'my-choice') as MenuCategory[];
+    return availableCategories[0] || 'appetizers';
   };
 
   const [selectedCategory, setSelectedCategory] = useState<MenuCategory | 'my-choice'>(

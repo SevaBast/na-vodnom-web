@@ -119,7 +119,7 @@ export const Footer = () => {
 
         {/* Bottom Bar */}
         <div className="flex flex-col items-center text-center text-sm text-background/60 space-y-2">
-          <p>© 2024 {restaurantInfo.name}. {t('footer.allRightsReserved')}</p>
+          <p>© 2025 {restaurantInfo.name}. {t('footer.allRightsReserved')}</p>
           <a 
             href="https://www.linkedin.com/in/vsevolod-bastiuchenko-203a31196/" 
             target="_blank" 

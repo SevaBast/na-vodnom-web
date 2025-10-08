@@ -19,8 +19,8 @@ export const CelebrationsSection = () => {
     'cold-buffet': true,
     'hot-buffet': true,
     'candy-bar': true,
-    'vianoce-2025': true,  // Set to false to hide Christmas 2025 menu
-    'grilovacka': true,    // Set to false to hide BBQ Party menu
+    'vianoce-2025': false,  // Set to false to hide Christmas 2025 menu
+    'grilovacka': false,    // Set to false to hide BBQ Party menu
   });
   
   // Function to get default category for celebrations
