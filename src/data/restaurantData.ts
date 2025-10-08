@@ -42,8 +42,8 @@ export const restaurantInfo: RestaurantInfo = {
     'Sunday': '9:00 - 22:00'
   },
   coordinates: {
-    lat: 49.214223,
-    lng: 18.775513
+    lat: 49.214168401354456,
+    lng: 18.77546552757134
   },
   socialMedia: {
     instagram: 'https://www.instagram.com/na.vodnom',
@@ -57,37 +57,37 @@ export const restaurantInfo: RestaurantInfo = {
 export const galleryImages: GalleryImage[] = [
   {
     id: '1',
-    src: '/src/assets/food-signature-dish.jpg',
+    src: './gallery_food1.jpg',
     alt: 'Restaurant signature dish',
     category: 'food'
   },
   {
-    id: '2', 
-    src: '/src/assets/restaurant-interior.jpg',
+    id: '2',
+    src: './gallery_food1.jpg',
     alt: 'Restaurant hall interior',
     category: 'interior'
   },
   {
     id: '3',
-    src: '/src/assets/desserts-coffee.jpg', 
+    src: './gallery_food1.jpg',
     alt: 'Desserts and coffee',
     category: 'food'
   },
   {
     id: '4',
-    src: '/src/assets/romantic-atmosphere.jpg',
+    src: './gallery_food1.jpg',
     alt: 'Romantic atmosphere',
     category: 'atmosphere'
   },
   {
     id: '5',
-    src: '/src/assets/fresh-salads.jpg',
+    src: './gallery_food1.jpg',
     alt: 'Fresh salads and appetizers',
     category: 'food'
   },
   {
     id: '6',
-    src: '/src/assets/bar-area.jpg',
+    src: '/src/assets/placeholder.svg',
     alt: 'Restaurant bar area',
     category: 'interior'
   }

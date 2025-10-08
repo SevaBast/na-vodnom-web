@@ -12,24 +12,22 @@ export interface CelebrationImage {
 export const celebrationsGalleryImages: CelebrationImage[] = [
   {
     id: 'celebration-1',
-    url: './bar-area.jpg',
+    url: './gallery_food1.jpg',
     alt: 'Celebration Event 1',
     title: 'Bar Area for Events',
     loading: 'eager' // Перше зображення завантажується негайно
   },
   {
     id: 'celebration-2',
-    url: './romantic-atmosphere.jpg',
+    url: './gallery_food1.jpg',
     alt: 'Celebration Event 2',
     title: 'Romantic Atmosphere',
-    loading: 'lazy'
   },
   {
     id: 'celebration-3',
-    url: './restaurant-interior.jpg',
+    url: './gallery_food1.jpg',
     alt: 'Celebration Event 3',
     title: 'Restaurant Interior',
-    loading: 'lazy'
   }
 ];
 
@@ -48,73 +46,72 @@ export const galleryCategoriesImages: Record<string, GalleryCarouselImage[]> = {
   food: [
     {
       id: 'food-1',
-      url: './food-signature-dish.jpg',
-      alt: 'Signature Dish',
+      url: './gallery_food1.jpg',
+      alt: 'Restaurant signature dish',
       title: 'Our Signature Dishes',
       loading: 'eager'
     },
     {
       id: 'food-2',
-      url: './fresh-salads.jpg',
+      url: './gallery_food1.jpg',
       alt: 'Fresh Salads',
       title: 'Fresh & Healthy Salads',
-      loading: 'lazy'
     },
     {
       id: 'food-3',
-      url: './desserts-coffee.jpg',
+      url: './gallery_food1.jpg',
       alt: 'Desserts & Coffee',
       title: 'Desserts & Coffee',
-      loading: 'lazy'
     },
     {
       id: 'food-4',
-      url: './piano.jpg',
+      url: './gallery_food1.jpg',
       alt: 'Desserts & Coffee',
-      title: 'Desserts & Coffee'
+      title: 'Desserts & Coffee',
     }
     
   ],
   interior: [
     {
       id: 'interior-1',
-      url: './restaurant-interior.jpg',
+      url: './gallery_food1.jpg',
       alt: 'Restaurant Interior',
-      title: 'Elegant Restaurant Interior'
+      title: 'Elegant Restaurant Interior',
+      loading: 'eager'
     },
     {
       id: 'interior-2',
-      url: './bar-area.jpg',
+      url: './gallery_food1.jpg',
       alt: 'Bar Area',
-      title: 'Modern Bar Area'
+      title: 'Modern Bar Area',
     }
   ],
   atmosphere: [
     {
       id: 'atmosphere-1',
-      url: './romantic-atmosphere.jpg',
+      url: './gallery_food1.jpg',
       alt: 'Romantic Atmosphere',
-      title: 'Romantic Evening Atmosphere'
+      title: 'Romantic Evening Atmosphere',
     }
   ],
   staff: [
     {
       id: 'staff-1',
-      url: './placeholder.svg',
+      url: './gallery_food1.jpg',
       alt: 'Professional Staff Member 1',
-      title: 'Our Professional Team'
+      title: 'Our Professional Team',
     },
     {
       id: 'staff-2',
-      url: './placeholder.svg',
+      url: './gallery_food1.jpg',
       alt: 'Professional Staff Member 2',
-      title: 'Experienced Service'
+      title: 'Experienced Service',
     },
     {
       id: 'staff-3',
-      url: './placeholder.svg',
+      url: './gallery_food1.jpg',
       alt: 'Professional Staff Member 3',
-      title: 'Dedicated Professionals'
+      title: 'Dedicated Professionals',
     }
   ]
 };

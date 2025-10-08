@@ -152,7 +152,7 @@ export const menuItems: MenuItem[] = [
       en: 'paprika-tomato sauce, grilled tomatoes, parsley, fried capers (7,11*)'
     },
     price: 7.50,
-    image: './dishtest.jpg',
+    image: './placeholder.svg',
     category: 'appetizers',
     menuType: 'main',
     isPopular: true,
