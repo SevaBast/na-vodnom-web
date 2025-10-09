@@ -170,7 +170,8 @@
     "address": "Address",
     "phone": "Phone",
     "email": "Email",
-    "followUs": "Follow Us",
+    "followUs": "Follow Us on Instagram",
+    "followUsFacebook": "Follow Us on Facebook",
     "allRightsReserved": "All rights reserved"
   },
   "gallery": {

@@ -1,7 +1,7 @@
 import { restaurantInfo } from "@/data/restaurantData";
 import { Button } from "@/components/ui/button";
 import { Separator } from "@/components/ui/separator";
-import { MapPin, Phone, Mail, Instagram } from "lucide-react";
+import { MapPin, Phone, Mail, Instagram, Facebook } from "lucide-react";
 import { useState } from "react";
 import { CallPopup } from "./CallPopup";
 import { useTranslation } from 'react-i18next';
@@ -57,6 +57,25 @@ export const Footer = () => {
                 >
                   <Instagram className="w-5 h-5 group-hover:scale-110 transition-transform" />
                   <span className="text-xl font-bold">{t('footer.followUs')}</span>
+                </a>
+              </Button>
+            </div>
+            
+            <div className="flex justify-center lg:justify-start">
+              <Button
+                variant="hero"
+                size="lg"
+                asChild
+                className="bg-gradient-to-r from-primary/20 to-accent/20 border border-primary/30 text-background hover:bg-primary hover:text-primary-foreground hover:scale-105 transition-all duration-300 shadow-lg backdrop-blur-sm group relative overflow-hidden"
+              >
+                <a 
+                  href="https://www.facebook.com/profile.php?id=61575507479458" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="flex items-center gap-3 relative z-10"
+                >
+                  <Facebook className="w-5 h-5 group-hover:scale-110 transition-transform" />
+                  <span className="text-xl font-bold">{t('footer.followUsFacebook')}</span>
                 </a>
               </Button>
             </div>
