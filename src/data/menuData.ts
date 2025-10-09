@@ -85,50 +85,50 @@ export type MenuCategory =
   | 'grilovacka';
 
 
-export const menuCategories: Record<MenuCategory, { name: string; icon: string; order: number }> = {
-  'appetizers': { name: 'Appetizers', icon: '🥗', order: 1 },
-  'soups': { name: 'Soups', icon: '🍲', order: 2 },
-  'main-dishes': { name: 'Main Dishes', icon: '🍽️', order: 3 },
-  'garden-bowls': { name: 'Garden Bowls', icon: '🥙', order: 4 },
-  'pizza': { name: 'Pizza', icon: '🍕', order: 5 },
-  'side-dishes': { name: 'Side Dishes', icon: '🍟', order: 6 },
-  'sauces': { name: 'Sauces', icon: '🫙', order: 7 },
-  'desserts': { name: 'Desserts', icon: '🧁', order: 8 },
-  'something-for-beer': { name: 'Something for Beer', icon: '🍺', order: 9 },
-  'my-choice': { name: 'My Favorites', icon: '❤️', order: 999 },
+export const menuCategories: Record<MenuCategory, { name: string; icon: string; order: number; visible: boolean }> = {
+  'appetizers': { name: 'Appetizers', icon: '🥗', order: 1, visible: true },
+  'soups': { name: 'Soups', icon: '🍲', order: 2, visible: true },
+  'main-dishes': { name: 'Main Dishes', icon: '🍽️', order: 3, visible: true },
+  'garden-bowls': { name: 'Garden Bowls', icon: '🥙', order: 4, visible: true },
+  'pizza': { name: 'Pizza', icon: '🍕', order: 5, visible: true },
+  'side-dishes': { name: 'Side Dishes', icon: '🍟', order: 6, visible: true },
+  'sauces': { name: 'Sauces', icon: '🫙', order: 7, visible: true },
+  'desserts': { name: 'Desserts', icon: '🧁', order: 8, visible: true },
+  'something-for-beer': { name: 'Something for Beer', icon: '🍺', order: 9, visible: true },
+  'my-choice': { name: 'My Favorites', icon: '❤️', order: 999, visible: true },
   // Breakfast menu categories
-  'special-breakfast': { name: 'Special Breakfast', icon: '🌟', order: 1 },
-  'classic': { name: 'Classic', icon: '🍳', order: 2 },
-  'toasts': { name: 'Toasts', icon: '🍞', order: 3 },
-  'bowls': { name: 'Bowls', icon: '🥣', order: 4 },
-  'breakfast-side-dishes': { name: 'Breakfast Side Dishes', icon: '🥓', order: 5 },
+  'special-breakfast': { name: 'Special Breakfast', icon: '🌟', order: 1, visible: true },
+  'classic': { name: 'Classic', icon: '🍳', order: 2, visible: true },
+  'toasts': { name: 'Drinks', icon: '🥤', order: 3, visible: true }, // zmenene z toasts na drinks
+  'bowls': { name: 'Bowls', icon: '🥣', order: 4, visible: false },
+  'breakfast-side-dishes': { name: 'Breakfast Side Dishes', icon: '🥓', order: 5, visible: true },
   // Kids menu category
-  'all-kids-menu': { name: 'All Kids Menu', icon: '🧸', order: 1 },
+  'all-kids-menu': { name: 'All Kids Menu', icon: '🧸', order: 1, visible: true },
   // Drinks categories
-  'alcoholic-drinks': { name: 'Alcoholic Drinks', icon: '🍷', order: 1 },
-  'roku-gin-cocktails': { name: 'Roku Gin Cocktails', icon: '🍸', order: 2 },
-  'vodka': { name: 'Vodka', icon: '🍸', order: 3 },
-  'gin': { name: 'Gin', icon: '🍸', order: 4 },
-  'distillates': { name: 'Distillates', icon: '🥃', order: 5 },
-  'tequila': { name: 'Tequila', icon: '🥃', order: 6 },
-  'rum': { name: 'Rum', icon: '🥃', order: 7 },
-  'whiskey-bourbon': { name: 'Whiskey & Bourbon', icon: '🥃', order: 8 },
-  'liqueurs': { name: 'Liqueurs', icon: '🍶', order: 9 },
-  'cognac-brandy': { name: 'Cognac & Brandy', icon: '🥃', order: 10 },
-  'beer-on-tap': { name: 'Beer (on tap)', icon: '🍺', order: 11 },
-  'coffee': { name: 'Coffee', icon: '☕', order: 12 },
-  'specialty-coffee': { name: 'Specialty Coffee', icon: '☕', order: 13 },
-  'matcha': { name: 'Matcha', icon: '🍵', order: 14 },
-  'teas': { name: 'Teas', icon: '🍵', order: 15 },
-  'homemade-lemonades': { name: 'Homemade Lemonades', icon: '🍋', order: 16 },
-  'non-alcoholic-beverages': { name: 'Non-Alcoholic Beverages', icon: '🥤', order: 17 },
-  'non-alcoholic-drinks': { name: 'Non-Alcoholic Drinks', icon: '🧃', order: 18 },
+  'alcoholic-drinks': { name: 'Alcoholic Drinks', icon: '🍷', order: 1, visible: true },
+  'roku-gin-cocktails': { name: 'Roku Gin Cocktails', icon: '🍸', order: 2, visible: true },
+  'vodka': { name: 'Vodka', icon: '🍸', order: 3, visible: true },
+  'gin': { name: 'Gin', icon: '🍸', order: 4, visible: true },
+  'distillates': { name: 'Distillates', icon: '🥃', order: 5, visible: true },
+  'tequila': { name: 'Tequila', icon: '🥃', order: 6, visible: true },
+  'rum': { name: 'Rum', icon: '🥃', order: 7, visible: true },
+  'whiskey-bourbon': { name: 'Whiskey & Bourbon', icon: '🥃', order: 8, visible: true },
+  'liqueurs': { name: 'Liqueurs', icon: '🍶', order: 9, visible: true },
+  'cognac-brandy': { name: 'Cognac & Brandy', icon: '🥃', order: 10, visible: true },
+  'beer-on-tap': { name: 'Beer (on tap)', icon: '🍺', order: 11, visible: true },
+  'coffee': { name: 'Coffee', icon: '☕', order: 12, visible: true },
+  'specialty-coffee': { name: 'Specialty Coffee', icon: '☕', order: 13, visible: true },
+  'matcha': { name: 'Matcha', icon: '🍵', order: 14, visible: true },
+  'teas': { name: 'Teas', icon: '🍵', order: 15, visible: true },
+  'homemade-lemonades': { name: 'Homemade Lemonades', icon: '🍋', order: 16, visible: true },
+  'non-alcoholic-beverages': { name: 'Non-Alcoholic Beverages', icon: '🥤', order: 17, visible: true },
+  'non-alcoholic-drinks': { name: 'Non-Alcoholic Drinks', icon: '🧃', order: 18, visible: true },
   // Celebrations and Events categories
-  'cold-buffet': { name: 'Cold Buffet', icon: '🥗', order: 19 },
-  'hot-buffet': { name: 'Hot Buffet', icon: '🍲', order: 20 },
-  'candy-bar': { name: 'Candy Bar', icon: '🍭', order: 21 },
-  'vianoce-2025': { name: 'Christmas 2025', icon: '🎄', order: 22 },
-  'grilovacka': { name: 'BBQ Party', icon: '🔥', order: 23 },
+  'cold-buffet': { name: 'Cold Buffet', icon: '🥗', order: 19, visible: true },
+  'hot-buffet': { name: 'Hot Buffet', icon: '🍲', order: 20, visible: true },
+  'candy-bar': { name: 'Candy Bar', icon: '🍭', order: 21, visible: true },
+  'vianoce-2025': { name: 'Christmas 2025', icon: '🎄', order: 22, visible: true },
+  'grilovacka': { name: 'BBQ Party', icon: '🔥', order: 23, visible: true },
 };
 
 export const menuTypes: Record<MenuType, { name: string; icon: string }> = {
@@ -137,6 +137,23 @@ export const menuTypes: Record<MenuType, { name: string; icon: string }> = {
   'kids': { name: 'Kids Menu', icon: '🧸' },
   'drinks': { name: 'Drinks', icon: '🍹' },
   'celebrations': { name: 'Celebrations and Events', icon: '🎉' },
+};
+
+// Utility functions for category visibility
+export const getVisibleCategories = (): MenuCategory[] => {
+  return (Object.keys(menuCategories) as MenuCategory[])
+    .filter(category => menuCategories[category].visible)
+    .sort((a, b) => menuCategories[a].order - menuCategories[b].order);
+};
+
+export const isCategoryVisible = (category: MenuCategory): boolean => {
+  return menuCategories[category]?.visible ?? false;
+};
+
+export const setCategoryVisibility = (category: MenuCategory, visible: boolean): void => {
+  if (menuCategories[category]) {
+    menuCategories[category].visible = visible;
+  }
 };
 
 export const menuItems: MenuItem[] = [
@@ -989,92 +1006,92 @@ export const menuItems: MenuItem[] = [
   {
     id: 'special-breakfast-1',
     name: {
-      sk: 'Benedikt Toast',
-      en: 'Benedict Toast'
+      sk: 'Proteínová Kaša',
+      en: 'Protein Porridge'
     },
     description: {
-      sk: 'kváskový chlieb, pošírované vajce, šunka Naturalis, holandská omačka (1,3,7*)',
-      en: 'sourdough bread, poached egg, Naturalis ham, hollandaise sauce (1,3,7*)'
+      sk: 'horká čokoláda, pečené slivky, ovsené vločky, čokoládový protein (1,7*)',
+      en: 'dark chocolate, baked plums, oats, chocolate protein (1,7*)'
     },
-    price: 8.90,
+    price: 5.90,
     image: './placeholder.svg',
     category: 'special-breakfast',
     menuType: 'breakfast',
     isPopular: true,
     weight: 250,
-    calories: 1
+    calories: 420
   },
   {
     id: 'special-breakfast-2',
     name: {
-      sk: 'Turecké Vajcia',
-      en: 'Turkish Eggs'
+      sk: 'Údený Losos',
+      en: 'Smoked Salmon'
     },
     description: {
-      sk: 'jogurt, cesnak, chilli olej, pošírované vajcia, chlieb, kôpor, šalát (1,3,7*)',
-      en: 'yogurt, garlic, chili oil, poached eggs, bread, dill, salad (1,3,7*)'
-    },
-    price: 8.50,
-    image: './placeholder.svg',
-    category: 'special-breakfast',
-    menuType: 'breakfast',
-    tags: ['healthy', 'salmon'],
-    weight: 300,
-    calories: 1
-  },
-  {
-    id: 'special-breakfast-3',
-    name: {
-      sk: 'OG French Toast',
-      en: 'OG French Toast'
-    },
-    description: {
-      sk: 'brioška, javorový sirup, šľahačka, ovocie, práškový cukor (1,3,7*)',
-      en: 'brioche, maple syrup, whipped cream, fruit, powdered sugar (1,3,7*)'
+      sk: 'domáci kváskový chlebík, údený losos, Philadelphia, kôpor, listový šalát (1,4,7*)',
+      en: 'sourdough bread, smoked salmon, Philadelphia cheese, dill, salad (1,4,7*)'
     },
     price: 7.90,
     image: './placeholder.svg',
     category: 'special-breakfast',
     menuType: 'breakfast',
     tags: ['healthy', 'salmon'],
-    weight: 280,
-    calories: 1
+    weight: 200,
+    calories: 390
+  },
+  {
+    id: 'special-breakfast-3',
+    name: {
+      sk: 'Bloody Eggs',
+      en: 'Bloody Eggs'
+    },
+    description: {
+      sk: 'pošírované vajcia, Bloody Mary marináda, chorizo crumble, domáci kváskový chlieb (1,3,7*)',
+      en: 'poached eggs, Bloody Mary marinade, chorizo crumble, homemade sourdough bread (1,3,7*)'
+    },
+    price: 6.90,
+    image: './placeholder.svg',
+    category: 'special-breakfast',
+    menuType: 'breakfast',
+    tags: ['healthy', 'salmon'],
+    weight: 200,
+    calories: 450
   },
   {
     id: 'special-breakfast-4',
     name: {
-      sk: 'Proteínové Lievance',
-      en: 'Protein Pancakes'
+      sk: 'Crunchy Toast',
+      en: 'Crunchy Toast'
     },
     description: {
-      sk: 'banán, proteín, arašidové maslo, tvaroh, kokos, ovocie (1,3,5,6,7,8*)',
-      en: 'banana, protein, peanut butter, cottage cheese, coconut, fruit (1,3,5,6,7,8*)'
+      sk: 'domáci brioš, šunka, cheddar, bylinková majonéza, sous-vide žítko, miešaný šalát (1,3,7,10*)',
+      en: 'homemade brioche, ham, cheddar, herb mayonnaise, sous-vide, mixed salad (1,3,7,10*)'
     },
-    price: 8.50,
+    price: 6.50,
     image: './placeholder.svg',
     category: 'special-breakfast',
     menuType: 'breakfast',
     tags: ['healthy', 'salmon'],
-    weight: 320,
-    calories: 1
+    weight: 250,
+    calories: 520
   },
   {
     id: 'special-breakfast-5',
     name: {
-      sk: 'Cviklový Hummus',
-      en: 'Beetroot Hummus'
+      sk: 'English Breakfast',
+      en: 'English Breakfast'
     },
     description: {
-      sk: 'cvikla, nakladaný karfiol, šalátový mix, chlieb alebo zelenina (1,11,12*)',
-      en: 'beetroot, pickled cauliflower, salad mix, bread or vegetables (1,11,12*)'
+      sk: 'volské oko, fazuľky v paradajkovej omáčke, chrumkavá slanina, grilované šampiňóny, párky (3,7,10,12*)',
+      en: 'sunnyside-up egg, beans in tomato sauce, crispy bacon, grilled mushrooms, sausages (3,7,10,12*)'
     },
-    price: 7.50,
+    price: 8.90,
     image: './placeholder.svg',
     category: 'special-breakfast',
     menuType: 'breakfast',
     tags: ['healthy', 'salmon'],
-    weight: 310,
-    calories: 1
+    weight: 350,
+    calories: 650
   },
 
   // Breakfast Menu - Breakfast Side Dishes
@@ -1093,7 +1110,6 @@ export const menuItems: MenuItem[] = [
     category: 'breakfast-side-dishes',
     menuType: 'breakfast',
     weight: 60,
-    calories: 1,
     displayAsList: true
   },
   {
@@ -1111,7 +1127,6 @@ export const menuItems: MenuItem[] = [
     category: 'breakfast-side-dishes',
     menuType: 'breakfast',
     weight: 60,
-    calories: 1,
     displayAsList: true
   },
   {
@@ -1129,7 +1144,6 @@ export const menuItems: MenuItem[] = [
     category: 'breakfast-side-dishes',
     menuType: 'breakfast',
     weight: 40,
-    calories: 1,
     displayAsList: true
   },
   {
@@ -1147,67 +1161,30 @@ export const menuItems: MenuItem[] = [
     category: 'breakfast-side-dishes',
     menuType: 'breakfast',
     weight: 40,
-    calories: 1,
-    displayAsList: true
-  },
-  {
-    id: 'breakfast-side-dishes-5',
-    name: {
-      sk: 'grilovaná zelenina',
-      en: 'grilled vegetables'
-    },
-    description: {
-      sk: '',
-      en: ''
-    },
-    price: 2.50,
-    image: './placeholder.svg',
-    category: 'breakfast-side-dishes',
-    menuType: 'breakfast',
-    weight: 80,
-    calories: 1,
-    displayAsList: true
-  },
-  {
-    id: 'breakfast-side-dishes-6',
-    name: {
-      sk: 'ovocie',
-      en: 'fruit'
-    },
-    description: {
-      sk: '(3*)',
-      en: '(3*)'
-    },
-    price: 2.50,
-    image: './placeholder.svg',
-    category: 'breakfast-side-dishes',
-    menuType: 'breakfast',
-    weight: 60,
-    calories: 1,
-    displayAsList: true
-  },
-  {
-    id: 'breakfast-side-dishes-7',
-    name: {
-      sk: 'granola',
-      en: 'granola'
-    },
-    description: {
-      sk: '(1,8*)',
-      en: '(1,8*)'
-    },
-    price: 1.50,
-    image: './placeholder.svg',
-    category: 'breakfast-side-dishes',
-    menuType: 'breakfast',
-    weight: 40,
-    calories: 1,
     displayAsList: true
   },
 
   // Breakfast Menu - Classic
   {
     id: 'classic-1',
+    name: {
+      sk: 'Párky',
+      en: 'Sausages'
+    },
+    description: {
+      sk: 'domáci kváskový chlebík, dijonská horčica, miešaný šalát, chren (1,10,12*)',
+      en: 'sourdough bread, Dijon mustard, mixed salad, horseradish (1,10,12*)'
+    },
+    price: 6.20,
+    image: './placeholder.svg',
+    category: 'classic',
+    menuType: 'breakfast',
+    isPopular: true,
+    weight: 200,
+    calories: 430
+  },
+  {
+    id: 'classic-2',
     name: {
       sk: 'Miešané Vajíčka',
       en: 'Scrambled Eggs'
@@ -1222,10 +1199,10 @@ export const menuItems: MenuItem[] = [
     menuType: 'breakfast',
     isPopular: true,
     weight: 200,
-    calories: 1
+    calories: 430
   },
   {
-    id: 'classic-2',
+    id: 'classic-3',
     name: {
       sk: 'Volské Oko',
       en: 'Sunnyside-up egg'
@@ -1239,77 +1216,60 @@ export const menuItems: MenuItem[] = [
     category: 'classic',
     menuType: 'breakfast',
     weight: 150,
-    calories: 1
+    calories: 450
   },
   {
-    id: 'classic-3',
+    id: 'classic-4',
     name: {
       sk: 'Omeleta',
       en: 'Omelette'
     },
     description: {
-      sk: '(3*)',
-      en: '(3*)'
+      sk: '3 vajíčka (3*)',
+      en: '3 eggs (3*)'
     },
     price: 5.50,
     image: './placeholder.svg',
     category: 'classic',
     menuType: 'breakfast',
     weight: 200,
-    calories: 1
+    calories: 400
   },
 
-  // Breakfast Menu - Toasts
+  // Breakfast Menu - Toasts zmenene na Drinks
   {
-    id: 'toasts-1',
+    id: 'drinks-1',
     name: {
-      sk: 'Losos & Avokádo',
-      en: 'Salmon & Avocado'
+      sk: 'Red Rocket',
+      en: 'Red Rocket'
     },
     description: {
-      sk: 'kváskový chlieb, guacamole, údený losos, nakladaná cibuľa (1,4*)',
-      en: 'sourdough bread, guacamole, smoked salmon, pickled onion (1,4*)'
+      sk: 'cvikla, pomaranč, jablko, zázvor, citrón (0*)',
+      en: 'beetroot, orange, apple, ginger, lemon (0*)'
     },
-    price: 8.90,
+    price: 4.50,
     image: './placeholder.svg',
     category: 'toasts',
     menuType: 'breakfast',
-    weight: 220,
-    calories: 1
+    weight: 250,
+    calories: 152
   },
   {
-    id: 'toasts-2',
+    id: 'drinks-2',
     name: {
-      sk: 'Feta & Špenát',
-      en: 'Feta & Spinach'
+      sk: 'Fresh Fusion',
+      en: 'Fresh Fusion'
     },
     description: {
-      sk: 'nátierka z pečenej papriky, špenát, sušené paradajky, feta, chlieb (1,7*)',
-      en: 'roasted pepper spread, spinach, sun-dried tomatoes, feta, bread (1,7*)'
+      sk: 'banán, tvaroh, pomarančový fresh, limeta, med, passion fruit pyré (7*)',
+      en: 'banana, cottage cheese, orange fresh, lime, honey, passion fruit puree (7*)'
     },
-    price: 7.90,
+    price: 4.50,
     image: './placeholder.svg',
     category: 'toasts',
     menuType: 'breakfast',
-    weight: 230,
-    calories: 1
-  },
-  {
-    id: 'toasts-3',
-    name: {
-      sk: 'Turbo Chlebík',
-      en: 'Turbo Bread'
-    },
-    description: {
-      sk: 'chlieb vo vajíčku, chipotle mayo, šunka Naturalis, cheddar, rukola (1,3,7,10*)',
-      en: 'bread in egg, chipotle mayo, Naturalis ham, cheddar, arugula (1,3,7,10*)'
-    },
-    price: 8.90,
-    image: './placeholder.svg',
-    category: 'toasts',
-    menuType: 'breakfast',
-    weight: 280,
-    calories: 1
+    weight: 200,
+    calories: 430
   },
 
   // Breakfast Menu - Bowls

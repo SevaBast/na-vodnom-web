@@ -3,7 +3,7 @@ import { Card, CardContent, CardHeader, CardTitle, CardDescription } from '@/com
 import { Button } from '@/components/ui/button';
 import { Badge } from '@/components/ui/badge';
 import { Heart, Plus, Minus } from 'lucide-react';
-import { menuCategories, menuItems, menuTypes } from '@/data/menuData';
+import { menuCategories, menuItems, menuTypes, getVisibleCategories } from '@/data/menuData';
 import { MenuCategory, MenuType, MenuItem } from '@/data/menuData';
 import { useMyOrder } from "@/context/MyOrderContext";
 import { MyOrder } from "./MyOrder";
@@ -116,9 +116,10 @@ export const MenuSection = () => {
     : filteredByMenuType.filter(item => item.category === selectedCategory);
 
   // Get available categories for current menu type
-  const availableCategories = Array.from(
-    new Set(filteredByMenuType.map(item => item.category))
-  ).filter(category => category !== 'my-choice');
+  const availableCategories = getVisibleCategories().filter(category => 
+    category !== 'my-choice' && 
+    filteredByMenuType.some(item => item.category === category)
+  );
 
   return (
     <section id="menu" className="pt-0 pb-10 tablet:pb-14 lg:pb-20 bg-background -mt-8">
@@ -413,11 +414,7 @@ const DrinksMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQ
 
   // If a specific category is selected, show only that category
   const categoriesToShow = selectedCategory === 'all' 
-    ? (Object.keys(itemsByCategory) as MenuCategory[]).sort((a, b) => {
-        const orderA = menuCategories[a]?.order || 999;
-        const orderB = menuCategories[b]?.order || 999;
-        return orderA - orderB;
-      })
+    ? getVisibleCategories().filter(category => itemsByCategory[category])
     : itemsByCategory[selectedCategory] ? [selectedCategory] : [];
 
   if (filteredItems.length === 0) {
@@ -556,19 +553,15 @@ const ListMenu = ({ filteredItems, selectedCategory, onAddToOrder, onIncreaseQua
 
   // If a specific category is selected, show only that category
   const categoriesToShow = selectedCategory === 'all' 
-    ? (Object.keys(allItemsByCategory) as MenuCategory[]).sort((a, b) => {
-        const orderA = menuCategories[a]?.order || 999;
-        const orderB = menuCategories[b]?.order || 999;
-        return orderA - orderB;
-      })
+    ? getVisibleCategories().filter(category => allItemsByCategory[category])
     : allItemsByCategory[selectedCategory] ? [selectedCategory] : [];
 
   const getWeightLabel = (selectedMenuType: MenuType) => {
-    return selectedMenuType === 'drinks' ? 'об\'єм' : 'вага';
+    return selectedMenuType === 'drinks' ? 'volume' : 'weight';
   };
 
   const getWeightUnit = (selectedMenuType: MenuType) => {
-    return selectedMenuType === 'drinks' ? 'мл' : 'г';
+    return selectedMenuType === 'drinks' ? 'ml' : 'g';
   };
 
   return (
